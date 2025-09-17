@@ -1,0 +1,117 @@
+.AuthModal-contentbox-main {
+    color:white;
+    height: 72%;
+    width: 30rem;
+    background-color: rgb(42, 41, 41);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+    position: fixed;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    gap: 2rem;
+    left: 34.5%;
+    top: 8.2%;
+    z-index: 10;
+    animation: modalAnimation 0.3s;
+}
+
+#AuthModalHeading{
+    color:var(--ElementColor)
+}
+
+.AuthWrapper {
+    width: 12rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-right:3rem; */
+}
+
+.SignInBtn {
+    width: 4.7rem;
+    color: black;
+    background-color: var(--ElementColor);
+    padding: 0.6rem 0rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: .9rem;
+    font-weight: 450;
+    cursor: pointer;
+    transition: 0.2s ease-out;
+    z-index: 1;
+}
+
+.AuthForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    gap: 1.3rem;
+    transition: 0.5s;
+}
+
+#emailInput,
+#passwordInput,
+.authBtn {
+    padding: 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.85rem;
+    width: 18rem;
+}
+
+.authBtn{
+    color: black;
+    background-color: var(--ElementColor);
+    padding: 0.4rem 0rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: .9rem;
+    font-weight: 450;
+    cursor: pointer;    
+}
+
+.InputFields {
+    position: relative;
+    width: fit-content;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s linear ;
+}
+
+.InputFields input{
+    background-color: transparent;
+    border:1.5px var(--ElementColor) solid;
+    color:white;
+
+    &:focus{
+         outline:1.5px var(--ElementColor) solid;
+    }
+}
+
+.InputFields label {
+    position: absolute;
+    color:white;
+    top:1.8rem;
+    left: 0.9rem;
+    opacity: 0.8;
+    background-color: rgb(42, 41, 41);
+    transition: 0.2s linear ;
+}
+
+.InputFields input:focus~label,
+.InputFields input:not(:placeholder-shown)~label {
+    top:0.6rem;
+    opacity: 1;
+    font-size: 0.95rem;
+}

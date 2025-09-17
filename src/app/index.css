@@ -1,0 +1,3036 @@
+
+
+body {
+margin: 0;
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+--bodyColor:#000000;
+--ElementColor:rgb(110, 245, 229);
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+body {
+background-color: var(--bodyColor);
+overflow-y: var(--homescroll,"scroll");
+/* background-color: rgb(21, 20, 20); */
+
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+
+/* Navbar */
+
+.navbar {
+  height: 50px;
+  width: 100%;
+  background-color: linear-gradient(0deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 40%);
+  z-index: 5;
+  /* background-color: #d4d1c9; */
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+  justify-content: space-between;
+  
+}
+
+.Other {
+  width: 100%;
+  position: relative;
+  max-height: 23rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  padding-right: 0.1rem;
+  overflow: visible;
+}
+
+ul {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.1em;
+  width: 8.5em;
+  /* transition: 0.3s ease-out; */
+}
+
+.Options>ul>li:hover {
+background-color: #336161;
+color: var(--ElementColor);
+transition: 0.3s ease-out;
+cursor: pointer
+}
+
+
+
+.search {
+/* width: 100%; */
+/* position:absolute; */
+width: 309px;
+display: flex;
+flex-direction: row-reverse;
+gap: 1rem;
+right:1rem;
+background-color: rgb(224, 226, 225);
+margin-right: 2rem;
+border-radius: 5px;
+}
+
+.search-input {
+width: 242px;
+font-size: 1rem;
+padding: 0.3rem 1.2rem;
+background-color: rgb(224, 226, 225);
+border: 0.4px solid gray;
+border-radius: 0.79rem;
+border: none;
+color:black;
+}
+
+.search-input:focus {
+outline: black;
+}
+.search-input::placeholder{
+  color:black
+}
+
+.search-bt {
+font-size: 0.9rem;
+padding: 0.3rem 1.2rem;
+cursor: pointer;
+border-style: none;
+border-radius: 5px;
+background-color: rgb(224, 226, 225);
+transition: 0.2s ease-out;
+color:black;
+
+&:hover {
+  font-size: 1.1rem;
+  color: var(--ElementColor);
+  transition: 0.2s ease-out;
+}
+}
+
+#Suggestions{
+  height: 30rem;
+  width:19.29rem;
+  background-color: rgb(57, 60, 61);
+  position:absolute;
+  right:2.1rem;
+  top: 2.1rem
+}
+
+.suggestedAnimes{
+  height: 6rem;
+  width: 19.28rem;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #060606;
+  gap:0.5rem;
+  position: relative;
+  color:white;
+}
+
+.suggestedAnimeImgWrapper{
+  position: relative;
+  width: 3rem;
+  margin-left:0.5rem;
+  height: 8rem;
+  border-radius: 0.7rem;
+  transition: 2s ease-out;
+  cursor: pointer;
+}
+
+#suggestedAnimeImg{
+  height: 5rem;
+  width: 3rem;
+  border-radius: 0.7rem;
+  z-index: 1;
+  position: relative;
+  top: 0.5rem;
+}
+
+.SuggestedanimecoverName{
+  font-size: 0.8rem;
+  max-height: 3rem;
+  margin-bottom: 0.7rem;  
+}
+
+.suggestedAnimeInfo{
+  margin-top:0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  &>span>h5{
+    font-size:0.7rem;
+  }
+}
+
+.dropdown {
+  height: auto;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.Options {
+display: flex;
+align-items: center;
+position: relative;
+gap: 0.6rem;
+z-index: 1;
+color: var(--ElementColor);
+font-size: 1.1rem;
+}
+
+.options>ul {
+width: fit-content;
+height: 15rem;
+position: absolute;
+top:3.2rem;
+left:0rem;
+z-index: 1;
+display: flex;
+overflow-y: scroll;
+scrollbar-width: none;
+flex-direction: column;
+background-color: rgb(97, 94, 94);
+}
+
+#category {
+padding: 0.9rem 2rem;
+position: absolute;
+}
+
+.Options>ul>li {
+padding: .7rem 0;
+color: white;
+
+}
+
+.gen-tag {
+padding: 1rem 2.8rem;
+color: white;
+transition: 0.3s ease-out;
+
+&:hover {
+  transition: 0.3s ease-out;
+  transform: scale(1.1);
+  color: var(--ElementColor);
+}
+}
+
+.genre-categories {
+  color: white;
+  margin: 0.4rem 0rem;
+
+  &:hover {
+    transition: 0.3s ease-out;
+    transform: scale(1.04);
+    color: var(--ElementColor);
+  }
+}
+
+.anime-genre {
+  background-color: #1c1e1d;
+
+  &:hover {
+    transition: 0.3s ease-out;
+    transform: scale(1.04);
+    background-color: #336161;
+
+    &>.genre-categories {
+
+      color:var(--ElementColor);
+    }
+  }
+}
+
+
+ul>hr {
+  border: 0.02rem solid rgb(79, 74, 74);
+  margin-right: 1rem;
+  height: 2.5rem;
+  position: relative;
+  top: 0.3rem;
+}
+
+@font-face {
+  font-family: "sukajanBrush";
+  src: url('/SukajanBrushDemoRegular-q2Mmx.otf') format('opentype');
+}
+
+
+
+.Main-name {
+  background-image: linear-gradient(0deg, rgb(21, 20, 20), var(--ElementColor)45%);
+  font-family: 'sukajanBrush';
+  color: transparent;
+  background-clip: text;
+  font-size: 1.8rem;
+  transform: translate(0, 0.3rem);
+}
+
+
+/*Home*/
+
+.Home {
+height: auto;
+width: 98%;
+opacity: 0.9;
+position: relative;
+left: 1.4rem;
+display: flex;
+
+flex-direction: column;
+border-radius: 2.1rem;
+padding: 0.5rem 0;
+color: white;
+
+}
+
+.Home>h2 {
+width: fit-content;
+text-align: left;
+margin-left: 1.5rem;
+font-size: 1.3rem;
+}
+
+.hline {
+margin-top: .8rem;
+width: 96%;
+height: 1.5px;
+position: absolute;
+left: 1.4rem;
+background-color: #d4d1c9;
+}
+
+.Result {
+height: auto;
+margin: 0.5rem 1.5rem 1.75rem 0rem;
+transition: 0.3s ease-in-out;
+}
+
+.CName {
+width: fit-content;
+position: relative;
+display: flex;
+left: 0rem;
+justify-content: space-between;
+
+}
+
+.top10 {
+order: 1;
+display: flex !important;
+flex-direction: column !important;
+gap: 0.4rem;
+margin-left: 2rem;
+}
+
+@keyframes underline {
+0% {
+  background-position: 0rem;
+}
+
+100% {
+  background-position: 11rem;
+}
+}
+
+.CName>h2 {
+/* text-shadow: 0px 0px 6px rgb(0, 255, 225); */
+font-size: 1.45rem;
+font-weight: 700;
+background-image: linear-gradient(0deg, rgb(255, 255, 255)0%, rgb(110, 245, 229)90%);
+background-clip: text;
+color: transparent;
+text-shadow:  0px 0px 20px #555252;
+
+
+}
+
+.CName>h2::after,.CName>h2::before {
+content: "";
+display: block;
+position: absolute;
+top: 2.5rem;
+width: 100%;
+height: 2.2px;
+background: linear-gradient(to right, rgb(0, 111, 98) 0%, var(--ElementColor) 50%);
+/* box-shadow: 0px 0px 10px 2px #383636; */
+transition: 1s ease-out;
+/* animation: underline 4s ease infinite; */
+/* box-shadow: 0px 0px 6px 2px rgb(0, 255, 225); */
+
+}
+
+.CName>h2::before{
+filter:blur(0.5rem);
+}
+
+.CName>i {
+height: fit-content;
+width: fit-content;
+position: absolute;
+top: 0.8rem;
+left: calc(100vw - 5rem);
+/* right:0rem; */
+cursor: pointer;
+font-size: 1.2rem;
+}
+
+
+
+
+
+/* Trending Category */
+
+
+@property --rotate {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
+}
+
+@keyframes borderanimation {
+0% {--rotate: 0deg;}
+100% {--rotate: 360deg;}
+}
+
+.trendingCategory {
+height: 18rem;
+width: 97vw;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 8rem;
+}
+
+.Trending-Main {
+width: 100%;
+position: relative;
+overflow-x: scroll;
+top: 2rem;
+right: 0.3rem;
+}
+
+.PrevBtn{
+height: 100%;
+width:5rem;
+position:absolute;
+display: flex;
+align-items: center;
+z-index: 1;
+left:-0rem;
+font-size:1.7rem;
+transition:0.5s ease-out;
+background: linear-gradient(90deg, rgb(7, 7, 7)10%, rgb(63, 61, 61, 0)70%);
+&:hover{
+    cursor:pointer;
+    transition:0.5s ease-out;
+    background: linear-gradient(90deg, rgb(7, 7, 7)40%, rgb(63, 61, 61, 0)90%);
+  }
+}
+.NextBtn{ 
+height: 100%;
+width:5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+position:absolute;
+z-index: 1;
+font-size:1.7rem;
+right:0rem;
+transition:0.5s ease-out;
+background: linear-gradient(270deg, rgb(7, 7, 7)10%, rgb(63, 61, 61, 0)70%);
+&:hover{
+  cursor:pointer;
+  transition:0.5s ease-out;
+  background: linear-gradient(270deg, rgb(7, 7, 7)40%, rgb(63, 61, 61, 0)90%);
+}
+}
+
+
+.trendingContainer {
+height: 22rem;
+width: 95vw;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+/* transform: translate(0.5rem,0rem); */
+/* position:relative; */
+transform: translateX(0rem);
+transition: 0.4s ease-out;
+&>* {
+  flex-shrink: 0;
+}
+}
+
+.trendingContainer>.element-container{
+height: 21.8rem;
+width: 15rem;
+position: relative;
+transition: 0.2s ease-out;
+right: 0rem;
+border-radius: 1.3rem;
+}
+
+.trendingContainer::-webkit-scrollbar{
+display: none;
+}
+
+
+.Trending-Main::-webkit-scrollbar {
+display: none;
+}
+
+.trendingContainer>.element-container>.img::before {
+transition: 0.3s ease-out;
+content: '';
+z-index: 1;
+width: var(--widthofcover,15rem);
+height:var(--heightofcover,21.8rem);
+display: block;
+position: absolute;
+border-radius: 1.2rem;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 53%);
+transform: scale(var(--tranformCover, 1)) translate(var(--tanslateX, 0rem), var(--tanslateY, 0rem));
+
+}
+
+
+.trendingContainer>.element-container>.img>#elementimg {
+height: 21.8rem;
+width: 15rem;
+object-fit: cover;
+border-radius: 1.3rem;
+}
+
+.trendingContainer>.element-container>.info {
+position: absolute;
+bottom: 0.2rem;
+z-index: 1;
+max-height: 4rem;
+overflow: hidden;
+
+&>h4 {
+
+  font-size: 1.4rem;
+}
+}
+
+#trendH2 {
+font-size: 1.8rem;
+}
+
+
+
+
+/* Anime-List */
+
+
+#showmore {
+max-height: 12rem;
+transition: 0.4s ease-out;
+
+}
+
+.Anime-List {
+padding-top: 2.5rem;
+padding-bottom: 2rem;
+height: auto;
+display: grid;
+grid-template-columns: repeat(8, 10.1rem);
+grid-template-rows: repeat(auto-fit, 14.8rem);
+column-gap: 1.4rem;
+align-items: center;
+justify-content: flex-start;
+transition: 0.4s ease-in-out;
+}
+
+/*Top10 Anime List*/
+
+.Top10 {
+order: 1;
+height: 50rem;
+width: 8rem;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+gap: 1rem;
+padding-top: 0.7rem;
+
+}
+
+.Top10List {
+height: 42rem;
+width: 8rem;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+justify-content: flex-start;
+column-gap: 8rem;
+position: relative;
+margin-top:2.5rem;
+}
+
+
+#Top10Tag {
+background-image: linear-gradient(0deg, rgb(255, 255, 255)0%, rgb(110, 245, 229)92%); 
+width:9rem;
+font-weight: 700;
+background-color:black;  
+color: transparent;
+background-clip: text;
+font-size: 1.5rem;
+text-shadow:  0px 0px 25px #555;
+padding:0.4rem 0.8rem;
+border:2px solid white;
+border-radius:8px;
+box-shadow:0px 0px 10px 2px #555;
+}
+
+
+#top10 {
+--underline:0%;
+position: relative;
+left: 5rem;
+top: 0rem;
+border-radius: 8px;
+font-size: 1.1rem;
+display: flex;
+/* gap:1.8rem; */
+background-color: #060606;
+text-align: center;
+overflow: hidden;
+color: white !important;
+box-shadow: 0px 0px 8px 2px #555;
+border: 2px solid white;
+}
+
+#top10>li {
+height: 100%;
+width: 100%;
+padding: 0.8rem;
+margin-right: 0.8rem;
+border-radius: 8px;
+transition: 0.4s linear;
+position: relative;
+&::after{
+  content:"";
+  position:absolute;
+  bottom: 0.30rem;
+  left:1.2rem;
+  z-index: 2;
+  height:2px;
+  width:var(--underline);
+  background-color: var(--ElementColor);
+  transition: 0.2s linear;
+}
+}
+
+.top10Category:hover{
+cursor:pointer;
+--underline:55%;
+}
+
+
+#li2 {
+margin-right: 0rem !important;
+}
+
+
+@property --rotate {
+syntax: "<angle>";
+initial-value: 0deg;
+inherits: false;
+}
+
+@keyframes borderanimation {
+0% {
+  --rotate: 0deg;
+}
+
+100% {
+  --rotate: 360deg;
+}
+}
+
+.Topanime-container {
+height: 6rem;
+width: 23rem;
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 0.2rem;
+background-color: #060606;
+box-shadow: 0px 0px 10px 2px #242323;
+margin-bottom: 3rem;
+border-radius: 1.08rem;
+position: relative;
+
+}
+.Topanime-container::after,.Topanime-container::before {
+  content: "";
+  height: 105%;
+  width: 101.6%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0rem;
+  transition: 3.4s ease-out;
+  background-image: conic-gradient(from var(--rotate),
+      rgb(0, 0, 0),
+      rgb(0, 0, 0),
+      var(--ElementColor),
+      rgb(0, 0, 0),
+      rgb(0, 0, 0),
+      rgb(0, 0, 0),
+      rgb(0, 0, 0));
+  animation: 4s linear infinite borderanimation;
+  transform: translate(-0.16rem, -0.2rem);
+  border-radius: 1.2rem;
+}
+.Topanime-container::before {
+filter: blur(0.25rem);
+}
+
+.Top10CName {
+width:25rem;
+display: flex;
+justify-content: space-between;
+transition: 0.4s linear;
+}
+
+/* .Top10CName>h2{
+background: linear-gradient(0deg, rgb(255, 255, 255)0%, rgb(0, 235, 208)92%);
+color:transparent;  
+background-clip: text;
+text-shadow: 0px 0px 5px rgb(0, 255, 225);
+} */
+
+
+
+.Topanimeimg-wrapper {
+position: relative;
+width: 6rem;
+height: 8rem;
+border-radius: 0.7rem;
+transition: 2s ease-out;
+cursor: pointer;
+/* &:hover{
+
+} */
+}
+
+#topNum {
+background-image: linear-gradient(45deg, rgb(255, 255, 255)59%, var(--ElementColor) 86%);
+color: transparent;
+background-clip: text;
+position: relative;
+top: 1.8rem;
+left: 1rem;
+font-size:1.7rem;
+margin-right: 1.5rem;
+}
+
+#Topanimeimg {
+height: 5rem;
+width: 3rem;
+border-radius: 0.7rem;
+z-index: 1;
+position: relative;
+top: 0.5rem;
+}
+
+
+.Topanimeinfo {
+  font-size: 1rem;
+  height: 100%;
+  width: calc(100% - 5rem);
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(1.5rem);
+  gap:0.8rem;
+  align-items: flex-start; 
+  overflow-y: hidden;
+}
+
+.TopanimecoverName{
+  font-size: 0.9em;
+  max-height: 1.2rem;
+  overflow: hidden;
+}
+
+#top10EpisodeType {
+display: inline-flex;
+gap: 3rem;
+font-size: 1rem;
+
+&>h5>i {
+  margin-right: 1rem;
+  color:var(--ElementColor)
+}
+}
+
+
+
+
+
+.Search-container,.favorite-container{
+width: 94%;
+transform: translate(1.7rem,4rem);
+}
+
+.Slider-Container{
+height:46rem;
+width:100vw;
+overflow: hidden;
+
+display: flex;
+justify-content: center;
+&>i{
+  border:none;
+  color:white;
+}
+}
+.Animes-Container{
+height:46rem;
+width:94rem;
+
+}
+
+.Slide-Images{
+height:100%;  
+width:100vw;
+display: grid;
+grid-template-columns:repeat(8,94rem) ;
+transition: all 0.4s ease-out;
+transform:translateX(var(--changeCover,0rem));
+  /* overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth; */
+}
+
+.CoverNextBtn{ 
+height: 95%;
+width:5rem;
+display: flex;
+justify-content: center;
+align-items: center;
+position:absolute;
+z-index: 1;
+font-size:1.7rem;
+right:0rem;
+transition:0.5s ease-out;
+background:linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+&:hover{
+  cursor:pointer;
+  transition:0.5s ease-out;
+  background:linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 75%);
+}
+}
+.CoverPrevBtn{ 
+height: 95%;
+width:5rem;
+position:absolute;
+z-index: 1;
+left:0rem;
+font-size:1.7rem;
+background:linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+transition:0.5s ease-out;
+&:hover{
+  cursor:pointer;
+  transition:0.5s ease-out;
+  background:linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 75%);
+}
+}
+
+/*linear-gradient(0deg, rgb(7,7,7) 0%, rgba(68, 68, 68, 0) 15%)*/
+
+.SpotlightAnime-container{
+height: 100%;
+width:100%;
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+position: relative;
+}
+.Cover{
+height: 100%;
+width: 100%;
+}
+
+.Cover>img{
+height: 100%;
+width: 100%;
+z-index: 1;
+object-fit: cover;
+}
+
+.Cover-Info{
+height: auto;
+width: 60rem;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items:flex-start;
+text-align:start;
+gap:2rem;
+z-index: 2;
+position:absolute;
+left: 7.5%;
+top:6rem;
+}
+
+.Cover-Info>#ep-info>span{
+font-weight: 500;
+padding:0.1rem 0.4rem 0.1rem 0.4rem
+}
+
+.Cover-Info>span{
+color:rgb(250, 247, 247);
+text-shadow: 0px 0px 10px rgb(6, 6, 6);
+font-size: 1rem;
+}
+
+.Title{
+  word-wrap: break-word;
+  text-align: center;
+  width: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Title>p{
+color:rgb(250, 247, 247);
+text-shadow: 0px 0px 10px rgb(6, 6, 6);
+font-size: 1.8rem;
+
+}
+
+.Title>#Coverimg-src{
+height: 18rem;
+width: 12rem;
+border-radius: 10px;
+box-shadow: 4px 4px 10px 2px black;
+cursor:pointer;
+}
+
+.CoverDark{
+height:46rem;
+width: 94rem;
+position: absolute;
+background: linear-gradient(0deg, rgb(0,0,0) 0%, rgba(68, 68, 68, 0) 90%), linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 65%), linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 10%), linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%);
+}
+
+/* 
+#slide-main {
+position: absolute;
+z-index: 1;
+top: 5rem;
+right: 18rem;
+} */
+
+#Cover{
+background-color: var(--ElementColor);
+font-size: 0.8rem;
+font-weight: bold;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+
+/*Anime Elements */
+
+
+.element-container {
+height: 15rem;
+width: fit-content;
+/* height: 23rem;
+width: 16rem; */
+display: flex;
+flex-direction: column;
+align-items: center;
+color: white;
+position: relative;
+cursor: pointer;
+bottom: 0rem;
+border-radius: 0.8rem;
+box-shadow: 0px 0px 45px 12px rgb(18, 18, 18) inset;
+transform: rotate(0) scale(var(--size, 0.8));
+overflow: hidden;
+transition: 0.2s ease-out;
+
+&::before {
+  content: '';
+  height: 15rem;
+  width: 1.2rem;
+  /* background-color: rgb(248, 245, 245, 0.8); */
+  box-shadow: inset 0px 0px 40px 2px #626161;
+  position: absolute;
+  transform: rotate(45deg);
+  animation: animeLoading 2s ease-out infinite;
+  visibility: var(--loading, "visible");
+}
+}
+
+@keyframes animeLoading {
+0% {
+  transform: rotate(45deg) translate(-9rem, -1rem);
+  transition: 1.2s ease-in-out
+}
+
+100% {
+  transform: rotate(45deg) translate(3rem, -1rem);
+  transition: 1.2s ease-in-out
+}
+}
+
+.loadingCover {
+height: 10.3rem;
+width: 8rem;
+background-color: #555;
+border-radius: 0.8rem;
+box-shadow: 0px 0px 45px 12px rgb(18, 18, 18) inset;
+transform: rotate(0);
+overflow: hidden;
+
+&::before {
+  content: '';
+  height: 15.3rem;
+  width: 1.2rem;
+  background-color: rgb(248, 245, 245, 0.8);
+  box-shadow: inset 0px 0px 40px 2px #626161;
+  position: absolute;
+  transform: rotate(45deg);
+  animation: animeLoading 2s ease-out infinite;
+}
+}
+
+.Loading-List {
+opacity: 1;
+padding-top: 1rem;
+display: grid;
+grid-template-columns: repeat(10, 7.8rem);
+grid-template-rows: repeat(auto-fill, 12.8rem);
+column-gap: 1.2rem;
+row-gap: 1.2rem;
+transition: 0.3s ease-out;
+}
+
+/* .element-container:hover{ */
+
+
+/* &::before {
+
+  content: '';
+  z-index: 1;
+  width: 100%;
+  height: 104.5%;
+  display: block;
+  position: absolute;
+  border-radius: 0.7rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 53%);
+
+} */
+
+
+/* } */
+
+
+/* .element-container:hover {
+transition: 0.2s ease-out;
+color: white;
+} */
+
+.info {
+position: absolute;
+bottom: 0.7rem;
+z-index: 1;
+max-height: 3rem;
+overflow: hidden;
+text-align: center;
+
+}
+
+.info>h4 {
+text-shadow: 0px 0px 6px rgb(6, 6, 6);
+
+}
+
+.img::before {
+transition: 0.3s ease-out;
+content: '';
+z-index: 1;
+width: 13rem;
+height: 15.34rem;
+/* width: var(--widthofcover,13rem); */
+/* height:var(--heightofcover,15.8rem); */
+display: block;
+position: absolute;
+border-radius: 0.7rem;
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 70%);
+transform: scale(var(--tranformCover, 1)) translate(var(--tanslateX, 0rem), var(--tanslateY, 0rem));
+}
+
+
+#elementimg {
+height: 15rem;
+width: 11rem;
+object-fit: cover;
+border-radius: 0.7rem;
+
+}
+
+.Modal-bg {
+background-color: rgba(0, 0, 0, .6);
+height: 1000%;
+width: 100%;
+z-index: 1;
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+top: 0;
+left: 0;
+}
+
+@keyframes modalAnimation {
+0% {
+  opacity: 0.3;
+  transform: translateY(-15rem);
+}
+
+25% {
+  opacity: 0.7;
+}
+
+100% {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+@keyframes modalOutAnimation {
+0% {
+  opacity: 1;
+  transform: translateY(0rem);
+}
+
+25% {
+  opacity: 0.7;
+}
+
+100% {
+  opacity: 0.3;
+  transform: translateY(-15rem);
+}
+}
+
+
+.Modal-contentbox {
+height: 100%;
+/* width: 40rem; */
+width:100%;
+background-color: rgb(26, 25, 25);
+border-radius: 10px;
+border: none;
+box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+overflow-y: auto;
+left: 28%;
+top: 4.2%;
+z-index: 100;
+display:flex;
+flex-direction: column;
+gap:1rem;
+
+}
+#backgroundImgWrapper{
+height:70%;
+width:100%;
+position:absolute;
+z-index: 0;
+opacity: 0.7;
+overflow: hidden;
+&::after{
+content:"";
+height:20%;
+width:100%;
+display: block;
+position:absolute;
+bottom:-0.5rem;
+background:linear-gradient(0deg, rgb(32, 31, 31) 15%, rgba(68, 68, 68, 0) 65%);
+}
+}
+
+#backgroundImg{
+width:100%;
+  object-fit:cover;
+  position:relative;
+  bottom:20rem;
+
+
+}
+
+.Modal-contentbox-main {
+height: 92%;
+width: 40rem;
+background-color: rgb(42, 41, 41);
+border-radius: 10px;
+border: none;
+box-shadow: 0 20px 20px rgba(0, 0, 0, 0.7);
+position: fixed;
+overflow-y: auto;
+left: 28%;
+top: 4.2%;
+z-index: 10;
+
+animation: modalAnimation 0.3s;
+}
+
+.Modal-contentbox::-webkit-scrollbar {
+width: 14px;
+display: none;
+}
+
+.Modal-contentbox::-webkit-scrollbar-track {
+display: none
+}
+
+.Modal-contentbox::-webkit-scrollbar-thumb {
+background-color: #9faea1;
+border-radius: 10px;
+}
+
+.Modal-contentbox::-webkit-scrollbar-thumb-hover {
+background-color: #555;
+}
+
+.Modal-contentbox::-webkit-scrollbar-button {
+display: none;
+}
+
+.pages {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 1rem;
+
+&>i {
+  position: relative;
+  top: .1rem;
+  cursor: pointer
+}
+}
+
+/* Anime-details */
+
+.Details-container {
+height: auto;
+width: 70vmax;
+background-color: rgba(255, 255, 255, 0.3);
+backdrop-filter: saturate(180%)blur(25px);
+opacity: 0.9;
+position: absolute;
+left: 14%;
+right: 25%;
+top: 7rem;
+margin-bottom: 10rem;
+border-radius: 2.1rem;
+padding: 1.5rem 0rem 0rem 1rem;
+color: white;
+box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+
+}
+
+#loading-info {
+color: white;
+position: relative;
+top: 20rem;
+}
+
+
+
+.Info-container {
+height: 50vmin;
+width:100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+position:relative;
+gap: 3rem;
+margin-bottom:12rem;
+z-index: 1;
+&>*{
+  z-index: 1;
+}
+}
+
+.Img-Container{
+width: 100%;
+height:70%;
+display: flex;
+justify-content: center;
+}
+
+.Img-Container>button>i{
+position:absolute;
+top:1rem;
+right:1.5rem;
+font-size:1.5rem;
+color:var(--ElementColor);
+}
+
+.Img-Container>img {
+box-shadow: 0 20px 22px rgba(0, 0, 0, .4);
+height: 14rem;
+border-radius: 10px;
+z-index: 1;
+transform:translateY(1rem)
+}
+
+.Info {
+max-height: 65vmin;
+width: 40vmax;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items:center;
+color: white;
+margin:0rem 0.1rem 2rem 1rem;
+gap: 1rem;
+}
+
+.Info>p {
+transform: translate(-0.4rem,-1rem);
+font-size: 1.2rem;
+font-weight: 500;
+cursor: pointer;
+text-shadow: 0px 0px 6px rgb(0, 255, 225);
+
+}
+
+.Info-details {
+height: 100vmin;
+max-width: 10rem;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 2rem 3.7rem;
+gap: 1.4rem;
+}
+
+.Info-details>p {
+color: #FFFCFF;
+font-size: 1.7rem;
+font-weight: 500;
+}
+
+
+
+#ep-info>span {
+font-weight: 450;
+}
+
+#ep-info {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items:center;
+gap: 1rem;
+}
+
+.genre-info {
+width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items:center;
+gap: 0.4rem;
+
+}
+
+#anime-genre {
+/* background-color: #F6EFA6; */
+color: rgb(255, 255, 255);
+background-color: #336161;
+
+font-size: 0.8rem;
+border-radius: 4px;
+padding: 0.12rem 0.5rem;
+font-size: 0.8rem;
+font-weight: 500;
+transition: 0.2s ease-out;
+
+&:hover {
+  transition: 0.2s ease-out;
+  color: var(--ElementColor);
+}
+}
+
+#ep-info i {
+margin-right: 0.28rem;
+
+}
+
+#ep-info>#s {
+display: inline;
+background-color: white;
+font-size: 0.8rem;
+font-weight: 600;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+#ep-info>#s1 {
+background-color: white;
+font-size: 0.8rem;
+font-weight: 600;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+#ep-info>#s2 {
+background-color: rgb(145, 234, 145);
+color: black;
+font-size: 0.8rem;
+font-weight: 600;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+#ep-info>#s3 {
+background-color: rgb(167, 230, 255);
+font-weight: 600;
+font-size: 0.8rem;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+.Watch-btn {
+position: absolute;
+top: 1rem;
+left:2rem;
+padding: .8rem;
+border-radius: .85rem;
+color: black;
+border: none;
+font-size: .9rem;
+font-weight: 450;
+cursor: pointer;
+background-color: rgb(110, 245, 229);
+
+transition: 0.2s ease-out;
+
+}
+
+.Watch-btn:hover {
+transition: 0.2s ease-out;
+background-color: #336161;
+color:var(--ElementColor)
+}
+
+.Watch-desc {
+max-height: 50vmin;
+width: 100%;
+color: white;
+margin-top: 0.7rem;
+}
+
+.desc {
+max-height: 20vmin;
+width: 100%;
+text-wrap: wrap;
+text-align: left;
+color: rgb(255, 254, 254);
+overflow: auto;
+text-shadow: 0px 0px 10px rgb(0, 0, 0);
+transform:translateY(0.3rem)
+}
+
+.desc>span {
+font-size: 0.9rem;
+}
+
+.desc>h4 {
+font-weight: 500;
+font-size: 1.1rem;
+padding: 0.55rem 0;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+
+
+.desc::-webkit-scrollbar {
+width: 10px;
+}
+
+.desc::-webkit-scrollbar-track {
+display: none
+}
+
+.desc::-webkit-scrollbar-thumb {
+background-color: #9faea1;
+border-radius: 10px;
+}
+
+.desc::-webkit-scrollbar-thumb-hover {
+background-color: #555;
+
+}
+
+.desc::-webkit-scrollbar-button {
+display: none;
+}
+
+
+/*Episode-list*/
+
+.epli {
+height: auto;
+max-height: 15rem;
+width: 91%;
+/* margin-top: 2.5rem;*/
+margin-bottom: 4rem; 
+transform:translate(5%,10%);
+background-color: rgba(207, 200, 200, 0.1);
+backdrop-filter: saturate(180%) blur(20px);
+border-radius: 15px;
+padding-top: 0.8rem;
+padding-left: 1rem;
+padding-right: 1rem;
+padding-bottom: 2.5rem;
+}
+
+.Ep-list {
+max-height: 11rem;
+width: 103%;
+
+overflow: auto;
+overflow-x: hidden;
+
+}
+
+.Episodetag-range {
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 0.7rem;
+}
+
+#rangesselection {
+position: absolute;
+left: 1rem;
+border: none;
+outline: none;
+border-radius: 7px;
+border: 2.2px solid rgb(195, 195, 195);
+padding: 0.2rem 0.2rem;
+font-weight: 500;
+font-size: 0.8rem;
+color: white;
+background-color: rgba(0, 0, 0, .1)
+}
+
+#rangesselection>option {
+background-color: white;
+color: black;
+
+}
+
+.Episodetag-range>h4 {
+color: white;
+}
+
+.Ep-list>h4 {
+margin-bottom: .2rem;
+}
+
+.Ep-grid {
+display: grid;
+grid-template-columns: repeat(9, 3.7rem);
+grid-template-rows: auto;
+margin-top: 0.1rem;
+
+}
+
+.episodes {
+height: 92%;
+width: 80%;
+margin-top: 0.7rem;
+padding-right: 2rem;
+}
+
+.Ep-list::-webkit-scrollbar {
+width: 10px;
+}
+
+.Ep-list::-webkit-scrollbar-track {
+display: none;
+}
+
+.Ep-list::-webkit-scrollbar-thumb {
+background-color: #9faea1;
+border-radius: 10px;
+}
+
+.Ep-list::-webkit-scrollbar-thumb-hover {
+background-color: #555;
+
+}
+
+.Ep-list::-webkit-scrollbar-button {
+display: none;
+}
+
+
+.Ep-grid>p {
+/* margin: 0.4rem;
+color: rgb(255, 255, 255);
+background-color: #64d796;
+border-radius: 9px;
+text-align: center;
+font-size: 1rem;
+font-weight: 500; */
+/* color: rgb(82, 67, 67);
+background-color: #c0d1c8; */
+
+margin: 0.2rem 0.2rem 0.2rem 0.2rem;
+color: rgb(33, 32, 32);
+background-color: #aaacab;
+border-radius: 3px;
+text-align: center;
+font-size: 0.9rem;
+font-weight: 600;
+transition: 0.2s ease-out
+}
+
+#epstream-ep {
+padding: 0 1.1rem;
+}
+
+.Ep-grid>p:hover {
+/* background-color:  #f1ecf6; */
+background-color: #336161;
+color: var(--ElementColor);
+transform: scale(1.1) translate(0, -0.2rem);
+transition: 0.2s ease-out;
+cursor: pointer;
+}
+
+/**Anime-details-season**/
+
+.Seasonsli {
+height: auto;
+max-width: 97%;
+display: flex;
+justify-content: center;
+gap: 1rem;
+flex-wrap: wrap;
+margin-top: 4rem;
+}
+
+.season {
+max-height: 5rem;
+max-width: 9rem;
+font-size: 0.8rem;
+cursor: pointer;
+border: 3px solid rgb(220, 215, 215);
+border-radius: 12px;
+overflow: hidden;
+transition: 0.2s ease-out;
+
+&:hover {
+  transition: 0.3s ease-out;
+  transform: scale(1.1) translate(0, -0.4rem);
+}
+}
+
+.season-img {
+height: 101%;
+width: 100%;
+object-fit: cover;
+border-radius: 11px;
+opacity: 0.4;
+
+}
+
+.season:hover .season-img {
+
+opacity: 0.8;
+}
+
+.selectedimg {
+opacity: 0.9;
+}
+
+.selectedseas {
+
+color: rgb(255, 255, 255) !important;
+}
+
+
+.season-tag {
+position: relative;
+bottom: 3.3rem;
+color: rgb(255, 255, 255);
+font-size: 0.8rem;
+font-weight: 500;
+}
+
+/*Episode - Stream */
+
+
+.Container {
+display: flex;
+flex-direction: column;
+
+}
+
+.Stream-container {
+height: auto;
+width: 98%;
+/* background-color: rgba(255, 255, 255, 0.3);
+backdrop-filter: saturate(180%)blur(25px); */
+opacity: 0.9;
+position: absolute;
+top:4rem;
+border-radius: 2.1rem;
+padding: 1.5rem 0 8rem 0;
+color: white;
+/* box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25); */
+gap: 1.4rem;
+}
+
+.Video-container {
+height: 100vh;
+width: 100%;
+display: flex;
+justify-content: flex-start;
+flex-wrap: wrap;
+gap: 1.4rem;
+margin-left:1rem;
+}
+
+
+
+.Ep-stream {
+height: 73vh;
+width:72%;
+margin-left: 1.2rem;
+/* background-color: #888; */
+border-radius: 9px;
+border: 1.8px solid white;
+box-shadow:0px 0px 8px 8px #222121;
+}
+
+
+
+
+.Epstream-list {
+flex-shrink: 3;
+height:73vh;
+width: 22%;
+margin-left: 1.8rem;
+overflow: auto;
+overflow-x: hidden;
+border-radius: 15px;
+border: 1.8px solid white;
+/* box-shadow:0px 0px 8px 8px #222121; */
+backdrop-filter: saturate(1.8) blur(80px);
+padding-top: 0.8rem;
+padding-bottom: 2.5rem;
+}
+
+
+
+.stream-episodes {
+height: 92%;
+width: 100%;
+position:absolute;
+transform:translate(0%,5%);
+}
+
+
+.Epstream-grid {
+
+display: grid;
+/* grid-template-columns: repeat(4, auto); */
+grid-template-columns: repeat(4, 5rem);
+grid-template-rows: auto;
+margin-top: 0.1rem;
+margin-left: 0.2rem;
+
+}
+
+
+.Epstream-grid>p {
+margin: 0.2rem 0.2rem 0.2rem 00.1rem;
+color: rgb(147, 147, 147);
+background-color: #cccdcc;
+border-radius: 7px;
+color: rgb(33, 32, 32);
+backdrop-filter: saturate(2) blur(20px);
+border-radius: 3px;
+text-align: center;
+font-size: 0.9rem;
+font-weight: 600;
+transition: 0.2s ease-out
+}
+
+
+
+.Epstream-grid>p:hover {
+/* background-color: #b8b7b7; */
+/* background-color: #f1ecf6;
+cursor: pointer; */
+
+background-color: #336161;
+color: var(--ElementColor);
+transform: scale(1.1) translate(0, -0.2rem);
+transition: 0.2s ease-in-out;
+cursor: pointer;
+
+}
+
+
+
+.Epstream-list::-webkit-scrollbar {
+width: 14px;
+display: none;
+}
+
+.Epstream-list::-webkit-scrollbar-track {
+background-color: #d2cfcf;
+border-radius: 8px;
+}
+
+.Epstream-list::-webkit-scrollbar-thumb {
+background-color: #888;
+border-radius: 8px;
+
+
+}
+
+.Epstream-list::-webkit-scrollbar-thumb-hover {
+background-color: #555;
+
+}
+
+.Epstream-list::-webkit-scrollbar-button {
+display: none;
+}
+
+
+#Epstream-rangesselection {
+width: 5rem;
+position: absolute;
+right: 0.4rem;
+border: none;
+outline: none;
+border-radius: 7px;
+border: 2.2px solid rgb(195, 195, 195);
+padding: 0.2rem 0.1rem;
+font-weight: 500;
+font-size: 0.8rem;
+color: white;
+background-color: rgba(0, 0, 0, .1)
+}
+
+#Epstream-rangesselection>option {
+background-color: white;
+color: black;
+
+}
+
+#Epstreamlist-tag {
+position: relative;
+right: 5rem;
+margin-left: 0.3rem;
+padding-bottom: 0.2rem;
+}
+
+.eplist-num {
+display: flex;
+justify-content: space-around;
+padding: 0.1rem 0.3em;
+}
+
+.eplist-num>hr {
+color: rgb(179, 175, 175);
+z-index: 1;
+font-size: 0.2rem;
+
+}
+
+
+/* Sub-Dub Server-list */
+
+.Other-src {
+height:10rem;
+width: 26%;
+display: flex;
+flex-direction: column;
+gap: 1.2rem;
+margin-bottom : 1.8rem;
+background-color: rgb(43, 42, 42);
+border-radius:0.8rem;
+border: 1.8px solid white;
+/* box-shadow:0px 0px 8px 8px #222121; */
+transform:translateX(100%);   
+&>hr{
+  width:100%;
+}
+}
+
+
+
+.Other-src>#currep {
+font-weight: 300;
+font-size: 1.04rem;
+transform:translate(0rem,0.5rem);
+}
+
+.Sub,.Dub{
+width:100%;
+display:flex;
+transform:translate(1rem);
+gap:1rem;
+padding-top:0.4rem;
+&>h4{
+  width:3rem;
+}
+}
+
+.Sub button,
+.Dub button {
+padding: 0.3rem .4rem;
+border: none;
+border-radius: 3.5px;
+background-color: #aaacab;
+font-weight: 700;
+font-size: 0.8rem;
+color: #282727;
+transition: 0.2s ease-out;
+margin-left:1rem;
+&:hover {
+  transition: 0.2s ease-in-out;
+  transform: scale(1.12) translate(0rem, -0.2rem);
+  background-color: #336161;
+  color: var(--ElementColor);
+  cursor: pointer
+}
+}
+
+.btndisable {
+background-color: #336161 !important;
+color: var(--ElementColor) !important;
+}
+
+/***Next-Prev Button***/
+
+.Ep-btns {
+width:72%;
+display: flex;
+justify-content: space-between;
+position:absolute;
+top:80vh;
+}
+
+.prev,
+.next {
+height:fit-content;
+padding: 0.3rem 0.8rem;
+border-radius: 13px;
+border: none;
+font-size: 0.9rem;
+font-weight: 500;
+cursor: pointer;
+transition: 0.2s ease-out;
+
+&:active {
+  transition: 0.2s ease-in-out;
+  background-color:var(--ElementColor);
+}
+
+&:hover {
+  transition: 0.2s ease-in-out;
+  transform: scale(1.1) translate(0rem, -0.2rem);
+  background-color: #336161;
+  color: var(--ElementColor);
+  cursor: pointer
+}
+}
+
+.style {
+/* width:18.5rem; */
+/* height:3.5rem; */
+/* display: inline-flex;
+align-items: center; */
+/* background-color:  #f1ecf6 !important;
+color: black !important;; */
+
+border-radius: 3px !important;
+background-color: #336161 !important;
+color: var(--ElementColor) !important;
+}
+
+.filler {
+background-color: #f44b4b !important;
+
+}
+
+/*streamanime-info*/
+.stream-info {
+z-index: 1;
+height: auto;
+width: 95vmax;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+}
+
+.EInfo-container {
+display: flex;
+width: 90%;
+/* width:88vmax; */
+gap: 3rem;
+padding: 1rem 3rem;
+
+
+}
+
+.EWatch-desc {
+width: 90vmax;
+display: flex;
+/* flex-wrap: wrap; */
+flex-direction: column;
+gap: 1rem;
+
+&>span {
+  /* position:relative;
+right: 32.7rem; */
+  display: inline-flex;
+  color: #FFFCFF;
+  font-size: 1.4rem;
+  font-weight: 500;
+  /* text-shadow: 0px 0px 4px rgb(0, 255, 225); */
+}
+}
+
+.EWatch-desc>h4 {
+position: relative;
+right: 29.8rem;
+top: 0.6rem;
+}
+
+
+.eInfo-img {
+max-height: 50vmin;
+display: flex;
+color: white;
+gap: 1.5rem;
+}
+
+.Egenre-info {
+display: flex;
+gap: 1rem;
+}
+
+#einfoimg-src {
+box-shadow: 0px 0px 15px 2px rgb(89, 88, 88);
+height: 12rem;
+border-radius: 10px;
+}
+
+#streamep-info {
+display: flex;
+gap: 1.3rem;
+width: fit-content;
+flex-shrink: 2;
+}
+
+.Egenre-info>#anime-genre {
+background-color: var(--ElementColor);
+color: rgb(23, 22, 22) !important;
+font-size: 0.8rem;
+border-radius: 4px;
+padding: 0.12rem 0.5rem;
+color: rgb(56, 54, 54);
+font-size: 0.8rem;
+font-weight: 500;
+transition: 0.2s ease-out;
+
+&:hover {
+  transition: 0.2s ease-out;
+  background-color: rgb(23, 102, 93);
+  color: rgb(99, 242, 225) !important;
+}
+}
+
+#es1 {
+background-color: white;
+font-size: 0.8rem;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+#es2 {
+background-color: rgb(145, 234, 145);
+color: black;
+font-size: 0.8rem;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+#es3 {
+background-color: rgb(167, 230, 255);
+font-size: 0.8rem;
+color: black;
+border-radius: 4px;
+padding: 0.12rem;
+}
+
+.ESeasonsdiv {
+z-index: 1;
+height: auto;
+width: 95vmax;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.ESeasonsli {
+height: auto;
+max-width: 100%;
+display: flex;
+justify-content: center;
+align-content: center;
+gap: 1rem;
+flex-wrap: wrap;
+margin-bottom: 2rem;
+margin-top: 1.6rem;
+}
+
+.SEpstream-grid {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-top: 0.1rem;
+position: relative;
+transform:translate(0%,-3%);
+}
+
+.SEpstream-grid>p {
+color: rgb(207, 202, 202);
+background-color: #252927;
+border-bottom: 2px solid rgb(231, 226, 226);
+font-size: 0.9rem;
+font-weight: 600;
+overflow: hidden;
+text-wrap-mode: nowrap;
+width: 100%;
+height: 3.5rem;
+display: inline-flex;
+align-items: center;
+transition: 0.2s ease-out;
+}
+
+.SEpstream-grid>p:hover {
+/* background-color: #dddfde; */
+/* background-color:  #f1ecf6 !important;
+cursor: pointer;
+color:black !important; */
+background-color: #336161 !important;
+color: rgb(110, 245, 229) !important;
+transform: scale(1.03);
+transition: 0.2s ease-in-out;
+cursor: pointer;
+}
+
+.seplist-num {
+display: flex;
+justify-content: space-between;
+padding: 0.1rem 0.3em;
+
+}
+
+
+/* @media only screen and (min-width:600px) and (max-width:1400px) {
+.Home{
+ width:100%
+}
+
+.Animes-Container {
+    height: 46rem;
+    width: 100vw;
+}
+
+.Slider-Container {
+  width: 99vw;
+}
+
+.Anime-List {
+  grid-template-columns: repeat(auto-fit, 10.4rem);
+}
+
+.trendingCategory {
+  width: 97vw;
+}
+
+.PrevBtn,.NextBtn {
+  display:none;
+}
+
+.CoverNextBtn,.CoverPrevBtn{
+  height: 60%;
+  top:0rem;
+}
+
+.Top10List {
+    height: 50rem;
+    width:100%;
+    column-gap: 1.5rem;
+}
+
+.Modal-contentbox-main{
+  left:10%
+}
+
+
+.Stream-container {
+  height: 100rem;
+  padding: 0rem;
+}
+
+.Video-container {
+  height: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 0rem;
+}
+
+.Ep-stream{
+  height: 32vh;
+  width: 90vw;
+  margin-left: 0rem;
+  margin-bottom: 2.7rem;
+}
+
+.Ep-btns{
+  width:90%;
+  top:47vmin;
+  right:2.5rem
+}
+
+.prev, .next {
+  font-size: 0.65rem;
+}
+
+.Epstream-list {
+  height: 25vh;
+  width: 90vw;
+  order: 1;
+  margin-left: 0rem;
+}
+
+#Epstream-rangesselection {
+  font-size: 0.7rem;
+}
+
+.Epstream-grid {
+  grid-template-columns: repeat(auto-fill, 3rem);
+}
+
+.Epstream-grid>p {
+  font-size: 0.7rem;
+}
+
+.Other-src {
+  height: 8rem;
+  width: 90%;
+  transform: translateX(0rem);
+  border:none;
+  box-shadow: none;
+}
+
+.Other-src>#currep {
+  font-size: .8rem;
+}
+
+.Sub, .Dub {
+  padding-top: 0rem;
+  &>h4 {
+    font-size:0.75rem;
+  }
+}
+
+.Sub button, .Dub button {
+  font-size:0.6rem;
+}
+
+.stream-info {
+  width: 95vw;
+}
+
+#einfoimg-src {
+  height: 7rem;
+}
+
+.EInfo-container {
+  width: 100%;
+  padding: 1.7rem ;
+}
+
+.Egenre-info {
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.Egenre-info>#anime-genre {
+  padding: 0.11rem 0.3rem;
+  font-size: 0.6rem;
+  
+}
+
+.EWatch-desc>h4 {
+  right:3rem;
+  font-size: 0.8rem;
+}
+
+
+.desc>h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0rem;
+}
+
+} */
+/* 
+@media only screen and (max-width: 600px) {
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(1, 1, 1, 0) 90%);
+}
+
+.Other {
+  width:auto;
+  height: 1.3rem;
+}
+
+.search{
+  width:7rem;
+  background-color:transparent;
+  margin-right: 0rem;
+  padding-right: 0.4rem;
+  position: absolute;
+  right:1rem;
+  top:0.8rem; 
+  gap:0.1rem;
+  transition:0.2s ease-in-out
+}
+
+.search-input {
+    width: 5.9rem;
+    font-size: 0.7rem;
+    padding:0.3rem 0.5rem ;
+    border-radius: 0.3rem;
+}
+
+.search-bt{
+  padding:0rem;
+  background-color: rgb(0, 0, 0,0);
+  color:var(--searchBtnColor,white);
+  z-index: 2;
+  position: absolute;
+  right:0.8rem;
+  top:0.19rem;
+  transition: 0.2s ease-in-out;
+    &:hover {
+        font-size:0.9rem; 
+        transition: 0s;
+    }
+} 
+
+.menuBtn{
+  background-color: transparent;
+  color:white;
+  border:none;
+  position:absolute;
+  left:1rem;
+  top:0.8rem;
+}
+
+.Menu{
+  height:105vh;
+  width:105vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color:var(--ElementColor);
+  position:absolute;
+  z-index: 3;
+  transform:translateX(var(--menu,-80vw));
+  visibility: var(--hideMenu,hidden);
+  transition:0.2s ease-in-out;
+}
+
+#closeMenuBtn{
+  background-color:transparent;
+  color:var(--ElementColor);
+  border:none;
+  position:absolute;
+  right:0.8rem;
+  top:0.9rem;
+}
+
+.Menu>ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &>li{
+    color:var(--ElementColor);
+  }
+}
+
+#genresList{
+  height:auto;
+  width: 100%;
+}
+
+#hidden{
+  background-color: transparent;
+  width: 100vw;
+  max-height: 20rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, 8rem);
+  grid-template-rows: repeat(auto-fit, 3rem);
+  overflow-y: scroll;
+}
+
+.gen-tag{
+  color:var(--ElementColor)
+}
+
+.anime-genre{
+  background-color: transparent;
+}
+
+.genre-categories{
+  color:var(--ElementColor);
+}
+
+#trendH2 {
+  font-size: 1.3rem;
+}
+
+.CName>h2 {
+  font-size:1.2rem;
+  background-image: linear-gradient(0deg, rgb(255, 255, 255) 0%, var(--ElementColor) 90%);
+  color: transparent;
+  background-clip: text;
+  text-shadow: 0px 0px 20px #555252;
+}
+
+.Result {
+  height: auto;
+  margin: 0.5rem 1.5rem 1rem 0rem;
+  transition: 0.3s ease-in-out;
+}
+
+.Anime-List {
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 6.8rem);
+  grid-template-rows: repeat(auto-fit, 9.8rem);
+  column-gap: 1.4rem;
+  align-items: center;
+  justify-content: flex-start;
+  transition: 0.4s ease-in-out;
+}
+
+.element-container {
+  height: 10rem;
+  width: 7rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #555;
+  align-items: center;
+  color: white;
+  position: relative;
+  cursor: pointer;
+  bottom: 0rem;
+  border-radius: 0.8rem;
+  box-shadow: 0px 0px 45px 12px rgb(18, 18, 18) inset;
+  transform: rotate(0) scale(var(--size, 0.8));
+  overflow: hidden;
+  transition: 0.2s ease-out;
+}
+
+.trendingContainer>.element-container {
+  height: 13.8rem;
+  width: 9rem;
+  position: relative;
+  transition: 0.2s ease-out;
+  right: 0rem;
+  border-radius: 1.3rem;
+}
+
+
+.trendingCategory{
+  margin-bottom: 3rem;
+}
+
+.Trending-Main {
+  top:0rem;
+}
+
+.trendingContainer>.element-container>.img::before {
+  height: var(--heightofcover, 13.8rem);
+  width: var(--widthofcover, 9.2rem);
+}
+
+.trendingContainer>.element-container>.img>#elementimg {
+    height: 13.8rem;
+    width: 9rem;
+}
+
+#elementimg {
+    height: 10rem;
+    width: 7rem;
+}
+
+.img::before {
+    width: 7.2rem;
+    height: 10.2rem;
+}
+
+.Slider-Container {
+  height: 25rem;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.Animes-Container {
+  height: 25rem;
+  width: auto;
+}
+
+.Slide-Images {
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(8, 100vw);
+  transition: all 0.4s ease-out;
+  transform: translateX(var(--changeCover, 0rem));
+}
+
+.CoverDark {
+  height: 25rem;
+  width: 100vw;
+  position: absolute;
+  background: linear-gradient(0deg, rgb(7, 7, 7) 0%, rgba(68, 68, 68, 0) 75%), linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 65%), linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 10%), linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%);
+}
+
+.Cover>img {
+    height: 25rem;
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.Cover-Info {
+  height: fit-content;
+  width: 16rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: start;
+  gap: 1rem;
+  z-index: 2;
+  position: relative;
+  left: 5%;
+  bottom: 0rem;
+}
+
+.CoverPrevBtn {
+  height: 25rem;
+  width: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  font-size: 1.2rem;
+  top: 0rem;
+  left: 0rem;
+  transition: 0.5s ease-out;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+}
+
+.CoverNextBtn {
+  height: 25rem;
+  width: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  font-size: 1.2rem;
+  top: 0rem;
+  right: 0rem;
+  transition: 0.5s ease-out;
+  background: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+}
+
+.SpotlightAnime-container {
+  height: 25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Title {
+  width: 14rem;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.Title>p {
+  color: rgb(250, 247, 247);
+  text-shadow: 0px 0px 10px rgb(6, 6, 6);
+  font-size: 1rem;
+}
+
+.Title>#Coverimg-src {
+  height: 10rem;
+  width: 7rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px 2px black;
+  cursor: pointer;
+}
+
+.Cover-Info>#ep-info>span {
+  font-size: 0.5rem;
+  font-weight: 500;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+}
+
+.Cover-Info>span {
+  color: rgb(250, 247, 247);
+  text-shadow: 0px 0px 10px rgb(6, 6, 6);
+  font-size: 0.7rem;
+}
+
+#ep-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.CName>i {
+  height: fit-content;
+  width: fit-content;
+  position: absolute;
+  top: 0.8rem;
+  left: 20rem;
+  right: 0rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.Top10List{
+  height:auto;
+  width: 8rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  column-gap: 8rem;
+  position: relative;
+  margin-top:2.5rem;
+}
+
+.Top10CName {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1.4rem;
+  transition: 0.4s linear;
+}
+
+#top10 {
+    --underline: 0%;
+    position: relative;
+    left: 0rem;
+    top: 0rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    display: flex;
+    background-color: #060606;
+    text-align: center;
+    overflow: hidden;
+    color: white !important;
+    box-shadow: 0px 0px 8px 2px #555;
+    border: 2px solid white;
+}
+
+.Topanime-container{
+  height: 5rem;
+  width:21rem;
+  display: flex;
+  align-items: center; 
+  gap: 0.8rem;
+  background-color: #060606;
+  margin-bottom: 3rem;
+  border-radius: 1.08rem;
+  position: relative;
+}
+
+#topNum{
+  background-image: linear-gradient(45deg, rgb(255, 255, 255) 59%, var(--ElementColor) 86%);
+  color: transparent;
+  background-clip: text;
+  position: relative;
+  top:0rem;
+  left: 1rem;
+  font-size:1.3rem;
+  margin-right: 1rem;
+}
+
+.Topanimeimg-wrapper {
+  height: 3.8rem;
+  width: auto;
+}
+
+#Topanimeimg{
+  height: 3.8rem;
+  width: auto;
+  border-radius: 0.7rem;
+  z-index: 1;
+  position: relative;
+  top:0rem;
+}
+
+#top10EpisodeType {
+  display: inline-flex;
+  gap: 3rem;
+  font-size: 0.9rem;
+}
+
+.TopanimecoverName {
+    font-size: 0.75rem;
+    max-height: 1rem;
+}
+
+.Topanime-container::after, .Topanime-container::before {
+  content: "";
+  height: 101.5%;
+  width: 101%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0rem;
+  transition: 3.4s ease-out;
+  background-image: conic-gradient(from var(--rotate), rgb(255, 255, 255), rgb(255, 255, 255), var(--ElementColor), rgb(255, 255, 255));
+  animation: 4s linear infinite borderanimation;
+  transform: translate(-0.1rem, -0.05rem);
+  border-radius: 1.2rem;
+}
+
+.PrevBtn {
+  display: none;
+}
+.NextBtn {
+  display: none;
+}
+
+.Modal-contentbox-main {
+  height: 65vh;
+  width:85vw;
+  left:calc(100% - 90%)
+}
+
+} */
+
+
+/* 
+@media only screen and (max-width:450px){
+
+.Result{
+  margin: 0.5rem 0.5rem 1rem 0rem;
+}
+
+.Anime-List{
+  grid-template-columns: repeat(auto-fit, 5.5rem)
+}
+
+.element-container{
+  width: auto;
+}
+
+.CName>i{
+  left:19rem;
+}
+
+.Modal-contentbox-main {
+    height: 62%;
+    width:90vw;
+    left: 5%;
+    top: 10.2%;
+}
+
+.Modal-contentbox {
+    height: 100%;
+    width: 90vw;
+    gap:0.8rem;
+}
+
+.Img-Container>img{
+  height:9rem;
+}
+.Img-Container>button>i {
+    font-size:1.2rem;
+}
+
+.Watch-btn{
+  left:.6rem;
+  font-size: 0.6rem;
+}
+
+.Info{
+  height: 60vmin;
+  width:40vmax;
+ &>h4{
+  font-size: 0.6rem;
+ }
+}
+
+.Info>p {
+    transform: translate(-0.4rem, 0.5rem);
+    font-size: 1rem;
+}
+
+#ep-info{
+  &>#s{font-size: 0.6rem;}
+  &>#s1{ font-size:0.6rem;}
+  &>#s2{ font-size:0.6rem;}
+  &>#s3{ font-size:0.6rem;}
+}
+
+#anime-genre{
+  font-size: 0.6rem;
+}
+
+.Watch-desc>h4{
+ font-size:0.72rem;
+}
+
+.desc{
+  max-height:30vmin;
+}
+
+.desc>span{
+  font-size:0.7rem
+}
+
+.Seasonsli {
+  margin-top: 3rem;
+}
+
+.season {
+  max-height: 3.8rem;
+  max-width: 6rem;
+  font-size: 0.7rem;
+}
+
+
+.Episodetag-range>h4{
+  font-size:0.75rem
+}
+
+#rangesselection {
+  font-size:0.65rem
+}
+
+.Ep-grid{
+  grid-template-columns: repeat(5, 3rem);
+}
+
+.Ep-grid>p {
+  font-size:0.7rem;
+}
+
+
+
+.Stream-container {
+  height: 100rem;
+  padding: 0rem;
+}
+
+.Video-container {
+  height: auto;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 0rem;
+}
+
+.Ep-stream{
+  height: 32vh;
+  width: 90vw;
+  margin-left: 0rem;
+  margin-bottom: 2.7rem;
+}
+
+.Ep-btns{
+  width:90%;
+  top:75vmin;
+}
+
+.prev, .next {
+  font-size: 0.65rem;
+}
+
+.Epstream-list {
+  height: 25vh;
+  width: 90vw;
+  order: 1;
+  margin-left: 0rem;
+}
+
+#Epstream-rangesselection {
+  font-size: 0.7rem;
+}
+
+.Epstream-grid {
+  grid-template-columns: repeat(auto-fill, 3rem);
+}
+
+.Epstream-grid>p {
+  font-size: 0.7rem;
+}
+
+.Other-src {
+  height: 8rem;
+  width: 90%;
+  transform: translateX(0rem);
+  border:none;
+  box-shadow: none;
+}
+
+.Other-src>#currep {
+  font-size: .8rem;
+}
+
+.Sub, .Dub {
+  padding-top: 0rem;
+  &>h4 {
+    font-size:0.75rem;
+  }
+}
+
+.Sub button, .Dub button {
+  font-size:0.6rem;
+}
+
+.stream-info {
+  width: 95vw;
+}
+
+#einfoimg-src {
+  height: 7rem;
+}
+
+.EInfo-container {
+  width: 100%;
+  padding: 1rem ;
+}
+
+.Egenre-info {
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.Egenre-info>#anime-genre {
+  padding: 0.11rem 0.3rem;
+  font-size: 0.6rem;
+  
+}
+
+.EWatch-desc>h4 {
+  right:3rem;
+  font-size: 0.8rem;
+}
+
+.desc {
+  width: 90vw;
+  position:absolute;
+  left:1rem;
+  top: 58.8rem;
+  overflow:unset;
+}
+
+.desc>h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0rem;
+}
+
+} */
