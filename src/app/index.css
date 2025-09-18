@@ -817,7 +817,7 @@ transform: translate(1.7rem,4rem);
 
 .Slider-Container{
 height:46rem;
-width:100vw;
+width:99vw;
 overflow: hidden;
 
 display: flex;
