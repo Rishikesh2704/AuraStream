@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { usePathname } from 'next/navigation';
 import Modal from './Modal/Modal';
 import { useGenreAnimeInfiniteQuery } from '../Redux/Fetchslice';
 import ListLayout from './ListLayout';
 import { useAppSelector } from '../Redux/hooks';
 
 export default function GenreAnimePage() {
-    const {  modalState, infoid } = useAppSelector((state) => state.states)
+    const { modalState, infoid } = useAppSelector((state) => state.states)
     const [Genre, setGenre] = useState<animeType[]>()
-    const location = useLocation()
+    const location = usePathname()
     const body = document.getElementsByTagName('body')[0]
 
-    let name = location.pathname.split("/")
-    let currgen
-    name[1] = location.pathname.slice(1)
+    const name = location.split("/")
+    name[1] = location.slice(1)
 
     
-    currgen = name[1].split('/')[1]
+    const currgen = name[1].split('/')[1]
 
 
 
@@ -26,11 +25,11 @@ export default function GenreAnimePage() {
     // // SETTING GENRE ANIMES STATE //
     useEffect(() => {
         if (!isLoading && name[1].split('/')[0] === "genre") {
-            let animes = data?.pages.map((pageAnimes) => pageAnimes.data )?.flat() 
+            const animes = data?.pages.map((pageAnimes) => pageAnimes.data )?.flat() 
             setGenre(animes)
         }
         return () => { setGenre([]) }
-    }, [data, currgen])
+    }, [data, currgen,])
 
 
     // SCROLL END FUNCTION //

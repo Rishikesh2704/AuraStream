@@ -8,11 +8,12 @@ import { useAppSelector } from '@/Redux/hooks';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { usePathname, useRouter } from 'next/navigation';
 
+
+
 export default function SearchPage() {
     const { keyword, modalState, infoid } = useAppSelector((state) => state.states) 
     const [Search, setSearch] = useState<animeType[]>()
     const location = usePathname()
-    const body = document.getElementsByTagName('body')[0]
     const navigate = useRouter()
 
     let name = location.split("/")
@@ -23,11 +24,7 @@ export default function SearchPage() {
     const {data, isLoading, fetchNextPage} = useAnimesearchInfiniteQuery(keyword ?? skipToken)
    
     // SCROLL END FUNCTION //
-    const scrollFunction = () => {
-        if (name[1].split('/')[0] === "search" &&body && window.scrollY + window.innerHeight + 150 >=body.scrollHeight) {
-            fetchNextPage()
-        }
-    }
+    
 
     // SETTING SEARCH ANIMES STATE //
     useEffect(() => {
@@ -41,6 +38,12 @@ export default function SearchPage() {
 
     // INFINITE SCROLL //
     useEffect(() => {
+        const body = document.getElementsByTagName('body')[0]
+        const scrollFunction = () => {
+        if (name[1].split('/')[0] === "search" &&body && window.scrollY + window.innerHeight + 150 >=body.scrollHeight) {
+            fetchNextPage()
+        }
+    }
         if(keyword===''){
             navigate.push(' ')
         }

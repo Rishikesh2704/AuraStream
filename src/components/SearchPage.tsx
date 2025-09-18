@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { usePathname, useRouter } from 'next/navigation';
 import Modal from './Modal/Modal'
 import { useAnimesearchInfiniteQuery } from '../Redux/Fetchslice';
 import ListLayout from './ListLayout';
@@ -9,17 +9,16 @@ import { skipToken } from '@reduxjs/toolkit/query';
 export default function SearchPage() {
     const { keyword, modalState, infoid } = useAppSelector((state) => state.states) 
     const [Search, setSearch] = useState<animeType[]>()
-    const location = useLocation()
+    const location = usePathname()
     const body = document.getElementsByTagName('body')[0]
-    const navigate = useNavigate()
+    const navigate = useRouter()
 
-    let name = location.pathname.split("/")
-    let currgen
-    name[1] = location.pathname.slice(1)
-    currgen = name[1].split('/')[1]
+    const name = location.split("/")
+    name[1] = location.slice(1)
+    const currgen = name[1].split('/')[1]
     
     const {data, isLoading, fetchNextPage} = useAnimesearchInfiniteQuery(keyword ?? skipToken)
-    console.log(data)
+
     // SCROLL END FUNCTION //
     const scrollFunction = () => {
         if (name[1].split('/')[0] === "Search" &&body && window.scrollY + window.innerHeight + 150 >=body.scrollHeight) {
@@ -40,7 +39,7 @@ export default function SearchPage() {
     // INFINITE SCROLL //
     useEffect(() => {
         if(keyword===''){
-            navigate('/Home')
+            navigate.push('/Home')
         }
         if (name[1].split('/')[0] === "Search" &&body) {
             document.addEventListener('scroll', scrollFunction)
