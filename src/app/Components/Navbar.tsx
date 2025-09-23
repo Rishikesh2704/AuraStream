@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect, useRef, useState } from "react";
-import { useHomeQuery, useSearchSuggestionsQuery } from "../Redux/Fetchslice";
-import { setauthModalState, setKeyword } from "../Redux/StateSlice";
+import { useHomeQuery, useSearchSuggestionsQuery } from "@/Redux/Fetchslice";
+import { setauthModalState, setKeyword } from "@/Redux/StateSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
-import { useAppDispatch, useAppSelector } from "../Redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import SearchSuggestion from "./SearchSuggestion";
-import { auth } from "../config/Firebase";
+import { auth } from "@/config/Firebase";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -82,7 +82,7 @@ export default function Navbar() {
 
                     <ul>
                         <li id="category-main">
-                            <Link href="/" id="category">Home</Link>
+                            <Link href="/" id="category" prefetch={true}>Home</Link>
                         </li>
 
                         <li onMouseOver={() => { handledropdown() }} onMouseOut={() => { setshow("hidden") }}>

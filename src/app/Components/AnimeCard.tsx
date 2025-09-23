@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 // import { useLocation } from 'react-router-dom'
-import { setInfoid, setModalState } from '../Redux/StateSlice'
-import { useAppDispatch } from '../Redux/hooks'
+import { setInfoid, setModalState } from '../../Redux/StateSlice'
+import { useAppDispatch } from '../../Redux/hooks'
 import Image from 'next/image';
 
 type propsType = {

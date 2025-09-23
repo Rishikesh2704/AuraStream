@@ -4,10 +4,10 @@
 // import '@vidstack/react/player/styles/default/layouts/video.css';
 // import '@vidstack/react/player/styles/base.css';
 // import '@vidstack/react/player/styles/plyr/theme.css';
-import Servers from "./Servers";
 import AnimeInfo from "./AnimeInfo";
 import EpisodeList from "./EpisodeList";
 import VideoPlayer from "./VideoPlayer";
+import Servers from "./Servers";
 // import { useParams, useSearchParams } from 'next/navigation';
 // import { useRouter } from 'next/navigation';
 

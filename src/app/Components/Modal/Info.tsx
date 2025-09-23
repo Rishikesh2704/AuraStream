@@ -1,9 +1,11 @@
+'use client'
+
 import { useState } from "react"
-import useFavorites from "../../Hooks/useFavorites"
+import useFavorites from "@/Hooks/useFavorites";
 import Link from "next/link";
-import { setInfoid, setKeyword, setModalState } from "../../Redux/StateSlice";
-import { useAppDispatch } from "../../Redux/hooks";
-import { auth } from "../../config/Firebase";
+import { setInfoid, setKeyword, setModalState } from "@/Redux/StateSlice";
+import { useAppDispatch } from "@/Redux/hooks";
+import { auth } from "@/config/Firebase";
 
 type propsType = {
     aniinfo:InfoTypes | undefined,

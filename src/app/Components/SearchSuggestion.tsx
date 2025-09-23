@@ -1,5 +1,5 @@
-import { useAppDispatch } from "../Redux/hooks"
-import { setInfoid, setModalState } from "../Redux/StateSlice"
+import { useAppDispatch } from "@/Redux/hooks"
+import { setInfoid, setModalState } from "@/Redux/StateSlice"
 
 type propsType ={
     searchSuggestionsAnimes:Partial<animeType>[]

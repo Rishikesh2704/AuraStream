@@ -1,8 +1,9 @@
+'use client'
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useAnimeinfoQuery } from "../../Redux/Fetchslice";
-import { setInfoid, setKeyword } from "../../Redux/StateSlice";
-import { useAppDispatch } from "../../Redux/hooks";
+import { useAnimeinfoQuery } from "@/Redux/Fetchslice";
+import { setInfoid, setKeyword } from "@/Redux/StateSlice";
+import { useAppDispatch } from "@/Redux/hooks";
 
 
 

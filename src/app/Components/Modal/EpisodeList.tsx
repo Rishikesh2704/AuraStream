@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-import { setModalState } from "../../Redux/StateSlice";
-import { useAppDispatch } from "../../Redux/hooks";
+import { setModalState } from "../../../Redux/StateSlice";
+import { useAppDispatch } from "../../../Redux/hooks";
 
 export default function EpisodeList({ eplist }:{eplist:episodeList|undefined}) {
     const { episodes } = eplist ?? {}
@@ -45,7 +45,7 @@ export default function EpisodeList({ eplist }:{eplist:episodeList|undefined}) {
                         <div className="Ep-grid">
                             {groupep[rangeindex]?.map((ep) =>
                             (
-                                <p ><Link href={`/stream/${ep.id}`} id="epstream-ep" onClick={() => dispatch(setModalState    (false))}>{ep.episode_no}</Link></p>
+                                <p ><Link href={`/stream/${ep.id}`} prefetch id="epstream-ep" onClick={() => dispatch(setModalState    (false))}>{ep.episode_no}</Link></p>
                             ))}
                         </div>
 

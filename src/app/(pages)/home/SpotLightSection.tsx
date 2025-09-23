@@ -1,11 +1,11 @@
 import { memo } from "react";
 
 import { useEffect, useRef, useState } from "react";
-import { useAnimeinfoQuery } from "../../Redux/Fetchslice";
-import Navbar from "../Navbar";
-import { setInfoid, setModalState } from "../../Redux/StateSlice";
-import MobileNavbar from "../Mobile/MobileNavbar";
-import { useAppDispatch } from "../../Redux/hooks";
+import { useAnimeinfoQuery } from "../../../Redux/Fetchslice";
+import Navbar from "@/app/Components/Navbar";
+import { setInfoid, setModalState } from "../../../Redux/StateSlice";
+import MobileNavbar from "@/app/Mobile/MobileNavbar";
+import { useAppDispatch } from "../../../Redux/hooks";
 import Image from "next/image";
 
 const SpotLightSection = memo(
@@ -89,7 +89,7 @@ const SpotLightSection = memo(
                     <div className="Cover">
                       <div className="CoverDark"></div>
                       <Image
-                        src={spotlight.poster || "/Bakugou.gif"}
+                        src={spotlight.poster || "/kidzoro.png"}
                         width="963"
                         height="541"
                         alt={spotlight.title}
@@ -111,7 +111,7 @@ const SpotLightSection = memo(
                             id="Coverimg-src"
                             width={300}
                             height={400}
-                            src={animeimg[idx] ?? "/Bakugou.gif"}
+                            src={animeimg[idx] ?? "/kidzoro.png"}
                             alt={spotlight.title}
                             priority={true}
                             onClick={() => handleModal(spotlight.id)}

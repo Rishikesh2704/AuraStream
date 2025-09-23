@@ -1,13 +1,14 @@
 'use client'
 
-import Modal from '@/components/Modal/Modal'
+import Modal from '@/app/Components/Modal/Modal'
 import { useHomeQuery } from '@/Redux/Fetchslice'
-import TopAnimesSection from '@/components/HomeSection/TopAnimesSection'
-import TrendAnimes from '@/components/HomeSection/TrendAnimes'
-import SpotLightSection from '@/components/HomeSection/SpotLightSection'
-import OtherSection from '@/components/HomeSection/OtherSection'
+import TopAnimesSection from './(pages)/home/TopAnimesSection'
+import TrendAnimes from './(pages)/home/TrendAnimes'
+import SpotLightSection from '@/app/(pages)/home/SpotLightSection'
+import OtherSection from '@/app/(pages)/home/OtherSection'
 import { useAppSelector } from '@/Redux/hooks'
-import AuhtUI from '@/components/Authentication/AuthUI'
+import AuhtUI from '@/app/Authentication/AuthUI'
+import Loading from './loading'
 
 
 
@@ -80,7 +81,7 @@ export default function Home() {
                })}
             </div>
             :
-            <h2>loading...</h2>
+            <Loading/>
          }
 
          {modalState && <Modal id={infoid} />}

@@ -1,16 +1,17 @@
+'use client'
 import { useEffect, useState } from "react"
 import Link from "next/link";
-import { useEplistQuery } from "../../Redux/Fetchslice";
-import { useAppSelector } from "../../Redux/hooks";
+import { useEplistQuery } from "@/Redux/Fetchslice";
+import { useAppSelector } from "@/Redux/hooks";
 import { skipToken } from "@reduxjs/toolkit/query";
 
 type propsType = {
     id:string|string[]|undefined,
     epid:string|null,
-    setcurrep:(ep:episodeType|undefined)=>void
+    // setcurrep:(ep:episodeType|undefined)=>void
 }
 
-export default function EpisodeList({id,epid,setcurrep}: propsType) {
+export default function EpisodeList({id,epid,}: propsType) { {/* setcurrep */}
     const {infoid} = useAppSelector((state) => state.states)
     const [rangeindex, setrangeindex] = useState(0)
     const [eplist, seteplist] = useState<episodeType[]|undefined>([])
@@ -28,7 +29,7 @@ export default function EpisodeList({id,epid,setcurrep}: propsType) {
             return String(epno.id.split("=")[1]) === String(epid)
           })
 
-          setcurrep(selectedEpisode)
+        //   setcurrep(selectedEpisode)
       }
     },[epid])
     

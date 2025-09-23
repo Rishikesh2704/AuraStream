@@ -1,6 +1,6 @@
 import { memo, useRef } from 'react'
-import { setInfoid, setModalState } from '../../Redux/StateSlice';
-import { useAppDispatch } from '../../Redux/hooks';
+import { setInfoid, setModalState } from '@/Redux/StateSlice';
+import { useAppDispatch } from '@/Redux/hooks';
 
 
 const TrendAnimes = memo((props:{animes:animeType[]}) => {

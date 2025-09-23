@@ -1,8 +1,8 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
-import { useAnimeinfoQuery, useEplistQuery } from '../../Redux/Fetchslice';
-import { setModalState } from '../../Redux/StateSlice';
-import { useAppDispatch, useAppSelector } from '../../Redux/hooks';
+import { useAnimeinfoQuery, useEplistQuery } from '../../../Redux/Fetchslice';
+import { setModalState } from '../../../Redux/StateSlice';
+import { useAppDispatch, useAppSelector } from '../../../Redux/hooks';
 import EpisodeList from './EpisodeList';
 import Info from './Info';
 

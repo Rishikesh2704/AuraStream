@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 // import { useLocation } from "react-router-dom";
-import List from "../List";
+import List from "@/app/Components/List";
 import { usePathname } from "next/navigation";
 
 

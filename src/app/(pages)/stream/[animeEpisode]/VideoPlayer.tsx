@@ -1,5 +1,6 @@
+'use client'
 import { useEffect, useState } from "react";
-import { useAnimestreamQuery } from "../../Redux/Fetchslice";
+import { useAnimestreamQuery } from "@/Redux/Fetchslice";
 import { MediaPlayer, MediaProvider,Track} from '@vidstack/react';
 import { PlyrLayout, plyrLayoutIcons } from '@vidstack/react/player/layouts/plyr';
 import '@vidstack/react/player/styles/default/theme.css';

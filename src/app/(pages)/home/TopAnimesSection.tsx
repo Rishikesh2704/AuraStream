@@ -1,6 +1,6 @@
 import { useState, memo } from 'react'
-import { setInfoid, setModalState } from '../../Redux/StateSlice'
-import { useAppDispatch } from '../../Redux/hooks'
+import { setInfoid, setModalState } from '@/Redux/StateSlice'
+import { useAppDispatch } from '@/Redux/hooks'
 
 
 

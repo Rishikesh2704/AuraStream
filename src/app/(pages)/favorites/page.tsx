@@ -1,7 +1,7 @@
-import Modal from "./Modal/Modal"
-import AnimeCard from "./AnimeCard"
-import { useAppSelector } from "../Redux/hooks"
-import { auth } from "../config/Firebase"
+import Modal from "@/app/Components/Modal/Modal"
+import AnimeCard from "@/app/Components/AnimeCard"
+import { useAppSelector } from "@/Redux/hooks"
+import { auth } from "@/config/Firebase"
 
 
 export default function FavoritePage(){

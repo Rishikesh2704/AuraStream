@@ -1,9 +1,9 @@
 'use client'
 import { useState, useEffect } from 'react'
 // import { useLocation } from 'react-router-dom'
-import Modal from '@/components/Modal/Modal';
+import Modal from '@/app/Components/Modal/Modal';
 import { useGenreAnimeInfiniteQuery } from '@/Redux/Fetchslice';
-import ListLayout from '@/components/ListLayout';
+import ListLayout from '@/app/Components/ListLayout';
 import { useAppSelector } from '@/Redux/hooks';
 import { usePathname } from 'next/navigation';
 

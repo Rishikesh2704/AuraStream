@@ -1,18 +1,19 @@
+'use client'
 import { useEffect, useState } from "react"
-import { useAnimeserversQuery } from "../../Redux/Fetchslice";
+import { useAnimeserversQuery } from "@/Redux/Fetchslice"
 
 
 
 type propsType = {
-    currserv:serverType;
-    setcurrserv:(server:serverType)=>void;
-    currep:episodeType | undefined;
+    currserv?:serverType;
+    // setcurrserv?:(server:serverType)=>void
+    currep?:episodeType | undefined;
     epid:string | null;
     id:string | string[] | undefined;
 }
 
 export default function Servers(props : propsType) {
-    const {currserv,setcurrserv,currep,epid,id} = props
+    const {currserv='hd-1', currep=1,epid,id} = props ;{/*setcurrserv */}
     const [serverli, setserverli] = useState<serverType[]|undefined>()
    
     const {data:serverlist,isLoading:servloading,error:servError} = useAnimeserversQuery({animeid:id as string ,epid:epid as string})
@@ -30,13 +31,13 @@ export default function Servers(props : propsType) {
 
         let select = e.currentTarget;
         select.classList.add('btndisable')
-        setcurrserv({ serverName: newserver, type: type })
+        // setcurrserv({ serverName: newserver, type: type })
     }
 
     return (
         <>
 
-            <div className="Other-src">
+            {/* <div className="Other-src">
                 {currep !== null && <div id="currep"><h4>{`Episode ${currep?.episode_no}`}</h4></div>}
                 <div className="Sub">
                     <h4>Sub :</h4>
@@ -58,7 +59,7 @@ export default function Servers(props : propsType) {
                     })
                     }
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
