@@ -1,13 +1,24 @@
+'use client'
 import Modal from "@/app/Components/Modal/Modal"
 import AnimeCard from "@/app/Components/AnimeCard"
 import { useAppSelector } from "@/Redux/hooks"
 import { auth } from "@/config/Firebase"
+import { useEffect, useState } from "react"
 
 
 export default function FavoritePage(){
     const{ infoid, modalState } = useAppSelector((state) => state.states)
-    let  favorites = JSON.parse(localStorage.getItem(auth.currentUser?.uid as string) as string)
-    console.log(favorites)
+    const [favorites , setFavorites] = useState<favoriteAnimetype[]>([])
+
+    useEffect(()=>{
+        if(typeof window !== undefined && auth.currentUser){
+            const stored = JSON.parse(localStorage.getItem(auth.currentUser.uid) as string)
+            if(stored){
+                setFavorites(stored)
+            }
+        }
+    },[auth.currentUser?.uid])
+    
     type favoriteAnimetype = {
        animeid:string,
        name:string,
