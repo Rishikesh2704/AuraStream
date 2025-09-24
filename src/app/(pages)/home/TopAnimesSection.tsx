@@ -1,4 +1,5 @@
-import { useState, memo } from 'react'
+'use client'
+import { useState, memo, useEffect } from 'react'
 import { setInfoid, setModalState } from '@/Redux/StateSlice'
 import { useAppDispatch } from '@/Redux/hooks'
 
@@ -22,7 +23,7 @@ type propsType = {
 }
 
 const TopAnimesSection = memo((props:{animes:propsType}) => {
-   const mediaquery = window.matchMedia("(max-width:600px)")
+   const [ isMobile,setisMobile] = useState(false)
    const dispatch = useAppDispatch();
    const { animes } = props
    const [ani, setani] = useState('today')
@@ -32,6 +33,11 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
       let modal = document.getElementsByClassName('Modal-contentbox')
       dispatch(setInfoid(id))
    }
+
+   useEffect(()=>{
+      const mediaquery = window.matchMedia("(max-width:600px)")
+      setisMobile(()=> mediaquery?.matches ? true : false)
+   },[])
 
 
    return (<>
@@ -46,7 +52,7 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                      id={`li${index}`}
                      style={{
                         textDecoration: ani === li ? "underline" : "none",
-                        textUnderlineOffset: ani === li ? (mediaquery.matches?"0.6rem":"0.75rem") : "none",
+                        textUnderlineOffset: ani === li ? (isMobile?"0.6rem":"0.75rem") : "none",
                         textDecorationThickness: ani === li ? "0.14rem" : "0.1",
                         textDecorationColor: ani === li ? " rgb(0, 255, 225)" : "white",
                      }

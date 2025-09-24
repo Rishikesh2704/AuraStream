@@ -71,7 +71,7 @@ export default function EpisodeList({id,epid,}: propsType) { {/* setcurrep */}
                     <h4 id="Epstreamlist-tag">Episodes</h4>
                     {eplist.length > 100 && <select onChange={(e) => { changerange(e) }} id="Epstream-rangesselection">
                         {groupep.map((_, index) =>
-                            (<option >{index * 100 + 1} -  {(index + 1) * 100}</option>)
+                            (<option key = {index}>{index * 100 + 1} -  {(index + 1) * 100}</option>)
                         )}
                     </select>}
                 </div>
@@ -81,7 +81,7 @@ export default function EpisodeList({id,epid,}: propsType) { {/* setcurrep */}
                     {eplist.length > 1 && eplist.length > 25
                         ? <div className="Epstream-grid">
                             {eplist.length > 1 && groupep[rangeindex].map((ep,index) => (
-                                <p key={index} className={`epn ${epid == ep.id.split('=')[1] ? "style" : ""} ${ep.filler ? "filler" : ""}`}><Link href={`/stream/${ep.id}`} id="ep" onClick={(e) => handleselect(e)} ><div className="eplist-num">{`Ep ${ep.episode_no}`}</div></Link></p>
+                                <p key={index} className={`epn ${epid == ep.id.split('=')[1] ? "style" : ""} ${ep.filler ? "filler" : ""}`}><Link href={`/stream/${ep.id}`} id="ep" onClick={(e) => handleselect(e)} ><span className="eplist-num">{`Ep ${ep.episode_no}`}</span></Link></p>
                                 //  ${epid == ep.id.split('=')[1] ? "style" : ""}
 
                             ))}

@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useAnimeinfoQuery } from "@/Redux/Fetchslice";
 import { setInfoid, setKeyword } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
-
+import Loading from "@/app/loading";
+import Image from "next/image";
 
 
 export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
@@ -26,7 +27,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
     const { Overview, tvInfo, Genres } = animeInfo || {}
     return (
         <>  
-            {seasons? <div className='ESeasonsDiv'>
+            {seasons&& <div className='ESeasonsDiv'>
                 {seasons && <div className="ESeasonsli">
                 {seasons.map((season) => (
                     <div className="season" onClick={() => { dispatch(setInfoid(season.id)) 
@@ -37,7 +38,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
                     </div>
                 ))}
                 </div>}
-            </div> : <h3>Loading...</h3>} 
+            </div> } 
 
             {qinfo  
              ?<div className='stream-info'>
@@ -59,8 +60,8 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
                         </div>
 
                         <div className="Egenre-info">
-                            {Genres?.map((genre:string) =>
-                                (<span id="anime-genre"><Link href={`/genre/${genre.toLowerCase()}`}>{genre}</Link></span>)
+                            {Genres?.map((genre:string,index) =>
+                                (<span key={index} id="anime-genre"><Link href={`/genre/${genre.toLowerCase()}`}>{genre}</Link></span>)
                             ) }
                         </div>
 
@@ -75,7 +76,10 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
 
                   </div> 
                 </div> 
-            : <h3>Loading...</h3>}
+            :  <div className="h-full w-full flex flex-col items-center justify-center">
+                  <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} />
+                  <h1>Loading...</h1>
+                </div>}
 
         </>
     )

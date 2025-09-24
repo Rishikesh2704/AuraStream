@@ -26,14 +26,14 @@ export default function EpisodeList({ eplist }:{eplist:episodeList|undefined}) {
     return (
         <>
 
-            {episodes?<div className='epli'>
+            {episodes&&<div className='epli'>
 
                 <div className='Episodetag-range'>
                     <h4>Episodes</h4>
 
                     { episodes.length > 100 && <select onChange={(e) => { changerange(e) }} id="rangesselection">
                         {groupep.map((_, index) =>
-                            (<option >{index * 100 + 1} -  {(index + 1) * 100}</option>)
+                            (<option key={index} >{index * 100 + 1} -  {(index + 1) * 100}</option>)
                         )}
                     </select>}
                 </div>
@@ -43,15 +43,15 @@ export default function EpisodeList({ eplist }:{eplist:episodeList|undefined}) {
                 <div className="Ep-list">
                     <div className='episodes'>
                         <div className="Ep-grid">
-                            {groupep[rangeindex]?.map((ep) =>
+                            {groupep[rangeindex]?.map((ep,index) =>
                             (
-                                <p ><Link href={`/stream/${ep.id}`} prefetch id="epstream-ep" onClick={() => dispatch(setModalState    (false))}>{ep.episode_no}</Link></p>
+                                <p key={index}><Link href={`/stream/${ep.id}`} prefetch id="epstream-ep" onClick={() => dispatch(setModalState(false))}>{ep.episode_no}</Link></p>
                             ))}
                         </div>
 
                     </div>
                 </div>
-            </div>:<h3 style={{color:"white"}}>Loading...</h3>}
+            </div>}
         </>
     )
 }

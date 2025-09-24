@@ -1,19 +1,26 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { Animeapi } from "./Fetchslice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import stateSliceReducer from "./StateSlice";
-export const store = configureStore({
-    reducer:{
-       [Animeapi.reducerPath]: Animeapi.reducer,
-       states:stateSliceReducer
-    },
 
-    middleware:(getDefaultMiddleware)=>
-        getDefaultMiddleware().concat(Animeapi.middleware)
-    
-})
+const RootReducer = combineReducers({
+  [Animeapi.reducerPath]: Animeapi.reducer,
+  states: stateSliceReducer,
+});
 
-setupListeners(store.dispatch)
+export function makeStore(preloadedState?: any) {
+  const store = configureStore({
+    reducer: RootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(Animeapi.middleware),
+    preloadedState,
+  });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+  setupListeners(store.dispatch);
+
+  return store;
+}
+
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];

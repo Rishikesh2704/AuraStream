@@ -1,5 +1,6 @@
-import { memo } from "react";
+'use client'
 
+import { memo } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useAnimeinfoQuery } from "../../../Redux/Fetchslice";
 import Navbar from "@/app/Components/Navbar";
@@ -14,22 +15,25 @@ const SpotLightSection = memo(
   }: {
     spotlightCoverAnimes: spotlightAnimeTypes[];
   }) => {
-    const mediaQuery = window.matchMedia("(max-width:600px)");
+
     const dispatch = useAppDispatch();
     const [sliderem, setSliderem] = useState<number>(0);
     const [animeimg, setanimeimg] = useState<string[]>([]);
     const [currentindx, setcurrentindx] = useState(0);
-
+    const [isMobile, setisMobile] = useState(false);
+    
     const grid = useRef<HTMLDivElement>(null);
     const spotlightimgContRef = useRef<HTMLDivElement>(null);
-
+    
     const id = spotlightCoverAnimes.map((ani) => ani.id);
     let fetchingid = id[currentindx];
     const { data } = useAnimeinfoQuery(fetchingid);
-
+    
     const currentrem = useRef(0);
-
+    
     useEffect(() => {
+      const mediaQuery = window.matchMedia("(max-width:600px)");
+      setisMobile(()=> mediaQuery?.matches ?  true :  false)
       if (spotlightimgContRef.current) {
         setSliderem(spotlightimgContRef.current.offsetWidth / 16);
       }
@@ -65,7 +69,7 @@ const SpotLightSection = memo(
 
     return (
       <>
-        {mediaQuery.matches ? <MobileNavbar /> : <Navbar />}
+        { isMobile ? <MobileNavbar /> : <Navbar />}
 
         <div className="Slider-Container">
           <button
@@ -154,7 +158,7 @@ const SpotLightSection = memo(
                       <span>
                         {spotlight?.description.slice(
                           0,
-                          mediaQuery.matches ? 150 : 498
+                          isMobile ? 150 : 498
                         )}
                         ...
                       </span>

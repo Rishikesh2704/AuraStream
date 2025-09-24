@@ -98,6 +98,10 @@
   font-size: 0.7rem;
 }
 
+#Epstreamlist-tag {
+  right: 0rem;
+}
+
 .Other-src {
   height: 8rem;
   width: 90%;
@@ -127,6 +131,7 @@
 
 #einfoimg-src {
   height: 7rem;
+  width: 8rem;
 }
 
 .EInfo-container {
@@ -293,6 +298,11 @@
   /* margin: 0.5rem 1.5rem 1rem 0rem; */
   transition: 0.3s ease-in-out;
 }
+
+#Epstreamlist-tag {
+  right: 0rem;
+}
+
 
 .Anime-List {
   padding-top: 2.5rem;
@@ -812,15 +822,18 @@
 
 .stream-info {
   width: 95vw;
+  text-align: center;
 }
 
 #einfoimg-src {
+  width:5rem;
   height: 7rem;
 }
 
 .EInfo-container {
   width: 100%;
   flex-direction: column;
+  align-items: center;
   padding: 1rem ;
 }
 

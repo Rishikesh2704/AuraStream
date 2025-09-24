@@ -1,3 +1,4 @@
+'use client'
 import { useRef, useState } from "react";
 // import { useLocation } from "react-router-dom";
 import List from "@/app/Components/List";
