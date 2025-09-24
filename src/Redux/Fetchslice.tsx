@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { Action, PayloadAction } from '@reduxjs/toolkit'
-import { HYDRATE } from 'next-redux-wrapper'
+import type { Action, PayloadAction } from "@reduxjs/toolkit";
+import { HYDRATE } from "next-redux-wrapper";
 
 type responseType<t> = { results: t };
 
@@ -16,7 +16,7 @@ type streamParamsType = {
 };
 
 function isHydrateAction(action: Action): any {
-  return action.type === HYDRATE
+  return action.type === HYDRATE;
 }
 
 // const FetchURl = process.env.NODE_ENV === "development"?"http://localhost:4444/api":"https://anime-api-vert-alpha.vercel.app/api"
@@ -28,7 +28,8 @@ export const Animeapi = createApi({
   }),
   extractRehydrationInfo(action, { reducerPath }): any {
     if (isHydrateAction(action)) {
-      return action.payload[reducerPath];
+      const payload = action.payload as Record<string, any>;
+      return payload[reducerPath];
     }
   },
   refetchOnReconnect: true,
