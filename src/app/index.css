@@ -38,13 +38,11 @@ color: inherit;
 
 
 /* Navbar */
-
 .navbar {
   height: 50px;
   width: 100%;
   background-color: linear-gradient(0deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 40%);
   z-index: 5;
-  /* background-color: #d4d1c9; */
   display: flex;
   align-items: center;
   padding-left: 1rem;
@@ -78,7 +76,6 @@ li {
   justify-content: center;
   height: 3.1em;
   width: 8.5em;
-  /* transition: 0.3s ease-out; */
 }
 
 .Options>ul>li:hover {
@@ -91,8 +88,6 @@ cursor: pointer
 
 
 .search {
-/* width: 100%; */
-/* position:absolute; */
 width: 309px;
 display: flex;
 flex-direction: row-reverse;
@@ -287,6 +282,7 @@ ul>hr {
 
 @font-face {
   font-family: "sukajanBrush";
+  font-display: swap;
   src: url('/SukajanBrushDemoRegular-q2Mmx.otf') format('opentype');
 }
 
@@ -299,7 +295,7 @@ ul>hr {
   background-clip: text;
   font-size: 1.8rem;
   transform: translate(0, 0.3rem);
-}
+} 
 
 
 /*Home*/

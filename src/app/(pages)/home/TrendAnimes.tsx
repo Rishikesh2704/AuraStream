@@ -1,6 +1,7 @@
 import { memo, useRef } from 'react'
 import { setInfoid, setModalState } from '@/Redux/StateSlice';
 import { useAppDispatch } from '@/Redux/hooks';
+import Image from 'next/image';
 
 
 const TrendAnimes = memo((props:{animes:animeType[]}) => {
@@ -91,7 +92,14 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
                                     <div className="element-container" key={anime.id} data-label={anime.id} onClick={() => showinfo(anime.id)} ref={element} onMouseOver={(e) => handleMouseOverElement(e)} onMouseOut={(e) => handleMouseOutElement(e)} >
 
                                         <div className='img'>
-                                            <img id="elementimg" src={anime.poster} />
+                                            <Image 
+                                              id="elementimg" 
+                                              src={anime.poster} 
+                                              height={400}
+                                              width={300}
+                                              loading='lazy' 
+                                              alt={anime.title} 
+                                            />
                                         </div>
 
                                         <div className="info" >

@@ -2,13 +2,18 @@
 
 import Modal from '@/app/Components/Modal/Modal'
 import { useHomeQuery } from '@/Redux/Fetchslice'
-import TopAnimesSection from './TopAnimesSection'
-import TrendAnimes from './TrendAnimes'
+// import TopAnimesSection from './TopAnimesSection'
+// import TrendAnimes from './TrendAnimes'
 import SpotLightSection from '@/app/(pages)/home/SpotLightSection'
-import OtherSection from '@/app/(pages)/home/OtherSection'
+// import OtherSection from '@/app/(pages)/home/OtherSection'
 import { useAppSelector } from '@/Redux/hooks'
 import AuhtUI from '@/app/Authentication/AuthUI'
 import Loading from '../Loading'
+import dynamic from 'next/dynamic'
+
+const OtherSection = dynamic(()=> import('@/app/(pages)/home/OtherSection'))
+const TrendAnimes = dynamic(()=> import('./TrendAnimes'))
+const TopAnimesSection = dynamic(()=> import('./TopAnimesSection'),{ssr:false})
 
 type topAnimeType = {
    id: string,
@@ -30,10 +35,10 @@ type propsType = {
 export default function Home() {
   
    const { modalState, infoid, authModalState } = useAppSelector((st) => st.states)
-   const {data:ReduxHome} = useHomeQuery(undefined,{
-       refetchOnMountOrArgChange:false,
+   const {data:ReduxHome,isLoading} = useHomeQuery(undefined,{
+         refetchOnMountOrArgChange:false,
     });
-   
+    console.log(ReduxHome)
    const isOther = (key: string) =>
       key !== "genres" &&
       key !== "today" &&
@@ -42,14 +47,15 @@ export default function Home() {
       key !== "trending" &&
       key !== "today"
 
+    if(!ReduxHome) return null
+
    return (
       <>
-         {ReduxHome  && Object.entries(ReduxHome).map(([key, value]) => {
+        { Object.entries(ReduxHome).map(([key, value]) => {
             if (key === "spotlights") return (<SpotLightSection key={key} spotlightCoverAnimes={value as spotlightAnimeTypes[]} />)
          })}
 
-         {ReduxHome
-            ?
+        
             <div className='Home'  >
                { Object.entries(ReduxHome).map(([key, value]) => {
 
@@ -61,9 +67,6 @@ export default function Home() {
 
                })}
             </div>
-            :
-            <Loading/>
-         }
 
          {modalState && <Modal id={infoid} />}
          {authModalState && <AuhtUI />}

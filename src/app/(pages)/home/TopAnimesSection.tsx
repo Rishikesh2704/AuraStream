@@ -2,7 +2,7 @@
 import { useState, memo, useEffect } from 'react'
 import { setInfoid, setModalState } from '@/Redux/StateSlice'
 import { useAppDispatch } from '@/Redux/hooks'
-
+import Image from 'next/image'
 
 
 type topAnimeType = {
@@ -75,7 +75,15 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                               <div className="Topanime-container" key={animes.id} onClick={() => showinfo(animes.id)} /*ref={element}*/  >
                                  <h2 id="topNum">{+animes.number<10?animes.number.slice(1):animes.number}</h2>
                                  <div className='Topanimeimg-wrapper' >
-                                    <img id="Topanimeimg" src={animes.poster} />
+                                    <Image 
+                                       id="Topanimeimg" 
+                                       alt={animes.title}
+                                       src={animes.poster} 
+                                       loading='lazy'
+                                       height={400}
+                                       width={300}
+                                       fetchPriority='low'
+                                       />
                                  </div>
                                  <div className="Topanimeinfo" >
                                     <h4 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h4>

@@ -1,8 +1,8 @@
 'use client'
 import { useRef, useState } from "react";
-// import { useLocation } from "react-router-dom";
-import List from "@/app/Components/List";
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
+const List = dynamic(()=> import('@/app/Components/List'))
 
 
 export default function OtherSection({ keys, animeli }:{keys:string,animeli:animeType[]}) {

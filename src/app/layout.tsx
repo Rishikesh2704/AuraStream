@@ -5,16 +5,19 @@ import "./index.css";
 import "./responsive.css"
 import './Authentication/auth.css'
 import ReduxProvider from "./ReduxProvider";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   weight:"700",
   subsets: ["latin"],
+  display:'swap'
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display:'swap'
 });
 
 export const metadata: Metadata = {
@@ -31,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link 
-         rel="stylesheet"
+         rel="preconnect"
          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
          crossOrigin="anonymous" 
@@ -43,6 +46,11 @@ export default function RootLayout({
         <ReduxProvider >
           {children}
         </ReduxProvider>
+
+         <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

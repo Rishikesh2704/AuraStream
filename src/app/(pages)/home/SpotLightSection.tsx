@@ -25,6 +25,7 @@ const SpotLightSection = memo(
     const grid = useRef<HTMLDivElement>(null);
     const spotlightimgContRef = useRef<HTMLDivElement>(null);
     
+    
     const id = spotlightCoverAnimes.map((ani) => ani.id);
     let fetchingid = id[currentindx];
     const { data } = useAnimeinfoQuery(fetchingid);
@@ -94,10 +95,12 @@ const SpotLightSection = memo(
                       <div className="CoverDark"></div>
                       <Image
                         src={spotlight.poster || "/kidzoro.png"}
+                        fetchPriority="high"
                         width="963"
                         height="541"
                         alt={spotlight.title}
-                        priority={true}
+                        loading="lazy"
+                        priority={false}
                       ></Image>
                     </div>
 
@@ -113,10 +116,11 @@ const SpotLightSection = memo(
                         {
                           <Image
                             id="Coverimg-src"
-                            width={300}
-                            height={400}
-                            src={animeimg[idx] ?? "/kidzoro.png"}
+                            width={80}
+                            height={48}
+                            src={animeimg[idx] || "/kidzoro.png"}
                             alt={spotlight.title}
+                            loading="eager"
                             priority={true}
                             onClick={() => handleModal(spotlight.id)}
                           />
