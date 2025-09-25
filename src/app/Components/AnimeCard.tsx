@@ -1,9 +1,9 @@
 'use client'
 import { useEffect, useRef } from 'react'
-// import { useLocation } from 'react-router-dom'
 import { setInfoid, setModalState } from '../../Redux/StateSlice'
 import { useAppDispatch } from '../../Redux/hooks'
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 type propsType = {
     name:string;
@@ -17,12 +17,11 @@ export default function AnimeCard(props:propsType) {
     const { name, img, id, loading, eps } = props
 
     const element = useRef<HTMLDivElement>(null)
-    // const location = useLocation();
+    const location = usePathname();
     const dispatch = useAppDispatch()
 
-    const page = location.pathname.split('/')
+    const page = location.split('/')
     const showinfo = () => {
-        // setmodalstate(true)
         dispatch(setModalState(true))
         dispatch(setInfoid(id))
     }

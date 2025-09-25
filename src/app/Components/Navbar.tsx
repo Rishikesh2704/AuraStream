@@ -82,7 +82,7 @@ export default function Navbar() {
 
                     <ul>
                         <li id="category-main">
-                            <Link href="/" id="category" prefetch={true}>Home</Link>
+                            <Link href="/" id="category" prefetch>Home</Link>
                         </li>
 
                         <li onMouseOver={() => { handledropdown() }} onMouseOut={() => { setshow("hidden") }}>

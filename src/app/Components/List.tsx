@@ -1,4 +1,5 @@
-// import { useLocation } from 'react-router-dom'
+'use client'
+import { usePathname } from 'next/navigation';
 import AnimeCard from './AnimeCard';
 
 type propsType = {
@@ -9,13 +10,13 @@ type propsType = {
 
 export default function List(props:propsType) {
    const { anime, next, height } = props
-   // const location = useLocation();
+   const location = usePathname();
  
-   let name = location.pathname.split("/")
-   // let currgen
-   if(name[1]==='genre'||name[1]!=='Home'){
-      //  name[1] = location.pathname.slice(1)  
-      //  currgen = name[1].split('/')[1]
+   let name = location.split("/")
+   let currgen
+   if(name[1]==='genre'||name[1]!==' '){
+       name[1] = location.slice(1)  
+       currgen = name[1].split('/')[1]
    } 
 
 

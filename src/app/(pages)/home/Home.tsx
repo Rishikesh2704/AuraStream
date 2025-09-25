@@ -2,18 +2,14 @@
 
 import Modal from '@/app/Components/Modal/Modal'
 import { useHomeQuery } from '@/Redux/Fetchslice'
-// import TopAnimesSection from './TopAnimesSection'
-// import TrendAnimes from './TrendAnimes'
-import SpotLightSection from '@/app/(pages)/home/SpotLightSection'
-// import OtherSection from '@/app/(pages)/home/OtherSection'
+import SpotLightSection from '@/app/(pages)/home/SpotLightSection'   
 import { useAppSelector } from '@/Redux/hooks'
 import AuhtUI from '@/app/Authentication/AuthUI'
-import Loading from '../Loading'
 import dynamic from 'next/dynamic'
 
-const OtherSection = dynamic(()=> import('@/app/(pages)/home/OtherSection'))
-const TrendAnimes = dynamic(()=> import('./TrendAnimes'))
-const TopAnimesSection = dynamic(()=> import('./TopAnimesSection'),{ssr:false})
+const OtherSection = dynamic(() => import('@/app/(pages)/home/OtherSection'))
+const TrendAnimes = dynamic(() => import('./TrendAnimes'))
+const TopAnimesSection = dynamic(() => import('./TopAnimesSection'),{ssr:false})
 
 type topAnimeType = {
    id: string,
@@ -35,7 +31,7 @@ type propsType = {
 export default function Home() {
   
    const { modalState, infoid, authModalState } = useAppSelector((st) => st.states)
-   const {data:ReduxHome,isLoading} = useHomeQuery(undefined,{
+   const {data:ReduxHome,isLoading} = useHomeQuery('',{
          refetchOnMountOrArgChange:false,
     });
     console.log(ReduxHome)

@@ -1,5 +1,5 @@
 'use client'
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 const List = dynamic(()=> import('@/app/Components/List'))
@@ -7,18 +7,22 @@ const List = dynamic(()=> import('@/app/Components/List'))
 
 export default function OtherSection({ keys, animeli }:{keys:string,animeli:animeType[]}) {
     const showMoreBtn = useRef(null);
-    const [height, setheight] = useState(()=> getMediaQuery())
+    const [height, setheight] = useState('18rem')
     const [showmore, setshowmore] = useState("hidden")
     const location = usePathname()
 
     let name = location.split("/")
     let currgen
 
-    function getMediaQuery ()  {
-        if(window.matchMedia("(max-width: 600px)").matches) return "14rem"
-        else if(window.matchMedia("(max-width: 400px)").matches) return "9rem"
-        else return "18rem"
-    }
+    useEffect(()=>{
+
+        function getMediaQuery ()  {
+                if(window.matchMedia("(max-width: 400px)").matches) return "9rem"
+                else if(window.matchMedia("(max-width: 600px)").matches) return "14rem"
+                else return "18rem"
+        }
+        setheight(() => getMediaQuery())
+    },[])
 
     if (name[1] === "genre") {
         name[1] = location.slice(1)
@@ -34,7 +38,7 @@ export default function OtherSection({ keys, animeli }:{keys:string,animeli:anim
             clist.style.overflow = " "
         }
         else {
-            clist.style.maxHeight == "fit-content" ? clist.style.maxHeight = getMediaQuery() : clist.style.maxHeight = "fit-content"
+            clist.style.maxHeight == "fit-content" ? clist.style.maxHeight = height : clist.style.maxHeight = "fit-content"
             clist.style.overflow == " " ? clist.style.overflow = "hidden" : clist.style.overflow = " "
         }
     }

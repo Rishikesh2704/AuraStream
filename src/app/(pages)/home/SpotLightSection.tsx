@@ -9,7 +9,7 @@ import MobileNavbar from "@/app/Mobile/MobileNavbar";
 import { useAppDispatch } from "../../../Redux/hooks";
 import Image from "next/image";
 
-const SpotLightSection = memo(
+const SpotLightSection = (
   ({
     spotlightCoverAnimes,
   }: {
@@ -99,7 +99,6 @@ const SpotLightSection = memo(
                         width="963"
                         height="541"
                         alt={spotlight.title}
-                        loading="lazy"
                         priority={false}
                       ></Image>
                     </div>
