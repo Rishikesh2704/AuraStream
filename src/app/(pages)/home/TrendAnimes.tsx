@@ -85,10 +85,18 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
 
                 <div className="Trending-Main" >
                     <div className="PrevBtn" onClick={() => handlePrevSlide()}>
-                        <i className="fa-solid fa-chevron-left" onClick={() => handlePrevSlide()}></i>
+                        <i 
+                            className="fa-solid fa-chevron-left" 
+                            role='button' 
+                            aria-label='Previous TrendAnimes' 
+                            onClick={() => handlePrevSlide()}></i>
                     </div>
                     <div className='NextBtn' onClick={() => handleNextSlide()}>
-                        <i className="fa-solid fa-chevron-right" onClick={() => handleNextSlide()}></i>
+                        <i 
+                            className="fa-solid fa-chevron-right" 
+                            role='button' 
+                            aria-label='Previous TrendAnimes' 
+                            onClick={() => handleNextSlide()}></i>
                     </div>
                     <div className="trendingContainer" ref={trendContent} >
                         {animes.map((anime:animeType) => {

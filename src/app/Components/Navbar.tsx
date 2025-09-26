@@ -78,7 +78,7 @@ export default function Navbar() {
 
                 <div className="Options">
 
-                    <h2 className="Main-name">AuraStream</h2>
+                    <h1 className="Main-name">AuraStream</h1>
 
                     <ul>
                         <li id="category-main">
@@ -109,7 +109,7 @@ export default function Navbar() {
 
                 <div className="Other">
                     <div className="search">
-                        <button className="search-bt" onClick={fetchresult}><i className="fa-solid fa-magnifying-glass"></i></button>
+                        <button className="search-bt" onClick={fetchresult} aria-label="Search Button"><i className="fa-solid fa-magnifying-glass"></i></button>
                         <input className="search-input"type="text" ref={inputRef}placeholder="Search" onChange={(e) =>handlechange(e)} value={searchkey}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter") {
