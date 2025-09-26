@@ -99,6 +99,7 @@ const SpotLightSection = ({
                     width="963"
                     height="541"
                     alt={spotlight.title}
+                    loading={idx!==0?'lazy':undefined}
                     priority={true}
                   ></Image>
                 </div>
