@@ -31,10 +31,10 @@ type propsType = {
 export default function Home() {
   
    const { modalState, infoid, authModalState } = useAppSelector((st) => st.states)
-   const {data:ReduxHome,isLoading} = useHomeQuery('',{
+   const {data:ReduxHome} = useHomeQuery('',{
          refetchOnMountOrArgChange:false,
     });
-    console.log(ReduxHome)
+
    const isOther = (key: string) =>
       key !== "genres" &&
       key !== "today" &&

@@ -34,8 +34,10 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link
-          rel="preconnect"
-          href="https://cdnjs.cloudflare.com"
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          as="style"
           crossOrigin="anonymous"
         />
         <link
@@ -51,7 +53,7 @@ export default function RootLayout({
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           data-auto-replace-svg="false"
         />
       </body>

@@ -33,7 +33,8 @@ const SpotLightSection = ({
     const mediaQuery = window.matchMedia("(max-width:600px)");
     setisMobile(() => (mediaQuery?.matches ? true : false));
     if (spotlightimgContRef.current) {
-      setSliderem(spotlightimgContRef.current.offsetWidth / 16);
+      const widthOfSpotlight = spotlightimgContRef.current.offsetWidth
+      setSliderem(widthOfSpotlight / 16);
     }
     if (data?.data?.poster) {
       setanimeimg((prev) => [...prev, data.data.poster]);
@@ -98,7 +99,7 @@ const SpotLightSection = ({
                     width="963"
                     height="541"
                     alt={spotlight.title}
-                    priority={false}
+                    priority={true}
                   ></Image>
                 </div>
 
