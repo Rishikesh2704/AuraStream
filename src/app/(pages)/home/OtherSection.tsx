@@ -2,8 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
-const List = dynamic(()=> import('@/app/Components/List'))
-
+import List from '../../Components/List'
 
 export default function OtherSection({ keys, animeli }:{keys:string,animeli:animeType[]}) {
     const showMoreBtn = useRef(null);
@@ -30,6 +29,7 @@ export default function OtherSection({ keys, animeli }:{keys:string,animeli:anim
     }
 
     const handleShowmore = (e:React.MouseEvent<HTMLElement, MouseEvent>) => {                  // HomePage Show More
+        console.log(e.target)
         let moreBtn = e.currentTarget 
         moreBtn.style.transform === "rotate(0deg)" ? moreBtn.style.transform = "rotate(-180deg)" : moreBtn.style.transform = "rotate(0deg)"
         let clist = e.currentTarget.parentElement?.nextElementSibling?.children[0]  as HTMLElement
@@ -56,7 +56,7 @@ export default function OtherSection({ keys, animeli }:{keys:string,animeli:anim
                 <div className='CName' >
                     <h2>{(Homeheading(keys))}</h2>
 
-                    {animeli.length > 10 && <i id="showmore" style={{ transform: "rotate(0deg)" }} className="fa-solid fa-arrow-down" ref={showMoreBtn} onClick={(e) => handleShowmore(e)}></i>}
+                    {animeli.length > 10 && <i id="showmore" role="button" style={{ transform: "rotate(0deg)" }} className="fa-solid fa-arrow-down" ref={showMoreBtn} onClick={(e) => handleShowmore(e)}></i>}
                 </div>
 
                 <div className='Result'>

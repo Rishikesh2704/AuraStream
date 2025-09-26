@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
- import "./globals.css";
+import "./globals.css";
 import "./index.css";
-import "./responsive.css"
-import './Authentication/auth.css'
+import "./responsive.css";
+import "./Authentication/auth.css";
 import ReduxProvider from "./ReduxProvider";
 import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  weight:"700",
+  weight: "700",
   subsets: ["latin"],
-  display:'swap'
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-  display:'swap'
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -33,23 +33,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link 
-         rel="preconnect"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
-         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
-         crossOrigin="anonymous" 
-         referrerPolicy="no-referrer" />
+        <link
+          rel="preconnect"
+          href="https://cdnjs.cloudflare.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
       </head>
-      <body
-        className={` ${geistMono.variable}  antialiased`}
-      >
-        <ReduxProvider >
-          {children}
-        </ReduxProvider>
+      <body className={` ${geistMono.variable}  antialiased`}>
+        <ReduxProvider>{children}</ReduxProvider>
 
-         <Script
+        <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
+          data-auto-replace-svg="false"
         />
       </body>
     </html>

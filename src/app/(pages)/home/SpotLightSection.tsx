@@ -85,7 +85,6 @@ const SpotLightSection = (
           <div className="Animes-Container">
             <div className="Slide-Images" ref={grid}>
               {spotlightCoverAnimes.map((spotlight, idx: number) => (
-                <>
                   <div
                     className="SpotlightAnime-container"
                     ref={spotlightimgContRef}
@@ -167,7 +166,6 @@ const SpotLightSection = (
                       </span>
                     </div>
                   </div>
-                </>
               ))}
             </div>
           </div>

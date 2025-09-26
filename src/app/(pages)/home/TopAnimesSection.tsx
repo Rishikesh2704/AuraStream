@@ -88,8 +88,8 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                                  <div className="Topanimeinfo" >
                                     <h4 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h4>
                                     <span id="top10EpisodeType">
-                                       <h5 id="top10Sub"><i className="fa-solid fa-closed-captioning"></i>{animes.tvInfo.sub}</h5>
-                                       {animes.tvInfo.dub&&<h5 id="top10dub"><i className="fa-solid fa-microphone"></i>{animes.tvInfo.dub}</h5>}
+                                       <span id="top10Sub"><i className="fa-solid fa-closed-captioning"></i>{animes.tvInfo.sub}</span>
+                                       {animes.tvInfo.dub&&<span id="top10dub"><i className="fa-solid fa-microphone"></i>{animes.tvInfo.dub}</span>}
                                     </span>
                                  </div>
                               </div>

@@ -84,13 +84,24 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
             <div className='trendingCategory' ref={trendContainer}>
 
                 <div className="Trending-Main" >
-                    <div className="PrevBtn" onClick={() => handlePrevSlide()}><i className="fa-solid fa-chevron-left" onClick={() => handlePrevSlide()}></i></div>
-                    <div className='NextBtn' onClick={() => handleNextSlide()}><i className="fa-solid fa-chevron-right" onClick={() => handleNextSlide()}></i></div>
+                    <div className="PrevBtn" onClick={() => handlePrevSlide()}>
+                        <i className="fa-solid fa-chevron-left" onClick={() => handlePrevSlide()}></i>
+                    </div>
+                    <div className='NextBtn' onClick={() => handleNextSlide()}>
+                        <i className="fa-solid fa-chevron-right" onClick={() => handleNextSlide()}></i>
+                    </div>
                     <div className="trendingContainer" ref={trendContent} >
                         {animes.map((anime:animeType) => {
                             return (
-                                    <div className="element-container" key={anime.id} data-label={anime.id} onClick={() => showinfo(anime.id)} ref={element} onMouseOver={(e) => handleMouseOverElement(e)} onMouseOut={(e) => handleMouseOutElement(e)} >
-
+                                    <div 
+                                        className="element-container" 
+                                        key={anime.id} 
+                                        data-label={anime.id} 
+                                        onClick={() => showinfo(anime.id)} 
+                                        ref={element} 
+                                        onMouseOver={(e) => handleMouseOverElement(e)} 
+                                        onMouseOut={(e) => handleMouseOutElement(e)} 
+                                    >
                                         <div className='img'>
                                             <Image 
                                               id="elementimg" 
