@@ -2,16 +2,17 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAnimeinfoQuery } from "@/Redux/Fetchslice";
-import { setInfoid, setKeyword } from "@/Redux/StateSlice";
+import { setInfoid } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
 import Loading from "@/app/loading";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 
 export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
     const dispatch = useAppDispatch()
     const [seasons ,setseasons] = useState<seasonAnimeType[]|undefined>()
-    // const navigate = useNavigate();
+    const navigate = useRouter();
 
     const { data: qinfo, isLoading} = useAnimeinfoQuery(id as string)
 
@@ -51,7 +52,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
 
                     <div className="EWatch-desc">
 
-                        <span onClick={() => { dispatch(setKeyword(title)); }}>{title}</span>
+                        <span onClick={() =>navigate.push(`/search/title`)}>{title}</span>
 
                         <div id="streamep-info">
                             <span id="es1">{tvInfo?.rating}</span>
