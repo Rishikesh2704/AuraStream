@@ -1,35 +1,35 @@
 'use client'
 import { useState, useEffect } from 'react'
-// import { useLocation, useNavigate } from 'react-router-dom'
 import Modal from '@/app/Components/Modal/Modal';
 import { useAnimesearchInfiniteQuery } from '@/Redux/Fetchslice';
 import ListLayout from '@/app/Components/ListLayout';
 import { useAppSelector } from '@/Redux/hooks';
 import { skipToken } from '@reduxjs/toolkit/query';
-import { usePathname, useRouter } from 'next/navigation';
+import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 
 
-export default function SearchPage() {
-    const { keyword, modalState, infoid } = useAppSelector((state) => state.states) 
+export default function search() {
+    const { modalState, infoid } = useAppSelector((state) => state.states) 
     const [Search, setSearch] = useState<animeType[]>()
     const location = usePathname()
     const navigate = useRouter()
-
+    const params = useParams() as {search:string}
+    const keyword = decodeURI(params.search) 
+    
     let name = location.split("/")
     let currgen
     name[1] = location.slice(1)
     currgen = name[1].split('/')[1]
-    
+
     const {data, isLoading, fetchNextPage} = useAnimesearchInfiniteQuery(keyword ?? skipToken)
    
     // SCROLL END FUNCTION //
-    
 
     // SETTING SEARCH ANIMES STATE //
     useEffect(() => {
-        
-        if (name[1] === "search" && keyword && keyword.length > 0 && !isLoading) {
+        if (!isLoading) {
+            console.log(keyword)
             let animes = data?.pages.map((page) => page.data).flat()  //No Page Parameter in th API for Search
             setSearch(animes)
         }
@@ -45,7 +45,7 @@ export default function SearchPage() {
         }
     }
         if(keyword===''){
-            navigate.push(' ')
+            navigate.push('')
         }
         if (name[1].split('/')[0] === "search" &&body) {
             document.addEventListener('scroll', scrollFunction)
@@ -70,10 +70,10 @@ export default function SearchPage() {
     }, [isLoading])
 
     return (
-        <> 
+        <main> 
             <ListLayout Animes={Search} heading="Search Results" />
             {modalState &&<Modal id={infoid}/>}
-        </>
+        </main>
     )
 }
 

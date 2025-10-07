@@ -18,9 +18,9 @@ export const stateSlice = createSlice({
     name:"States",
     initialState,
     reducers:{
-      setKeyword:(state:Partial<StateType>,action:PayloadAction<string|undefined>)=>{
-          state.keyword = action.payload
-      },
+    //   setKeyword:(state:Partial<StateType>,action:PayloadAction<string|undefined>)=>{
+    //       state.keyword = action.payload
+    //   },
       setModalState:(state:Partial<StateType>,action:PayloadAction<boolean>)=>{
           state.modalState = action.payload
       },
@@ -33,6 +33,6 @@ export const stateSlice = createSlice({
     }
 })
 
-export const { setKeyword, setModalState, setInfoid, setauthModalState } = stateSlice.actions
+export const {  setModalState, setInfoid, setauthModalState } = stateSlice.actions
 
 export default stateSlice.reducer

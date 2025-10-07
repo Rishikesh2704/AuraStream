@@ -3,11 +3,12 @@
 import { useState } from "react";
 import useFavorites from "@/Hooks/useFavorites";
 import Link from "next/link";
-import { setInfoid, setKeyword, setModalState } from "@/Redux/StateSlice";
+import { setInfoid, setModalState } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
 import { auth } from "@/config/Firebase";
 import Loading from "@/app/loading";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 type propsType = {
   aniinfo: InfoTypes | undefined;
@@ -17,6 +18,7 @@ type propsType = {
 
 export default function Info({ aniinfo, id, firstEp }: propsType) {
   const dispatch = useAppDispatch();
+  const navigate = useRouter()
   const watchbtnEp = firstEp?.id;
   const userId = auth.currentUser?.uid;
 
@@ -63,7 +65,7 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
           <div className="Info">
             <p
               onClick={() => {
-                dispatch(setKeyword(animeInfo?.title));
+                navigate.push(`/search/${animeInfo?.title}`)
                 dispatch(setModalState(false));
               }}
             >

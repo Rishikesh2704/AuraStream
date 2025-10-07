@@ -77,7 +77,7 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                                  <div className='Topanimeimg-wrapper' >
                                     <Image 
                                        id="Topanimeimg" 
-                                       alt={animes.title}
+                                       alt={animes.title+"poster"}
                                        src={animes.poster} 
                                        loading='lazy'
                                        height={400}
@@ -86,7 +86,7 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                                        />
                                  </div>
                                  <div className="Topanimeinfo" >
-                                    <h4 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h4>
+                                    <h2 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h2>
                                     <span id="top10EpisodeType">
                                        <span id="top10Sub"><i className="fa-solid fa-closed-captioning"></i>{animes.tvInfo.sub}</span>
                                        {animes.tvInfo.dub&&<span id="top10dub"><i className="fa-solid fa-microphone"></i>{animes.tvInfo.dub}</span>}

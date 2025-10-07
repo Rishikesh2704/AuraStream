@@ -77,8 +77,6 @@ const SpotLightSection = ({
             handlePrevCover();
           }}
           aria-label="PreviousSpotlight button"
-          aria-labelledby="fa-solid fa-chevron-left"
-
         >
           <i className="fa-solid fa-chevron-left" role="button" aria-label="PreviousSpotlight Button"></i>
         </button>
@@ -98,7 +96,7 @@ const SpotLightSection = ({
                     fetchPriority="high"
                     width="963"
                     height="541"
-                    alt={spotlight.title}
+                    alt={spotlight.title.length>25?spotlight.title.slice(1,26)+"backgroundCover":spotlight.title+" backgroundCover"}
                     loading={idx!==0?'lazy':undefined}
                   ></Image>
                 </div>
@@ -118,14 +116,14 @@ const SpotLightSection = ({
                         width={80}
                         height={48}
                         src={animeimg[idx] || "/kidzoro.png"}
-                        alt={spotlight.title}
+                        alt={spotlight.title+"poster"}
                         loading="eager"
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
                       />
                     }
 
-                    <p>{spotlight.title}</p>
+                    <h2>{spotlight.title}</h2>
                   </div>
 
                   <div id="ep-info">
@@ -173,7 +171,6 @@ const SpotLightSection = ({
             handleNextCover();
           }}
           aria-label="NextSpotlight button"
-          aria-labelledby="fa-solid fa-chevron-right"
         >
           <i className="fa-solid fa-chevron-right" role="button" aria-label="NextSpotlight Button"></i>
         </button>

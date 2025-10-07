@@ -59,8 +59,8 @@ export default async function Epstream({ params, searchParams }: propsType) {
 
   return (
     <>
-      <div className="Container">
-        <div className="Stream-container">
+      <main className="Container">
+        <section className="Stream-container">
           <div className="Video-container">
             {
               <div className="Ep-stream">
@@ -78,8 +78,8 @@ export default async function Epstream({ params, searchParams }: propsType) {
           </div>
 
           <AnimeInfo id={id} />
-        </div>
-      </div>
+        </section>
+      </main>
     </>
   );
 }

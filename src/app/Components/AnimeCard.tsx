@@ -109,13 +109,13 @@ export default function AnimeCard(props:propsType) {
                         height={400}
                         width={300}
                         loading='lazy' 
-                        src={img || '/Bakugou.gif'}  
-                        alt="anime-poster"
+                        src={img || "/kidzoro.png"}  
+                        alt={name.length>25?name.slice(1,26)+"poster":name+"poster"}
                         />
                 </div>
 
                 <div className="info" >
-                    <h4 className="coverName">{name}</h4>
+                    <span className="coverName">{name}</span>
                     {eps && <p>Episode {eps}</p>}
                 </div>
             </div>

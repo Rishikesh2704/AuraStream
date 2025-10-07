@@ -46,13 +46,13 @@ export default function Home() {
     if(!ReduxHome) return null
 
    return (
-      <>
+      <main>
         { Object.entries(ReduxHome).map(([key, value]) => {
             if (key === "spotlights") return (<SpotLightSection key={key} spotlightCoverAnimes={value as spotlightAnimeTypes[]} />)
          })}
 
         
-            <div className='Home'  >
+            <section className='Home'  >
                { Object.entries(ReduxHome).map(([key, value]) => {
 
                   if (key === 'trending') return (<TrendAnimes key={key + 1} animes={value as animeType[]} />)
@@ -62,11 +62,11 @@ export default function Home() {
                   if (isOther(key)) return (<OtherSection key={key + 3} keys={key} animeli={value as animeType[]} />)
 
                })}
-            </div>
+            </section>
 
          {modalState && <Modal id={infoid} />}
          {authModalState && <AuhtUI />}
-      </>
+      </main>
    )
 }
 

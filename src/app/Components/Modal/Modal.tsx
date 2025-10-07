@@ -55,7 +55,7 @@ export default function Modal(props:{id:string}) {
             }
          ]
 
-         modalBox.current?.animate(animation,{duration:190})
+         modalBox.current?.animate(animation,{duration:200})
          setTimeout(()=>{dispatch(setModalState(false))},190)
       }
    }

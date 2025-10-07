@@ -72,10 +72,10 @@ export default function GenreAnimePage() {
 
 
     return (
-        <>
+        <main>
             <ListLayout Animes={Genre} heading={currgen} />
             {modalState &&<Modal id={infoid}/>}
-        </>
+        </main>
     )
 }
 

@@ -30,13 +30,13 @@ export default function FavoritePage(){
     return(
         <>
          
-            <div className="favorite-container" >
+            <main className="favorite-container" >
 
-                <div className='CName'>
+                <header className='CName'>
                     <h2>Favorites</h2>
-                </div>
+                </header>
 
-                <div className='Result'>
+                <section className='Result'>
                         <div className="Anime-List">
 
                          {favorites?.map((anime:favoriteAnimetype) => {
@@ -46,8 +46,8 @@ export default function FavoritePage(){
                             })
                           }
                         </div>
-                </div>
-            </div>
+                </section>
+            </main>
                 {modalState &&<Modal id={infoid}/>}
         </>
     )

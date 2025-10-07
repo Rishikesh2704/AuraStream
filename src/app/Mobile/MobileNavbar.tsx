@@ -1,32 +1,24 @@
 'use client'
 import { useRef, useState } from "react";
-// import { useLocation } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-import { setKeyword } from "../../Redux/StateSlice";
-import { useAppDispatch, useAppSelector } from "../../Redux/hooks";
 import  Menu  from "../../app/Mobile/Menu"
+import { usePathname, useRouter } from "next/navigation";
 
 export default function MobileNavbar() {
     const [searchkey, setsearchkey] = useState('')
-    const { keyword } = useAppSelector((state) => state.states);
-
-   
-    const dipatch = useAppDispatch()
     const searchInput = useRef(null)
     const searchCont = useRef(null)
     const searchBtn = useRef(null)
 
-    // const location = useLocation(); 
-    // const navigate = useNavigate();
+    const location = usePathname(); 
+    const navigate = useRouter();
 
-    let path = location.pathname.split("/")[1]
+    let path = location.split("/")[1]
 
     const handlechange = (e:React.ChangeEvent<HTMLInputElement>) => { setsearchkey(e.target.value)}
 
     const fetchresult = () => {
-        if(keyword!=" "){
-            dipatch(setKeyword(searchkey))
-            // navigate('/Search')
+        if(searchkey!=" "){
+            navigate.push(`/search/${searchkey}`)
         }
     }
 

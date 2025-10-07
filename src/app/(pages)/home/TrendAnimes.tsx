@@ -117,12 +117,12 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
                                               height={400}
                                               width={300}
                                               loading='lazy' 
-                                              alt={anime.title} 
+                                              alt={anime.title.length>25?anime.title.slice(1,26)+"poster":anime.title+' poster'} 
                                             />
                                         </div>
 
                                         <div className="info" >
-                                            <h4 className="coverName">{anime.title}</h4>
+                                            <h2 className="coverName">{anime.title}</h2>
                                         </div>
 
                                     </div>

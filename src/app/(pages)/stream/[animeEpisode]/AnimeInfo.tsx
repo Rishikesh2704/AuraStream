@@ -27,7 +27,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
     const { Overview, tvInfo, Genres } = animeInfo || {}
     return (
         <>  
-            {seasons&& <div className='ESeasonsDiv'>
+            {seasons&& <section className='ESeasonsDiv'>
                 {seasons && <div className="ESeasonsli">
                 {seasons.map((season) => (
                     <div className="season" onClick={() => { dispatch(setInfoid(season.id)) 
@@ -38,10 +38,10 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
                     </div>
                 ))}
                 </div>}
-            </div> } 
+            </section> } 
 
             {qinfo  
-             ?<div className='stream-info'>
+             ?<article className='stream-info'>
                 <div className="EInfo-container" >
 
                     <div className="eInfo-img">
@@ -75,7 +75,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
                     </div>
 
                   </div> 
-                </div> 
+                </article> 
             :  <div className="h-full w-full flex flex-col items-center justify-center">
                   <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} />
                   <h1>Loading...</h1>

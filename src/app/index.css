@@ -538,7 +538,7 @@ z-index: 1;
 max-height: 4rem;
 overflow: hidden;
 
-&>h4 {
+&>h2 {
 
   font-size: 1.4rem;
 }
@@ -753,14 +753,14 @@ cursor: pointer;
 }
 
 #topNum {
-background-image: linear-gradient(45deg, rgb(255, 255, 255)59%, var(--ElementColor) 86%);
+background-image: linear-gradient(45deg, rgb(255, 255, 255)59%,rgb(110, 245, 229) 86%);
 color: transparent;
 background-clip: text;
 position: relative;
-top: 1.8rem;
+top: 1.4rem;
 left: 1rem;
-font-size:1.7rem;
-margin-right: 1.5rem;
+font-size:1.9rem;
+margin-right: 2rem;
 }
 
 #Topanimeimg {
@@ -797,7 +797,7 @@ display: inline-flex;
 gap: 3rem;
 font-size: 1rem;
 
-&>h5>i {
+&>span>i {
   margin-right: 1rem;
   color:var(--ElementColor)
 }
@@ -933,7 +933,7 @@ font-size: 1rem;
   align-items: center;
 }
 
-.Title>p{
+.Title>h2{
 color:rgb(250, 247, 247);
 text-shadow: 0px 0px 10px rgb(6, 6, 6);
 font-size: 1.8rem;
@@ -1105,7 +1105,7 @@ border-radius: 0.7rem;
 background-color: rgba(0, 0, 0, .6);
 height: 1000%;
 width: 100%;
-z-index: 1;
+z-index: 5;
 position: absolute;
 display: flex;
 justify-content: center;
@@ -1398,7 +1398,7 @@ font-size: 0.8rem;
 font-weight: 600;
 color: black;
 border-radius: 4px;
-padding: 0.12rem;
+padding: 0.05rem 0.4rem;
 }
 
 #ep-info>#s1 {
@@ -1407,7 +1407,7 @@ font-size: 0.8rem;
 font-weight: 600;
 color: black;
 border-radius: 4px;
-padding: 0.12rem;
+padding: 0.05rem 0.4rem;
 }
 
 #ep-info>#s2 {
@@ -1416,7 +1416,7 @@ color: black;
 font-size: 0.8rem;
 font-weight: 600;
 border-radius: 4px;
-padding: 0.12rem;
+padding: 0.05rem 0.4rem;
 }
 
 #ep-info>#s3 {
@@ -1425,7 +1425,7 @@ font-weight: 600;
 font-size: 0.8rem;
 color: black;
 border-radius: 4px;
-padding: 0.12rem;
+padding: 0.05rem 0.4rem;
 }
 
 .Watch-btn {
