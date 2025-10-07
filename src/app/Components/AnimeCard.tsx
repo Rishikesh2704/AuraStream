@@ -111,6 +111,7 @@ export default function AnimeCard(props:propsType) {
                         loading='lazy' 
                         src={img || "/kidzoro.png"}  
                         alt={name.length>25?name.slice(1,26)+"poster":name+"poster"}
+                        unoptimized={true}
                         />
                 </div>
 
