@@ -56,7 +56,7 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
             <img id="backgroundImg" src={poster}></img>
           </div>
           <div className="Img-Container">
-            <Image id="infoimg-src" src={poster || "/kidzoro.png"} height={224} width={158}  alt=""></Image>
+            <Image id="infoimg-src" src={poster || "/kidzoro.png"} height={224} width={158}  alt="" unoptimized={true}></Image>
             <button onClick={() => handleFavorite()}>
               <i className={`fa-${Favorite} fa-star favorite`}></i>
             </button>
