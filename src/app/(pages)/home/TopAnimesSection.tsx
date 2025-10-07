@@ -78,11 +78,12 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                                     <Image 
                                        id="Topanimeimg" 
                                        alt={animes.title+"poster"}
-                                       src={animes.poster} 
+                                       src={animes.poster || "/kidzoro.png"} 
                                        loading='lazy'
                                        height={400}
                                        width={300}
                                        fetchPriority='low'
+                                       unoptimized={true}
                                        />
                                  </div>
                                  <div className="Topanimeinfo" >

@@ -78,7 +78,7 @@ export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
                   </div> 
                 </article> 
             :  <div className="h-full w-full flex flex-col items-center justify-center">
-                  <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} />
+                  <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} unoptimized={true}/>
                   <h1>Loading...</h1>
                 </div>}
 

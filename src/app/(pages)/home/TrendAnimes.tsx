@@ -113,11 +113,12 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
                                         <div className='img'>
                                             <Image 
                                               id="elementimg" 
-                                              src={anime.poster} 
+                                              src={anime.poster || "/kidzoro.png"} 
                                               height={400}
                                               width={300}
                                               loading='lazy' 
                                               alt={anime.title.length>25?anime.title.slice(1,26)+"poster":anime.title+' poster'} 
+                                              unoptimized={true}
                                             />
                                         </div>
 

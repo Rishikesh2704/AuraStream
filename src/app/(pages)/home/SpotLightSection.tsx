@@ -98,6 +98,7 @@ const SpotLightSection = ({
                     height="541"
                     alt={spotlight.title.length>25?spotlight.title.slice(1,26)+"backgroundCover":spotlight.title+" backgroundCover"}
                     loading={idx!==0?'lazy':undefined}
+                    unoptimized={true}
                   ></Image>
                 </div>
 
@@ -120,6 +121,7 @@ const SpotLightSection = ({
                         loading="eager"
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
+                        unoptimized={true}
                       />
                     }
 
