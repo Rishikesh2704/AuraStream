@@ -6,7 +6,7 @@ import { setInfoid } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
 import Loading from "@/app/loading";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function AnimeInfo({id}:{id:string | string[] | undefined}) {
