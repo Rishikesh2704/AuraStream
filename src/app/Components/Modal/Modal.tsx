@@ -63,16 +63,16 @@ export default function Modal(props:{id:string}) {
    
    return (
       <>
-      <div className="Modal-bg" onClick={(e) => handlemodal(e)}>
-         <div className="Modal-contentbox-main" ref={modalBox}>
-            <div className="Modal-contentbox">
+      <div className="Modal-bg" onClick={(e) => handlemodal(e)} aria-modal={true} role="dialog">
+         <main className="Modal-contentbox-main" ref={modalBox}>
+            <section className="Modal-contentbox">
               
               <Info aniinfo={aniinfo} id={id} firstEp = {episodes && episodes[0]}/>
 
                <EpisodeList eplist={eplist}  />
 
-            </div> 
-         </div>
+            </section> 
+         </main>
       </div>
       </>
    )

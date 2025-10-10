@@ -23,7 +23,7 @@ export default function List(props:propsType) {
   
    return (
       <>
-         <div className="Anime-List" style={
+         <article className="Anime-List" style={
             {
                overflow:next ,
                maxHeight:(name[1]==="Home"||name[1]==="")?height:" ",
@@ -34,7 +34,7 @@ export default function List(props:propsType) {
                 <AnimeCard key={ani.id} name={ani?.title}  img={ani?.poster} id={ani?.id} />
             ))}
             
-         </div>
+         </article>
       </>
    )
 }

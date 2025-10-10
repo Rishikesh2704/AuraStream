@@ -33,7 +33,7 @@ const SpotLightSection = ({
     const mediaQuery = window.matchMedia("(max-width:600px)");
     setisMobile(() => (mediaQuery?.matches ? true : false));
     if (spotlightimgContRef.current) {
-      const widthOfSpotlight = spotlightimgContRef.current.offsetWidth
+      const widthOfSpotlight = spotlightimgContRef.current.offsetWidth;
       setSliderem(widthOfSpotlight / 16);
     }
     if (data?.data?.poster) {
@@ -70,7 +70,8 @@ const SpotLightSection = ({
     <>
       {isMobile ? <MobileNavbar /> : <Navbar />}
 
-      <div className="Slider-Container">
+      <section className="Slider-Container"  role="region" >
+
         <button
           className="CoverPrevBtn"
           onClick={() => {
@@ -78,31 +79,37 @@ const SpotLightSection = ({
           }}
           aria-label="PreviousSpotlight button"
         >
-          <i className="fa-solid fa-chevron-left" role="button" aria-label="PreviousSpotlight Button"></i>
+          <i
+            className="fa-solid fa-chevron-left"
+            aria-hidden={true}
+          ></i>
         </button>
 
-        <div className="Animes-Container">
+        <section className="Animes-Container">
+
           <div className="Slide-Images" ref={grid}>
             {spotlightCoverAnimes.map((spotlight, idx: number) => (
               <div
                 className="SpotlightAnime-container"
                 ref={spotlightimgContRef}
                 key={spotlight.id + idx}
+                onClick={() => handleModal(spotlight.id)}
               >
-                <div className="Cover">
+                <figure className="Cover">
                   <div className="CoverDark"></div>
                   <Image
                     src={spotlight.poster || "/kidzoro.png"}
                     fetchPriority="high"
                     width="963"
                     height="541"
-                    alt={spotlight.title.length>25?spotlight.title.slice(1,26)+"backgroundCover":spotlight.title+" backgroundCover"}
-                    loading={idx!==0?'lazy':undefined}
+                    alt=""
+                    aria-hidden={true}
+                    loading={idx !== 0 ? "lazy" : undefined}
                     unoptimized={true}
                   ></Image>
-                </div>
+                </figure>
 
-                <div
+                <article
                   className="Cover-Info"
                   style={
                     {
@@ -110,25 +117,31 @@ const SpotLightSection = ({
                     }
                   }
                 >
-                  <div className="Title">
+                  <figure className="Title">
                     {
                       <Image
                         id="Coverimg-src"
                         width={80}
                         height={48}
                         src={animeimg[idx] || "/kidzoro.png"}
-                        alt={spotlight.title+"poster"}
+                        alt={spotlight.title + "poster"}
                         loading="eager"
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
                         unoptimized={true}
+                        tabIndex={6}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            handleModal(spotlight.id);
+                          }
+                        }}
                       />
                     }
 
-                    <h2>{spotlight.title}</h2>
-                  </div>
+                    <figcaption>{spotlight.title}</figcaption>
+                  </figure>
 
-                  <div id="ep-info">
+                  <section id="ep-info">
                     {Object.entries(spotlight.tvInfo)
                       .filter(([key]) => key !== "episodeInfo")
                       .map(([key, value], idx) => (
@@ -156,17 +169,19 @@ const SpotLightSection = ({
                         );
                       }
                     })}
-                  </div>
+                  </section>
 
-                  <span>
+                  <p>
                     {spotlight?.description.slice(0, isMobile ? 150 : 498)}
                     ...
-                  </span>
-                </div>
+                  </p>
+                </article>
               </div>
             ))}
           </div>
-        </div>
+
+        </section>
+
         <button
           className="CoverNextBtn"
           onClick={() => {
@@ -174,9 +189,13 @@ const SpotLightSection = ({
           }}
           aria-label="NextSpotlight button"
         >
-          <i className="fa-solid fa-chevron-right" role="button" aria-label="NextSpotlight Button"></i>
+          <i
+            className="fa-solid fa-chevron-right"
+            aria-hidden={true}
+          ></i>
         </button>
-      </div>
+
+      </section>
     </>
   );
 };

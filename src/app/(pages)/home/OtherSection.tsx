@@ -66,8 +66,8 @@ export default function OtherSection({
 
   return (
     <>
-      <div>
-        <div className="CName">
+      <section aria-label={`${Homeheading(keys)} Section`} >
+        <header className="CName">
           <h2>{Homeheading(keys)}</h2>
 
           {animeli.length > 10 && (
@@ -78,14 +78,15 @@ export default function OtherSection({
               className="fa-solid fa-arrow-down"
               ref={showMoreBtn}
               onClick={(e) => handleShowmore(e)}
+              aria-label="Showmore Button"
             ></i>
           )}
-        </div>
+        </header>
 
-        <div className="Result">
+        <section aria-label={`${Homeheading(keys)}`} className="Result">
           <List anime={animeli} next={showmore} height={height} />
-        </div>
-      </div>
+        </section>
+      </section>
     </>
   );
 }

@@ -13,7 +13,7 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
 
     /*********************Functions **********************/
 
-    const handleMouseOverElement = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) => {             // Hover Animation //
+    const handleMouseOverElement = (e:React.MouseEvent<HTMLElement, MouseEvent>) => {             // Hover Animation //
         let img = e.target as HTMLDivElement
         let animeimg = img.querySelector('img') as HTMLImageElement
 
@@ -32,7 +32,7 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
         e.currentTarget.style.bottom = "1rem"
     }
 
-    const handleMouseOutElement = (e:React.MouseEvent<HTMLDivElement, MouseEvent>) => {             // Hover-out Animation //
+    const handleMouseOutElement = (e:React.MouseEvent<HTMLElement, MouseEvent>) => {             // Hover-out Animation //
         let img = e.target as HTMLDivElement
         let animeimg = img?.querySelector('img') as HTMLImageElement
 
@@ -77,31 +77,29 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
 
     return (
         <>
-            <div className='CName' >
+            <header className='CName' aria-labelledby='trendH2' >
                 <h2 id="trendH2">Trending</h2>
-            </div>
+            </header>
 
-            <div className='trendingCategory' ref={trendContainer}>
+            <section className='trendingCategory'aria-label='TrendingAnimes' ref={trendContainer}>
 
-                <div className="Trending-Main" >
-                    <div className="PrevBtn" onClick={() => handlePrevSlide()}>
+                <div className="Trending-Main" tabIndex={0} >
+                    <button className="PrevBtn" aria-label='Next TrendAnimes'onClick={() => handlePrevSlide()}>
                         <i 
                             className="fa-solid fa-chevron-left" 
-                            role='button' 
-                            aria-label='Previous TrendAnimes' 
+                            aria-hidden={true}
                             onClick={() => handlePrevSlide()}></i>
-                    </div>
-                    <div className='NextBtn' onClick={() => handleNextSlide()}>
+                    </button>
+                    <button className='NextBtn' aria-label='Previous TrendAnimes' onClick={() => handleNextSlide()}>
                         <i 
                             className="fa-solid fa-chevron-right" 
-                            role='button' 
-                            aria-label='Previous TrendAnimes' 
+                            aria-hidden={true}
                             onClick={() => handleNextSlide()}></i>
-                    </div>
+                    </button>
                     <div className="trendingContainer" ref={trendContent} >
                         {animes.map((anime:animeType) => {
                             return (
-                                    <div 
+                                    <article 
                                         className="element-container" 
                                         key={anime.id} 
                                         data-label={anime.id} 
@@ -110,29 +108,35 @@ const TrendAnimes = memo((props:{animes:animeType[]}) => {
                                         onMouseOver={(e) => handleMouseOverElement(e)} 
                                         onMouseOut={(e) => handleMouseOutElement(e)} 
                                     >
-                                        <div className='img'>
-                                            <Image 
-                                              id="elementimg" 
-                                              src={anime.poster || "/kidzoro.png"} 
-                                              height={400}
-                                              width={300}
-                                              loading='lazy' 
-                                              alt={anime.title.length>25?anime.title.slice(1,26)+"poster":anime.title+' poster'} 
-                                              unoptimized={true}
-                                            />
-                                        </div>
+                                            <figure className='img' role='button' tabIndex={0}>
+                                                <Image 
+                                                id="elementimg" 
+                                                src={anime.poster || "/kidzoro.png"} 
+                                                height={400}
+                                                width={300}
+                                                loading='lazy' 
+                                                alt={anime.title.length>25?anime.title.slice(0,26)+"poster":anime.title+' poster'} 
+                                                unoptimized={true}
+                                                tabIndex={8}
+                                                onKeyDown={(e)=>{
+                                                    if(e.key == "Enter"){
+                                                        showinfo(anime.id)
+                                                    }
+                                                }}
+                                                />
+                                            </figure>
 
-                                        <div className="info" >
-                                            <h2 className="coverName">{anime.title}</h2>
-                                        </div>
+                                            <span className="info" >
+                                                <h3 className="coverName">{anime.title}</h3>
+                                            </span>
 
-                                    </div>
+                                    </article>
                             )
                         })}
                     </div>
 
                 </div>
-            </div>
+            </section>
         </>
     )
 })

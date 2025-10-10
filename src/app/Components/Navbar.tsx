@@ -62,7 +62,8 @@ export default function Navbar() {
     setshow("visible");
   };
 
-  const fetchresult = async () => {
+  const fetchresult = async (e:React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    e.preventDefault();
     if (searchkey !== " ") {
       navigate.push(`/search/${searchkey}`);
     }
@@ -87,9 +88,11 @@ export default function Navbar() {
         }}
       >
         <section className="Options">
-          <h1 className="Main-name">AuraStream</h1>
+          <header aria-labelledby="SiteName">
+           <h1 id="SiteName"className="Main-name">AuraStream</h1>
+          </header>
 
-          <ul>
+          <ul aria-label="Categories">
             <li id="category-main">
               <Link href="/" id="category" prefetch>
                 Home
@@ -105,7 +108,7 @@ export default function Navbar() {
               }}
             >
               <div className="dropdown">
-                <a className="gen-tag">Genre</a>
+                <button className="gen-tag" aria-haspopup="true" aria-expanded={show==="visible"} aria-controls="genre-list">Genre</button>
                 <div className="options" style={{ visibility: show }}>
                   <ul id="hidden">
                     {genres ? (
@@ -143,13 +146,13 @@ export default function Navbar() {
         </section>
 
         <section className="Other">
-          <div className="search" >
+          <form className="search" role="search" aria-label="Search for anime" onSubmit={(e)=> fetchresult(e)}>
             <button
               className="search-bt"
-              onClick={fetchresult}
               aria-label="Search Button"
+              type="submit"
             >
-              <i className="fa-solid fa-magnifying-glass"></i>
+              <i className="fa-solid fa-magnifying-glass" aria-hidden={true}></i>
             </button>
            <input
               className="search-input"
@@ -161,11 +164,11 @@ export default function Navbar() {
               value={searchkey}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  fetchresult();
+                  fetchresult(e);
                 }
               }}
             />
-          </div>
+          </form>
           {searchsuggestions && searchsuggestions?.length > 0 && (
             <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
           )}
@@ -176,13 +179,14 @@ export default function Navbar() {
             <button
               className="SignInBtn"
               onClick={() => dispatch(setauthModalState(true))}
+              aria-label="Sign In"
             >
               Sign In
             </button>
           )}
           {User && (
-            <button className="SignInBtn" onClick={handleSignOut}>
-              Log Out
+            <button className="SignInBtn" onClick={handleSignOut} aria-label="Sign Out">
+              Sign Out
             </button>
           )}
         </section>

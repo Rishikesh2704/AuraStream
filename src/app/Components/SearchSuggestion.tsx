@@ -17,22 +17,22 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
 
     return (
         <>
-            <div id="Suggestions">
+            <section id="Suggestions" aria-label="Search Suggestions">
                 {searchSuggestionsAnimes.map((suggestedAnime: Partial<animeType>) => (
-                    <div className="suggestedAnimes" key={suggestedAnime.id} onClick={() => showinfo(suggestedAnime.id)}>
-                        <div className="suggestedAnimeImgWrapper">
-                            <img src={suggestedAnime?.poster} loading="lazy" id="suggestedAnimeImg"></img>
-                        </div>
+                    <button className="suggestedAnimes" aria-label={`Open info for ${suggestedAnime.title}`} key={suggestedAnime.id} onClick={() => showinfo(suggestedAnime.id)}>
+                        <figure className="suggestedAnimeImgWrapper">
+                            <img src={suggestedAnime?.poster} loading="lazy" id="suggestedAnimeImg" alt={`${suggestedAnime.title} poster`}></img>
+                        </figure>
                         <div className="suggestedAnimeInfo">
                             <h4 className="SuggestedanimecoverName" >{suggestedAnime.title}</h4>
                             <span id="top10EpisodeType">
-                                <h5 id="top10Sub"><i className="fa-solid fa-closed-captioning"></i>{suggestedAnime.showType}</h5>
-                                <h5 id="top10dub"><i className="fa-solid fa-microphone"></i>{suggestedAnime.duration}</h5>
+                                <span id="top10Sub"><i className="fa-solid fa-closed-captioning" aria-hidden={true}></i>{suggestedAnime.showType}</span>
+                                <span id="top10dub"><i className="fa-solid fa-microphone" aria-hidden={true}></i>{suggestedAnime.duration}</span>
                             </span>
                         </div>
-                    </div>
+                    </button>
                 ))}
-            </div>
+            </section>
         </>
     )
 }

@@ -18,7 +18,7 @@ type propsType = {
 
 export default function Info({ aniinfo, id, firstEp }: propsType) {
   const dispatch = useAppDispatch();
-  const navigate = useRouter()
+  const navigate = useRouter();
   const watchbtnEp = firstEp?.id;
   const userId = auth.currentUser?.uid;
 
@@ -27,6 +27,7 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
   const { addFavorite, deleteFavorite, isFavorite } = useFavorites(
     userId as string
   );
+
   const [Favorite, setFavorite] = useState(
     isFavorite(id as string) ? "solid" : "regular"
   );
@@ -51,74 +52,113 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
   return (
     <>
       {aniinfo ? (
-        <div className="Info-container">
-          <div id="backgroundImgWrapper">
+        <section
+          className="Info-container"
+          aria-label={`Details about ${title}`}
+        >
+          <div id="backgroundImgWrapper" aria-hidden={true}>
             <img id="backgroundImg" src={poster}></img>
           </div>
+
           <div className="Img-Container">
-            <Image id="infoimg-src" src={poster || "/kidzoro.png"} height={224} width={158}  alt="" unoptimized={true}></Image>
-            <button onClick={() => handleFavorite()}>
-              <i className={`fa-${Favorite} fa-star favorite`}></i>
+            <Image
+              id="infoimg-src"
+              src={poster || "/kidzoro.png"}
+              height={224}
+              width={158}
+              alt={`${title} poster`}
+              unoptimized={true}
+            ></Image>
+            <button
+              onClick={() => handleFavorite()}
+              aria-label={
+                Favorite === "solid"
+                  ? "Remove from favorites"
+                  : "Add to favorites"
+              }
+              aria-pressed={Favorite === "solid"}
+            >
+              <i
+                className={`fa-${Favorite} fa-star favorite`}
+                aria-hidden={true}
+              ></i>
             </button>
           </div>
 
-          <div className="Info">
-            <p
-              onClick={() => {
-                navigate.push(`/search/${animeInfo?.title}`)
-                dispatch(setModalState(false));
-              }}
-            >
-              {title}
-            </p>
+          <article className="Info">
+            <h3>
+              <Link
+                onClick={() => dispatch(setModalState(false))}
+                href={`/search/${animeInfo?.title}`}
+                aria-label={`Search ${title}`}
+                id="title"
+              >
+                {title}
+              </Link>
+            </h3>
 
-            <div id="ep-info">
+            <section id="ep-info" aria-label="Anime stats">
               <span id="s">
                 {Status === "Finished Airing" ? (
-                  <i className="fa-solid fa-check"></i>
+                  <i className="fa-solid fa-check" aria-hidden={true}></i>
                 ) : (
-                  <i className="fa-solid fa-clock"></i>
+                  <i className="fa-solid fa-clock" aria-hidden={true}></i>
                 )}
                 {Status === "Finished Airing" ? "Completed" : "Ongoing"}
               </span>
               <span id="s1">{tvInfo?.rating}</span>
               <span id="s3">
-                <i className="fa-solid fa-microphone"></i> {tvInfo?.dub}
+                <i className="fa-solid fa-microphone" aria-hidden={true}></i>{" "}
+                {tvInfo?.dub}
               </span>
               <span id="s2">
-                <i className="fa-solid fa-closed-captioning"></i>
+                <i
+                  className="fa-solid fa-closed-captioning"
+                  aria-hidden={true}
+                ></i>
                 {tvInfo?.sub}
               </span>
-            </div>
+            </section>
 
-            <div className="genre-info">
+            <section
+              className="genre-info"
+              aria-label={`${title} anime genres`}
+            >
               {Genres?.map((genre: string, index: number) => (
                 <p id="anime-genre" key={index}>
-                  <Link href={`/genre/${genre.toLowerCase()}`}>{genre}</Link>
+                  <Link
+                    href={`/genre/${genre.toLowerCase()}`}
+                    aria-label={`Search ${genre} anime`}
+                  >
+                    {genre}
+                  </Link>
                 </p>
               ))}
-            </div>
+            </section>
 
-            <div className="Watch-desc">
+            <section
+              className="Watch-desc"
+              aria-labelledby="Description-heading"
+            >
               <Link href={`/stream/${watchbtnEp}`}>
                 <button
                   className="Watch-btn"
                   onClick={() => dispatch(setModalState(false))}
+                  aria-label={`watch ${title}`}
                 >
-                  <i className="fa-solid fa-play"></i> Watch Now
+                  <i className="fa-solid fa-play" aria-hidden={true}></i>
+                  Watch Now
                 </button>
               </Link>
-              <h4>Description</h4>
+              <h2 id="Description-heading">Description</h2>
 
               <hr />
               <div className="desc">
-                <>
-                  <span>{Overview}</span>
-                </>
+                <span>{Overview}</span>
               </div>
-            </div>
-          </div>
-        </div>
+            </section>
+          </article>
+        </section>
       ) : (
         <div className="h-full w-full flex flex-col items-center justify-center">
           <Image
@@ -131,15 +171,17 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
           <h1>Loading...</h1>
         </div>
       )}
+
       {aniinfo?.seasons && (
-        <div className="Seasonsli">
+        <section className="Seasonsli" aria-label="Seasons List">
           {aniinfo?.seasons.map((season) => (
-            <div
+            <button
               key={season.id}
               className="season"
               onClick={() => {
                 dispatch(setInfoid(season.id));
               }}
+              aria-label={`View details for ${season.title}`}
             >
               <img
                 className={`season-img ${
@@ -154,9 +196,9 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
               >
                 {season.title}
               </span>
-            </div>
+            </button>
           ))}
-        </div>
+        </section>
       )}
     </>
   );

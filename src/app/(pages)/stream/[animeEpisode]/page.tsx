@@ -1,4 +1,5 @@
-// import {useState} from 'react'
+"use client";
+import { use, useState } from "react";
 // import { useParams,useSearchParams,useNavigate } from "react-router-dom"
 // import '@vidstack/react/player/styles/default/theme.css';
 // import '@vidstack/react/player/styles/default/layouts/video.css';
@@ -8,8 +9,8 @@ import Servers from "./Servers";
 import AnimeInfo from "./AnimeInfo";
 import EpisodeList from "./EpisodeList";
 import VideoPlayer from "./VideoPlayer";
-// import { useParams, useSearchParams } from 'next/navigation';
-// import { useRouter } from 'next/navigation';
+import { useParams, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type serverType = {
   serverName: string;
@@ -20,20 +21,20 @@ type propsType = {
   searchParams: Promise<{ ep: string }>;
 };
 
-export default async function Epstream({ params, searchParams }: propsType) {
-  // const [currep, setcurrep] = useState<episodeType | undefined>()
-  // const [currserv, setcurrserv] = useState<serverType>({serverName:"HD-1",type:"sub"})
-  // const [nextep, setnextep] = useState<episodeType | undefined>()
-  // const [prevep, setprevep] = useState<episodeType | undefined>()
+export default function Epstream({ params, searchParams }: propsType) {
+  const [currep, setcurrep] = useState<episodeType | undefined>();
+  const [currserv, setcurrserv] = useState<serverType>({
+    serverName: "HD-1",
+    type: "sub",
+  });
+  const [nextep, setnextep] = useState<episodeType | undefined>();
+  const [prevep, setprevep] = useState<episodeType | undefined>();
 
-  // const animeid = useSearchParams()
-  // const  {animeEpisode:id}  = useParams();
+  const epid = use(searchParams).ep;
+  const  id = use(params).animeEpisode
 
   // let epid:string | null = animeid.get('ep');
   // let navigate = useRouter();
-
-  //    const id = (await params).animeEpisode
-  //    const epid = (await searchParams).ep
 
   // useEffect(() => {
   //   let newep = currep.number + 1
@@ -54,32 +55,29 @@ export default async function Epstream({ params, searchParams }: propsType) {
   //    if (nextep) { navigate.push(`/stream/${nextep.episodeId}`) }
   // }
 
-  const id = (await params).animeEpisode;
-  const epid = (await searchParams).ep;
+  // const id = (await params).animeEpisode;
+  // const epid = (await searchParams).ep;
 
   return (
-    <>
-      <div className="Container">
-        <div className="Stream-container">
-          <div className="Video-container">
+      <main className="Container" >
+        <section className="Stream-container" role="region">
+          <article className="Video-container">
             {
-              <div className="Ep-stream">
-                {/* <VideoPlayer id={id} epid={epid} currserv={currserv} />  */}
+              <figure className="Ep-stream">
+                <VideoPlayer id={id} epid={epid} currserv={currserv} /> 
 
-                {/* <div className='Ep-btns'>
-                     <button className="prev" onClick={handleprev}>Prev Ep</button>
-                     <button className="next" onClick={handlenext}>Next Ep</button>
-                  </div> */}
-              </div>
+                <div className='Ep-btns'>
+                     {/* <button className="prev" onClick={handleprev}>Prev Ep</button>
+                     <button className="next" onClick={handlenext}>Next Ep</button> */}
+                  </div>
+              </figure>
             }
-            <EpisodeList id={id} epid={epid} /> {/* setcurrep={setcurrep} */}
-            <Servers epid={epid} id={id} />{" "}
-            {/* currserv={currserv} setcurrserv={setcurrserv} currep={currep} */}
-          </div>
+            <EpisodeList id={id} epid={epid}  setcurrep={setcurrep}  /> 
+            <Servers epid={epid} id={id} currserv={currserv} setcurrserv={setcurrserv} currep={currep}/>{" "}
+          </article>
 
           <AnimeInfo id={id} />
-        </div>
-      </div>
-    </>
+        </section>
+      </main>
   );
 }

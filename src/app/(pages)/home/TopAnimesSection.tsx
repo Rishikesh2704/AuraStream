@@ -41,8 +41,8 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
 
 
    return (<>
-      <div className='Top10'>
-         <div className='Top10CName'  >
+      <section className='Top10' role="region">
+         <header className='Top10CName'  >
             <h2 id="Top10Tag">Top 10</h2>
             <ul id="top10">
                {Object.keys(animes).map((li, index) => (
@@ -63,18 +63,18 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                   </li>
                ))}
             </ul>
-         </div>
+         </header>
 
 
-         <div className='Result'>
+         <div className='Result' aria-label="Topanimes-list">
             {Object.entries(animes).map((t) => {
                if (t[0] === ani) {
                   return (
-                        <div className='Top10List' key={String(t[1])}>
+                        <section className='Top10List' key={String(t[1])}>
                            {t[1].map((animes:topAnimeType, index:number) => (
-                              <div className="Topanime-container" key={animes.id} onClick={() => showinfo(animes.id)} /*ref={element}*/  >
-                                 <h2 id="topNum">{+animes.number<10?animes.number.slice(1):animes.number}</h2>
-                                 <div className='Topanimeimg-wrapper' >
+                              <section className="Topanime-container" key={animes.id} onClick={() => showinfo(animes.id)} /*ref={element}*/  >
+                                 <span id="topNum">{+animes.number<10?animes.number.slice(1):animes.number}</span>
+                                 <figure className='Topanimeimg-wrapper' >
                                     <Image 
                                        id="Topanimeimg" 
                                        alt={animes.title+"poster"}
@@ -85,24 +85,24 @@ const TopAnimesSection = memo((props:{animes:propsType}) => {
                                        fetchPriority='low'
                                        unoptimized={true}
                                        />
-                                 </div>
-                                 <div className="Topanimeinfo" >
+                                 </figure>
+                                 <article className="Topanimeinfo" >
                                     <h2 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h2>
                                     <span id="top10EpisodeType">
                                        <span id="top10Sub"><i className="fa-solid fa-closed-captioning"></i>{animes.tvInfo.sub}</span>
                                        {animes.tvInfo.dub&&<span id="top10dub"><i className="fa-solid fa-microphone"></i>{animes.tvInfo.dub}</span>}
                                     </span>
-                                 </div>
-                              </div>
+                                 </article>
+                              </section>
                            )
                            )
                            }
-                        </div>
+                        </section>
                   )
                }
             })}
          </div>
-      </div>
+      </section>
    </>
    )
 })

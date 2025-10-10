@@ -46,13 +46,13 @@ export default function Home() {
     if(!ReduxHome) return null
 
    return (
-      <main>
+      <main tabIndex={0}>
         { Object.entries(ReduxHome).map(([key, value]) => {
             if (key === "spotlights") return (<SpotLightSection key={key} spotlightCoverAnimes={value as spotlightAnimeTypes[]} />)
          })}
 
         
-            <section className='Home'  >
+            <section className='Home' >
                { Object.entries(ReduxHome).map(([key, value]) => {
 
                   if (key === 'trending') return (<TrendAnimes key={key + 1} animes={value as animeType[]} />)
