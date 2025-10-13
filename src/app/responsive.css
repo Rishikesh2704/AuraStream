@@ -11,6 +11,15 @@
   width: 8rem;
 }
 
+.Suggestions {
+  height: 20rem;
+  width: 15.29rem;
+  background-color: rgb(57, 60, 61);
+  position: absolute;
+  right: 2.1rem;
+  top: 2.1rem;
+}
+
 .Animes-Container {
     height: 46rem;
     width: 100vw;

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useHomeQuery, useSearchSuggestionsQuery } from "@/Redux/Fetchslice";
-import { setauthModalState, } from "@/Redux/StateSlice";
+import { setauthModalState } from "@/Redux/StateSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
 import SearchSuggestion from "./SearchSuggestion";
@@ -12,6 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [searchkey, setsearchkey] = useState("");
+  const [isFocused, setIsfocused] = useState(false);
   const [genres, setgenres] = useState<any>([]);
   const [User, setUser] = useState<User | null>(auth.currentUser);
   const [show, setshow] = useState<"hidden" | "visible" | undefined>("hidden");
@@ -62,7 +63,9 @@ export default function Navbar() {
     setshow("visible");
   };
 
-  const fetchresult = async (e:React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>) => {
+  const fetchresult = async (
+    e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>
+  ) => {
     e.preventDefault();
     if (searchkey !== " ") {
       navigate.push(`/search/${searchkey}`);
@@ -89,7 +92,9 @@ export default function Navbar() {
       >
         <section className="Options">
           <header aria-labelledby="SiteName">
-           <h1 id="SiteName"className="Main-name">AuraStream</h1>
+            <h1 id="SiteName" className="Main-name">
+              AuraStream
+            </h1>
           </header>
 
           <ul aria-label="Categories">
@@ -108,7 +113,14 @@ export default function Navbar() {
               }}
             >
               <div className="dropdown">
-                <button className="gen-tag" aria-haspopup="true" aria-expanded={show==="visible"} aria-controls="genre-list">Genre</button>
+                <button
+                  className="gen-tag"
+                  aria-haspopup="true"
+                  aria-expanded={show === "visible"}
+                  aria-controls="genre-list"
+                >
+                  Genre
+                </button>
                 <div className="options" style={{ visibility: show }}>
                   <ul id="hidden">
                     {genres ? (
@@ -146,15 +158,23 @@ export default function Navbar() {
         </section>
 
         <section className="Other">
-          <form className="search" role="search" aria-label="Search for anime" onSubmit={(e)=> fetchresult(e)}>
+          <form
+            className="search"
+            role="search"
+            aria-label="Search for anime"
+            onSubmit={(e) => fetchresult(e)}
+          >
             <button
               className="search-bt"
               aria-label="Search Button"
               type="submit"
             >
-              <i className="fa-solid fa-magnifying-glass" aria-hidden={true}></i>
+              <i
+                className="fa-solid fa-magnifying-glass"
+                aria-hidden={true}
+              ></i>
             </button>
-           <input
+            <input
               className="search-input"
               name="search-input"
               type="text"
@@ -167,9 +187,15 @@ export default function Navbar() {
                   fetchresult(e);
                 }
               }}
+              onFocus={() => {
+                setIsfocused(true);
+              }}
+              onBlur={() => {
+                setIsfocused(false);
+              }}
             />
           </form>
-          {searchsuggestions && searchsuggestions?.length > 0 && (
+          {isFocused && searchsuggestions && searchsuggestions?.length > 0 && (
             <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
           )}
         </section>
@@ -185,7 +211,11 @@ export default function Navbar() {
             </button>
           )}
           {User && (
-            <button className="SignInBtn" onClick={handleSignOut} aria-label="Sign Out">
+            <button
+              className="SignInBtn"
+              onClick={handleSignOut}
+              aria-label="Sign Out"
+            >
               Sign Out
             </button>
           )}

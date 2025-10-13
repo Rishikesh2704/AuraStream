@@ -8,6 +8,7 @@ import { setInfoid, setModalState } from "../../../Redux/StateSlice";
 import MobileNavbar from "@/app/Mobile/MobileNavbar";
 import { useAppDispatch } from "../../../Redux/hooks";
 import Image from "next/image";
+import Link from "next/link";
 
 const SpotLightSection = ({
   spotlightCoverAnimes,
@@ -40,6 +41,7 @@ const SpotLightSection = ({
       setanimeimg((prev) => [...prev, data.data.poster]);
       if (currentindx <= id.length) setcurrentindx((prev) => prev + 1);
     }
+    console.log(data)
   }, [data]);
 
   const handleNextCover = () => {
@@ -70,8 +72,7 @@ const SpotLightSection = ({
     <>
       {isMobile ? <MobileNavbar /> : <Navbar />}
 
-      <section className="Slider-Container"  role="region" >
-
+      <section className="Slider-Container" role="region">
         <button
           className="CoverPrevBtn"
           onClick={() => {
@@ -79,14 +80,10 @@ const SpotLightSection = ({
           }}
           aria-label="PreviousSpotlight button"
         >
-          <i
-            className="fa-solid fa-chevron-left"
-            aria-hidden={true}
-          ></i>
+          <i className="fa-solid fa-chevron-left" aria-hidden={true}></i>
         </button>
 
         <section className="Animes-Container">
-
           <div className="Slide-Images" ref={grid}>
             {spotlightCoverAnimes.map((spotlight, idx: number) => (
               <div
@@ -104,8 +101,14 @@ const SpotLightSection = ({
                     height="541"
                     alt=""
                     aria-hidden={true}
-                    loading={idx !== 0 ? "lazy" : undefined}
+                    loading={idx !== 0 ? "lazy" : "eager"}
                     unoptimized={true}
+                    tabIndex={6}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleModal(spotlight.id);
+                      }
+                    }}
                   ></Image>
                 </figure>
 
@@ -129,7 +132,6 @@ const SpotLightSection = ({
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
                         unoptimized={true}
-                        tabIndex={6}
                         onKeyDown={(e) => {
                           if (e.key === "Enter") {
                             handleModal(spotlight.id);
@@ -138,38 +140,41 @@ const SpotLightSection = ({
                       />
                     }
 
-                    <figcaption>{spotlight.title}</figcaption>
+                    <section id="ep-info">
+                     
+                      <figcaption>{spotlight.title}</figcaption>
+                      {Object.entries(spotlight.tvInfo)
+                        .filter(([key]) => key !== "episodeInfo")
+                        .map(([key, value], idx) => (
+                          <span id="Cover" key={idx + 1}>
+                            {value as string}
+                          </span>
+                        ))}
+
+                      {Object.entries(spotlight.tvInfo).map((info) => {
+                        if (info[0] === "episodeInfo") {
+                          return Object.entries(info[1]).map(
+                            (ep, idx) =>
+                              ep[1] && (
+                                <span id="Cover" key={idx + 1}>
+                                  <i
+                                    className={
+                                      ep[0] === "sub"
+                                        ? "fa-solid fa-closed-captioning"
+                                        : "fa-solid fa-microphone"
+                                    }
+                                  />{" "}
+                                  {ep[1]}
+                                </span>
+                              )
+                          );
+                        }
+                      })}
+                     
+                    </section>
+
+                    
                   </figure>
-
-                  <section id="ep-info">
-                    {Object.entries(spotlight.tvInfo)
-                      .filter(([key]) => key !== "episodeInfo")
-                      .map(([key, value], idx) => (
-                        <span id="Cover" key={idx + 1}>
-                          {value as string}
-                        </span>
-                      ))}
-
-                    {Object.entries(spotlight.tvInfo).map((info) => {
-                      if (info[0] === "episodeInfo") {
-                        return Object.entries(info[1]).map(
-                          (ep, idx) =>
-                            ep[1] && (
-                              <span id="Cover" key={idx + 1}>
-                                <i
-                                  className={
-                                    ep[0] === "sub"
-                                      ? "fa-solid fa-closed-captioning"
-                                      : "fa-solid fa-microphone"
-                                  }
-                                />{" "}
-                                {ep[1]}
-                              </span>
-                            )
-                        );
-                      }
-                    })}
-                  </section>
 
                   <p>
                     {spotlight?.description.slice(0, isMobile ? 150 : 498)}
@@ -179,7 +184,6 @@ const SpotLightSection = ({
               </div>
             ))}
           </div>
-
         </section>
 
         <button
@@ -189,12 +193,8 @@ const SpotLightSection = ({
           }}
           aria-label="NextSpotlight button"
         >
-          <i
-            className="fa-solid fa-chevron-right"
-            aria-hidden={true}
-          ></i>
+          <i className="fa-solid fa-chevron-right" aria-hidden={true}></i>
         </button>
-
       </section>
     </>
   );

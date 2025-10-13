@@ -88,8 +88,10 @@ li {
   flex-direction: row-reverse;
   gap: 1rem;
   right: 1rem;
-  background-color: rgb(224, 226, 225);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   margin-right: 2rem;
+  /* border:2px solid #000000; */
   border-radius: 5px;
 }
 
@@ -97,18 +99,19 @@ li {
   width: 242px;
   font-size: 1rem;
   padding: 0.3rem 1.2rem;
-  background-color: rgb(224, 226, 225);
+  background-color: transparent;
   border: 0.4px solid gray;
   border-radius: 0.79rem;
   border: none;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .search-input:focus {
-  outline: black;
+  background-color: transparent;
+  outline: none;
 }
 .search-input::placeholder {
-  color: black;
+  color: rgb(240, 240, 240);
 }
 
 .search-bt {
@@ -117,9 +120,9 @@ li {
   cursor: pointer;
   border-style: none;
   border-radius: 5px;
-  background-color: rgb(224, 226, 225);
+  background-color: transparent;
   transition: 0.2s ease-out;
-  color: black;
+  color: rgb(218, 218, 218);
 
   &:hover {
     color: var(--ElementColor);
@@ -127,7 +130,7 @@ li {
   }
 }
 
-#Suggestions {
+.Suggestions {
   height: 30rem;
   width: 19.29rem;
   background-color: rgb(57, 60, 61);
@@ -915,13 +918,12 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   gap: 2rem;
   z-index: 2;
   position: absolute;
-  left: 7.5%;
-  top: 6rem;
+  left: 10.8%;
+  top: 9.5rem;
 }
 
-.Cover-Info > #ep-info > p {
+.Cover-Info > p {
   font-weight: 500;
-  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
 }
 
 .Cover-Info > span {
@@ -933,16 +935,23 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 .Title {
   word-wrap: break-word;
   text-align: center;
-  width: 25rem;
+  width: 28rem;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  gap: 0.8rem;
   align-items: center;
 }
 
-.Title > figcaption {
+.Title > #ep-info > figcaption {
+  /* font-family: "Playful fair"; */
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  word-spacing: 0.1rem;
   color: rgb(250, 247, 247);
   text-shadow: 0px 0px 10px rgb(6, 6, 6);
-  font-size: 1.2rem;
+  text-shadow: 0px 0px 6px rgb(0, 255, 225);
 }
 
 .Title > #Coverimg-src {
@@ -951,6 +960,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   border-radius: 10px;
   box-shadow: 4px 4px 10px 2px black;
   cursor: pointer;
+  border: 1px solid white;
 }
 
 .CoverDark {
@@ -972,12 +982,12 @@ right: 18rem;
 } */
 
 #Cover {
-  background-color: var(--ElementColor);
+  background-color:rgb(30, 236, 219);
   font-size: 0.8rem;
-  font-weight: bold;
+  font-weight: 700;
   color: black;
   border-radius: 4px;
-  padding: 0.12rem;
+  padding: 0.08rem 0.14rem;
 }
 
 /*Anime Elements */
@@ -1320,7 +1330,7 @@ color: white;
   gap: 1rem;
 }
 
-.Info >h3> #title {
+.Info > h3 > #title {
   transform: translate(-0.4rem, -1rem);
   font-size: 1.2rem;
   font-weight: 500;

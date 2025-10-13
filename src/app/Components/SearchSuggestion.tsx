@@ -11,13 +11,12 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
 
     const showinfo = (id:string|undefined) => {
         dispatch(setModalState(true))
-        let modal = document.getElementsByClassName('Modal-contentbox')
+        // let modal = document.getElementsByClassName('Modal-contentbox')
         dispatch(setInfoid(id))
     }
-
+     console.log(searchSuggestionsAnimes)
     return (
-        <>
-            <section id="Suggestions" aria-label="Search Suggestions">
+            <section className="Suggestions toggle" aria-label="Search Suggestions">
                 {searchSuggestionsAnimes.map((suggestedAnime: Partial<animeType>) => (
                     <button className="suggestedAnimes" aria-label={`Open info for ${suggestedAnime.title}`} key={suggestedAnime.id} onClick={() => showinfo(suggestedAnime.id)}>
                         <figure className="suggestedAnimeImgWrapper">
@@ -33,7 +32,6 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
                     </button>
                 ))}
             </section>
-        </>
     )
 }
 

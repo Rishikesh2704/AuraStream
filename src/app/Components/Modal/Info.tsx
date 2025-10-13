@@ -89,7 +89,7 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
             <h3>
               <Link
                 onClick={() => dispatch(setModalState(false))}
-                href={`/search/${animeInfo?.title}`}
+                href={`/search/${title}`}
                 aria-label={`Search ${title}`}
                 id="title"
               >
