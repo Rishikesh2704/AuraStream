@@ -97,6 +97,7 @@ const SpotLightSection = ({
                   <Image
                     src={spotlight.poster || "/kidzoro.png"}
                     fetchPriority="high"
+                    priority
                     width="963"
                     height="541"
                     alt=""

@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Project Overview
 
-## Getting Started
+Aurastream is a responsive and robust anime streaming web application built using  _Nextjs_. It includes user Authentication, dynamic anime details and smooth UI animation for good user Experience 
 
-First, run the development server:
+**Live Demo**:[https://aurastreams.vercel.app/](https://aurastreams.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Note :** The episodes don't work
+
+## Screenshots
+
+### Homepage
+
+  <p align="center">
+    <img src='/screenshots/Heropage.png'>
+ </p>
+
+### Anime Details
+
+  <p align="center">
+    <img src='/screenshots/AnimeInfo Modal.png'>
+ </p>
+
+### Episode Streampage
+
+  <p align="center">
+    <img src='/screenshots/AnimeEpisode StreamPage.png'>
+ </p>
+
+## Features
+
+- Anime Details shown in modal
+- Multiple server for episodes
+- Infinite Scroll feature for pagination
+- Google Authentication
+- Favorites page feature to store favorite anime of the user
+
+## How It's Made
+
+**Techstack**: _Nextjs_, _Redux_, _RTK Query_, _Firebase_
+
+I used Nextjs to leverage _SSR_, _Image optimization_, _Font optimization_ and _Routing_ features. Used RTK query for api calls, caching, hydration of the data, Redux for state management. Integrated Firebase for user Authentication. Created modal component for anime details and infinite scroll feature for better user experience.It uses animation on interaction to create smooth user experience
+
+## Optimization
+
+ <p align="center">
+    <img src='/screenshots/Lighthouse Score.png'>
+ </p>
+
+**Performance Improved :** From **49 -> 90+** (Lighthouse)
+
+**Techniques Used :**
+
+ + SSR for homepage along with Redux hydration improve FCP
+ + Priority attribute to Main Image 
+ + Defined width and height of Images to reduce layoutShifts.
+ + Preload and defer for 3rd party library. 
+ + Lazy loaded the components below the page fold.
+ + Followed best practices to improve performance
+
+## Installation & Usage
+
 ```
+ git clone https://github.com/Rishikesh2704/AnimeApp.git
+ cd AnimeApp
+ npm install
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ npm run dev
+```
