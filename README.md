@@ -2,9 +2,9 @@
 
 Aurastream is a responsive and robust anime streaming web application built using  _Nextjs_. It includes user Authentication, dynamic anime details and smooth UI animation for good user Experience 
 
-**Live Demo :** [https://aurastreams.vercel.app/](https://aurastreams.vercel.app/)
+**Live Demo:** [https://aurastreams.vercel.app/](https://aurastreams.vercel.app/)
  
-[!Note] : The episodes don't work
+ > ⚠️**Note:** The episodes don't work
 
 ## Screenshots
 
