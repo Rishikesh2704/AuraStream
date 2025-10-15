@@ -97,7 +97,7 @@ const SpotLightSection = ({
                   <Image
                     src={spotlight.poster || "/kidzoro.png"}
                     fetchPriority="high"
-                    priority
+                    priority={idx !== 0 ? false : true }
                     width="963"
                     height="541"
                     alt=""
@@ -133,7 +133,7 @@ const SpotLightSection = ({
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
                         unoptimized={true}
-                        onKeyDown={(e) => {
+                        onKeyDown={(e) => { 
                           if (e.key === "Enter") {
                             handleModal(spotlight.id);
                           }
