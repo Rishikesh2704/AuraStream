@@ -6,6 +6,7 @@ import ListLayout from '@/app/Components/ListLayout';
 import { useAppSelector } from '@/Redux/hooks';
 import { skipToken } from '@reduxjs/toolkit/query';
 import { useParams, usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 
 
 
@@ -69,9 +70,19 @@ export default function search() {
         return () => { }
     }, [isLoading])
 
+    if(isLoading){
+        return(
+         <div className="h-[100vh] w-[97vw] flex flex-col items-center justify-center">
+              <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} />
+              <h1>Loading...</h1>
+        </div>
+        )
+
+    }
+
     return (
         <main> 
-            <ListLayout Animes={Search} heading="Search Results" />
+            <ListLayout Animes={Search} heading="Search Results" isLoading={isLoading} />
             {modalState &&<Modal id={infoid}/>}
         </main>
     )

@@ -41,7 +41,6 @@ const SpotLightSection = ({
       setanimeimg((prev) => [...prev, data.data.poster]);
       if (currentindx <= id.length) setcurrentindx((prev) => prev + 1);
     }
-    console.log(data)
   }, [data]);
 
   const handleNextCover = () => {
