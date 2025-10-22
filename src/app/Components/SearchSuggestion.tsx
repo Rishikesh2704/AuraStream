@@ -23,10 +23,10 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
                             <img src={suggestedAnime?.poster} loading="lazy" id="suggestedAnimeImg" alt={`${suggestedAnime.title} poster`}></img>
                         </figure>
                         <div className="suggestedAnimeInfo">
-                            <h4 className="SuggestedanimecoverName" >{suggestedAnime.title}</h4>
-                            <span id="top10EpisodeType">
-                                <span id="top10Sub"><i className="fa-solid fa-closed-captioning" aria-hidden={true}></i>{suggestedAnime.showType}</span>
-                                <span id="top10dub"><i className="fa-solid fa-microphone" aria-hidden={true}></i>{suggestedAnime.duration}</span>
+                            <h4 className="SuggestedanimecoverName" >{suggestedAnime.title&&suggestedAnime.title?.length>=25?suggestedAnime.title.slice(0,30)+"...":suggestedAnime.title}</h4>
+                            <span id="SuggestionEpisodeType">
+                                <span id="SuggestionSub"><i className="fa-solid fa-closed-captioning" aria-hidden={true}></i>{suggestedAnime.showType}</span>
+                                <span id="SuggestionDub"><i className="fa-solid fa-clock" aria-hidden={true}></i>{suggestedAnime.duration}</span>
                             </span>
                         </div>
                     </button>

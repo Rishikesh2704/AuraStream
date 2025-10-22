@@ -10,7 +10,7 @@
 
   .Suggestions {
     height: 20rem;
-    width: 14.8rem;
+    width: inherit;
     background-color: #060606;
     position: absolute;
     right: 0.55rem;
@@ -20,13 +20,12 @@
   }
 
   .SuggestedanimecoverName {
-    width: 10rem;
     font-size: 0.7rem;
   }
 
-  #top10EpisodeType {
-    font-size: 0.8rem;
-    gap: 1rem;
+  #SuggestionEpisodeType {
+    font-size: 0.6rem;
+    gap: 0.6rem;
   }
 
   .Animes-Container {
@@ -188,6 +187,23 @@
   .desc > h4 {
     font-size: 0.85rem;
     margin-bottom: 0rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {
+  .Other {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 70%;
+    max-height: 23rem;
+    padding-right: 0.1rem;
+    display: flex;
+    position: relative;
+    overflow: visible;
+  }
+  .search {
+    width: 70%;
   }
 }
 
@@ -737,7 +753,7 @@
 
   .Info > h3 > #title {
     font-size: 1rem;
-}
+  }
 
   .Watch-btn {
     left: 0.6rem;

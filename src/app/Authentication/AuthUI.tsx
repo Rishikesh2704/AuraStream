@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "../../Redux/hooks";
 import { setauthModalState } from "../../Redux/StateSlice";
 import {
@@ -15,6 +15,16 @@ export default function AuhtUI() {
   const [password, setPassword] = useState<string>("");
   const authContentBox = useRef<HTMLElement>(null);
   const dispatch = useAppDispatch();
+
+   useEffect(() => {
+  
+        let body = document.getElementsByTagName('body')[0]
+        body.style.setProperty('--homescroll','hidden')
+  
+        return ()=>{
+           body.style.setProperty('--homescroll','scroll')
+        }
+      },[auth?.currentUser?.uid]);
 
   const handlemodal = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     const target = e.target as HTMLDivElement;

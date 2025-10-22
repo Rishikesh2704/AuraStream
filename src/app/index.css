@@ -133,7 +133,7 @@ li {
 .Suggestions {
   height: 30rem;
   width: 19.29rem;
-  background-color: rgb(57, 60, 61);
+  background-color: #060606;
   position: absolute;
   right: 2.1rem;
   top: 2.1rem;
@@ -141,13 +141,19 @@ li {
 
 .suggestedAnimes {
   height: 6rem;
-  width: 19.28rem;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   background-color: #060606;
   gap: 0.5rem;
   position: relative;
   color: white;
+  transition: 0.2s ease-out;
+}
+
+.suggestedAnimes:hover{
+  background-color: #191717;
+
 }
 
 .suggestedAnimeImgWrapper {
@@ -158,10 +164,11 @@ li {
   border-radius: 0.7rem;
   transition: 2s ease-out;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 #suggestedAnimeImg {
-  height: 5rem;
+  height: 4.4rem;
   width: 3rem;
   border-radius: 0.7rem;
   z-index: 1;
@@ -180,8 +187,23 @@ li {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   & > span > h5 {
     font-size: 0.7rem;
+  }
+}
+
+#SuggestionEpisodeType {
+  gap: 1rem;
+  font-size: 0.8rem;
+  display: inline-flex;
+  width: inherit;
+}
+
+#SuggestionSub,#SuggestionDub{
+  & > i {
+    margin-right: 0.2rem;
+    color: var(--ElementColor);
   }
 }
 
@@ -325,11 +347,17 @@ ul > hr {
   background-color: #d4d1c9;
 }
 
+
+
+
 .Result {
   height: auto;
   margin: 0.5rem 1.5rem 1.75rem 0rem;
   transition: 0.3s ease-in-out;
+
 }
+
+
 
 .CName {
   width: fit-content;
@@ -504,6 +532,7 @@ ul > hr {
   transition: 0.2s ease-out;
   right: 0rem;
   border-radius: 1.3rem;
+  transform: scale(0.8);
 }
 
 .trendingContainer::-webkit-scrollbar {
@@ -886,6 +915,48 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 }
 
 /*linear-gradient(0deg, rgb(7,7,7) 0%, rgba(68, 68, 68, 0) 15%)*/
+@keyframes spotlightPosterAnimation {
+  0%{
+    transform:translateX(-5rem);
+    opacity:0
+  }
+  70%{
+    opacity:0.5
+  }
+  100%{
+    transform:translateX(0rem);
+    opacity:1
+  }
+}
+
+@keyframes spotlightTitleAnimation {
+  0%{
+    transform:translateX(5rem);
+    opacity:0
+  }
+  70%{
+    opacity:0.5
+  }
+  100%{
+    transform:translateX(0rem);
+    opacity:1
+  }
+}
+
+@keyframes spotlightDescriptionAnimation {
+  0%{
+    transform:translateY(5rem);
+    opacity:0
+  }
+  70%{
+    opacity:0.5
+  }
+  100%{
+    transform:translateY(0rem);
+    opacity:1
+  }
+}
+
 
 .SpotlightAnime-container {
   height: 100%;
@@ -924,6 +995,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 
 .Cover-Info > p {
   font-weight: 500;
+  animation:spotlightDescriptionAnimation 0.4s ease-in;
 }
 
 .Cover-Info > span {
@@ -942,6 +1014,8 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   align-items: center;
 }
 
+
+
 .Title > #ep-info > figcaption {
   /* font-family: "Playful fair"; */
   font-size: 1.6rem;
@@ -951,7 +1025,11 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   word-spacing: 0.1rem;
   color: rgb(250, 247, 247);
   text-shadow: 0px 0px 4px rgb(114, 246, 230);
+  animation: spotlightTitleAnimation 0.4s ease-in
 }
+
+
+
 
 .Title > #Coverimg-src {
   height: 18rem;
@@ -960,6 +1038,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   box-shadow: 4px 4px 10px 2px black;
   cursor: pointer;
   border: 1px solid white;
+  animation:spotlightPosterAnimation 0.4s ease-in
 }
 
 .CoverDark {
@@ -981,15 +1060,20 @@ right: 18rem;
 } */
 
 #Cover {
-  background-color:rgb(30, 236, 219);
+  background-color: rgb(30, 236, 219);
   font-size: 0.8rem;
   font-weight: 700;
   color: black;
   border-radius: 4px;
   padding: 0.08rem 0.14rem;
+  animation:spotlightTitleAnimation 0.4s ease-in
+
 }
 
 /*Anime Elements */
+
+
+
 
 .element-container {
   height: 15rem;
@@ -1003,7 +1087,7 @@ right: 18rem;
   bottom: 0rem;
   border-radius: 0.8rem;
   box-shadow: 0px 0px 45px 12px rgb(18, 18, 18) inset;
-  transform: rotate(0) scale(var(--size, 0.8));
+  /* transform: rotate(0) scale(var(--size, 1)); */
   overflow: hidden;
   transition: 0.2s ease-out;
 }

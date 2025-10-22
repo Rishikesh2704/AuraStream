@@ -75,11 +75,12 @@ export default function GenreAnimePage() {
       }
     }
     return () => {};
-  }, [isLoading, currgen]);
+  }, []);
 
 
   return (
     <main>
+
       <ListLayout Animes={Genre} heading={currgen} isLoading={isLoading} />
       {modalState && <Modal id={infoid} />}
     </main>

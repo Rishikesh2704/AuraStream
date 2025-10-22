@@ -21,6 +21,7 @@ const SpotLightSection = ({
   const [currentindx, setcurrentindx] = useState(0);
   const [isMobile, setisMobile] = useState(false);
 
+  const spotlightAnimeRef = useRef<HTMLElement>(null)
   const grid = useRef<HTMLDivElement>(null);
   const spotlightimgContRef = useRef<HTMLDivElement>(null);
 
@@ -42,6 +43,7 @@ const SpotLightSection = ({
       if (currentindx <= id.length) setcurrentindx((prev) => prev + 1);
     }
   }, [data]);
+
 
   const handleNextCover = () => {
     if (currentrem.current < sliderem * 7) {
@@ -120,7 +122,7 @@ const SpotLightSection = ({
                     }
                   }
                 >
-                  <figure className="Title">
+                  <figure className="Title" ref={spotlightAnimeRef}>
                     {
                       <Image
                         id="Coverimg-src"

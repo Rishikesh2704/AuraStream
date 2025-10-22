@@ -47,42 +47,42 @@ export default function AnimeCard(props: propsType) {
     e.currentTarget.style.bottom = "1rem";
   };
 
-  useEffect(() => {
-    let elementC = element.current as HTMLDivElement;
+  // useEffect(() => {
+  //   let elementC = element.current as HTMLDivElement;
 
-    if (elementC && (page[1] === "genre" || page[1] === "search")) {
-      if (
-        elementC?.getBoundingClientRect().bottom >= 0 &&
-        elementC?.getBoundingClientRect().bottom <=
-          window.innerHeight + elementC?.getBoundingClientRect().width
-      ) {
-        elementC.style.setProperty("--size", "scale(1)");
-      }
-      window.addEventListener("scroll", () => {
-        if (
-          elementC?.getBoundingClientRect().bottom >= 0 &&
-          elementC?.getBoundingClientRect().bottom <=
-            window.innerHeight + elementC?.getBoundingClientRect().width
-        ) {
-          elementC.style.setProperty("--size", "scale(1)");
-        }
-      });
-    } else {
-      elementC.style.setProperty("--size", "scale(1)");
-    }
+  //   if (elementC && (page[1] === "genre" || page[1] === "search")) {
+  //     if (
+  //       elementC?.getBoundingClientRect().bottom >= 0 &&
+  //       elementC?.getBoundingClientRect().bottom <=
+  //         window.innerHeight + elementC?.getBoundingClientRect().width
+  //     ) {
+  //       elementC.style.setProperty("--size", "scale(1)");
+  //     }
+  //     window.addEventListener("scroll", () => {
+  //       if (
+  //         elementC?.getBoundingClientRect().bottom >= 0 &&
+  //         elementC?.getBoundingClientRect().bottom <=
+  //           window.innerHeight + elementC?.getBoundingClientRect().width
+  //       ) {
+  //         elementC.style.setProperty("--size", "scale(1)");
+  //       }
+  //     });
+  //   } else {
+  //     elementC.style.setProperty("--size", "scale(1)");
+  //   }
 
-    return () => {
-      window.removeEventListener("scroll", () => {
-        if (
-          elementC?.getBoundingClientRect().bottom >= 0 &&
-          elementC?.getBoundingClientRect().bottom <=
-            window.innerHeight + elementC?.getBoundingClientRect().width
-        ) {
-          elementC.style.transform = "scale(1)";
-        }
-      });
-    };
-  });
+  //   return () => {
+  //     window.removeEventListener("scroll", () => {
+  //       if (
+  //         elementC?.getBoundingClientRect().bottom >= 0 &&
+  //         elementC?.getBoundingClientRect().bottom <=
+  //           window.innerHeight + elementC?.getBoundingClientRect().width
+  //       ) {
+  //         elementC.style.transform = "scale(1)";
+  //       }
+  //     });
+  //   };
+  // });
 
   useEffect(() => {
     let animeContainer = document.querySelectorAll(
