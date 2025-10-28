@@ -195,7 +195,7 @@ export default function Navbar() {
               }}
             />
           </form>
-          { isFocused&&searchsuggestions && searchsuggestions?.length > 0 && (
+          {isFocused && searchsuggestions && searchsuggestions?.length > 0 && (
             <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
           )}
         </section>

@@ -1,6 +1,6 @@
 'use client'
 import { useAppDispatch } from "@/Redux/hooks"
-import { setInfoid, setModalState } from "@/Redux/StateSlice"
+import { setInfoid, setModalState } from "../../Redux/StateSlice";
 
 type propsType ={
     searchSuggestionsAnimes:Partial<animeType>[]
@@ -11,14 +11,12 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
 
     const showinfo = (id:string|undefined) => {
         dispatch(setModalState(true))
-        // let modal = document.getElementsByClassName('Modal-contentbox')
         dispatch(setInfoid(id))
     }
-     console.log(searchSuggestionsAnimes)
     return (
             <section className="Suggestions toggle" aria-label="Search Suggestions">
                 {searchSuggestionsAnimes.map((suggestedAnime: Partial<animeType>) => (
-                    <button className="suggestedAnimes" aria-label={`Open info for ${suggestedAnime.title}`} key={suggestedAnime.id} onClick={() => showinfo(suggestedAnime.id)}>
+                    <button className="suggestedAnimes"  onMouseDown={()=>showinfo(suggestedAnime.id)}  aria-label={`Open info for ${suggestedAnime.title}`} key={suggestedAnime.id}>
                         <figure className="suggestedAnimeImgWrapper">
                             <img src={suggestedAnime?.poster} loading="lazy" id="suggestedAnimeImg" alt={`${suggestedAnime.title} poster`}></img>
                         </figure>

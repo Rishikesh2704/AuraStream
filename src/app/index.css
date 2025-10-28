@@ -995,7 +995,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 
 .Cover-Info > p {
   font-weight: 500;
-  animation:spotlightDescriptionAnimation 0.4s ease-in;
+  animation:spotlightDescriptionAnimation 0.4s ease-out;
 }
 
 .Cover-Info > span {
@@ -1016,6 +1016,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 
 
 
+
 .Title > #ep-info > figcaption {
   /* font-family: "Playful fair"; */
   font-size: 1.6rem;
@@ -1025,7 +1026,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   word-spacing: 0.1rem;
   color: rgb(250, 247, 247);
   text-shadow: 0px 0px 4px rgb(114, 246, 230);
-  animation: spotlightTitleAnimation 0.4s ease-in
+  animation: spotlightTitleAnimation 0.4s ease-out
 }
 
 
@@ -1038,7 +1039,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   box-shadow: 4px 4px 10px 2px black;
   cursor: pointer;
   border: 1px solid white;
-  animation:spotlightPosterAnimation 0.4s ease-in
+  animation:spotlightPosterAnimation 0.4s ease-out
 }
 
 .CoverDark {
@@ -1066,7 +1067,7 @@ right: 18rem;
   color: black;
   border-radius: 4px;
   padding: 0.08rem 0.14rem;
-  animation:spotlightTitleAnimation 0.4s ease-in
+  animation:spotlightTitleAnimation 0.4s ease-out
 
 }
 
