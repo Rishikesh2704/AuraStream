@@ -209,6 +209,10 @@
   .search {
     width: 70%;
   }
+
+  .Top10 {
+    order: 1;
+  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -347,6 +351,10 @@
 
   .Cover-Info > p {
     font-size: 0.5rem;
+  }
+
+  .Top10 {
+    order: 1;
   }
 
   .CName > h2 {
@@ -716,7 +724,9 @@
   .Home {
     left: 0.5rem;
   }
-
+  .Top10 {
+    order: 1;
+  }
   .Result {
     margin: 0rem;
   }
