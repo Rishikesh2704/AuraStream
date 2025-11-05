@@ -70,6 +70,7 @@
     height: 50rem;
     width: 100%;
     column-gap: 1.5rem;
+    order:0
   }
 
   .Modal-contentbox-main {
