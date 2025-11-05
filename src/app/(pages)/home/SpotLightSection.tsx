@@ -1,6 +1,5 @@
 "use client";
 
-import { memo } from "react";
 import { useEffect, useRef, useState } from "react";
 import { useAnimeinfoQuery } from "../../../Redux/Fetchslice";
 import Navbar from "@/app/Components/Navbar";
@@ -8,7 +7,6 @@ import { setInfoid, setModalState } from "../../../Redux/StateSlice";
 import MobileNavbar from "@/app/Mobile/MobileNavbar";
 import { useAppDispatch } from "../../../Redux/hooks";
 import Image from "next/image";
-import Link from "next/link";
 
 const SpotLightSection = ({
   spotlightCoverAnimes,
@@ -116,11 +114,6 @@ const SpotLightSection = ({
 
                 <article
                   className="Cover-Info"
-                  style={
-                    {
-                      // bottom: idx === 7 ? "60%" : `${mediaQuery.matches ? 82 : 52}%`,
-                    }
-                  }
                 >
                   <figure className="Title" ref={spotlightAnimeRef}>
                     {

@@ -1,12 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-// import { useLocation } from 'react-router-dom'
 import Modal from "@/app/Components/Modal/Modal";
 import { useGenreAnimeInfiniteQuery } from "@/Redux/Fetchslice";
 import ListLayout from "@/app/Components/ListLayout";
 import { useAppSelector } from "@/Redux/hooks";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
 
 export default function GenreAnimePage() {
   const { modalState, infoid } = useAppSelector((state) => state.states);

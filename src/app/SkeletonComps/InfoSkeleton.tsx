@@ -4,13 +4,12 @@ function InfoSkeleton() {
   return (
     <>
       <section className="Info_Skeleton_Container">
-        <div id="Info_Skeleton_PosterBg" aria-hidden={true}>
-        </div>
+        <div id="Info_Skeleton_PosterBg" aria-hidden={true}></div>
 
         <div className="Info_Skeleton_Poster"></div>
 
         <article className="Info">
-          <div id="Info_Skeleton_Title"/>
+          <div id="Info_Skeleton_Title" />
 
           <section className="Watch-desc" aria-labelledby="Description-heading">
             <h2 id="Description-heading">Description</h2>

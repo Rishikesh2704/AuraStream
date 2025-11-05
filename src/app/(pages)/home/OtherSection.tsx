@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
 import List from "../../Components/List";
 
 export default function OtherSection({

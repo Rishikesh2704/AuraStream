@@ -6,7 +6,6 @@ import Link from "next/link";
 import { setInfoid, setModalState } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
 import { auth } from "@/config/Firebase";
-import Loading from "@/app/loading";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +17,6 @@ type propsType = {
 
 export default function Info({ aniinfo, id, firstEp }: propsType) {
   const dispatch = useAppDispatch();
-  const navigate = useRouter();
   const watchbtnEp = firstEp?.id;
   const userId = auth.currentUser?.uid;
 

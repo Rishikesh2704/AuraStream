@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useAnimeinfoQuery } from "@/Redux/Fetchslice";
 import { setInfoid } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
-import Loading from "@/app/loading";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -38,7 +37,6 @@ export default function AnimeInfo({
                   className="season"
                   onClick={() => {
                     dispatch(setInfoid(season.id));
-                    // navigate(`/stream/${season.id}`)
                   }}
                   key={season.id}
                 >

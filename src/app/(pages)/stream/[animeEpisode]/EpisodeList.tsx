@@ -40,9 +40,7 @@ export default function EpisodeList({ id, epid }: propsType) {
     }
   }, [epid]);
 
-  /*********************FUNCTIONS*************************/
 
-  //Changing BackgroundColor Of Selected Episode
   const handleselect = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     let styleep = document.getElementsByClassName("style")[0];
     if (styleep) {
@@ -51,7 +49,6 @@ export default function EpisodeList({ id, epid }: propsType) {
     e.currentTarget.parentElement?.classList.add("style");
   };
 
-  //For Grouping Range of EpisodeList
   const groupedep = (episodelist: episodeType[]) => {
     let epgroup = [];
     const range = 100;
@@ -63,7 +60,6 @@ export default function EpisodeList({ id, epid }: propsType) {
 
   const groupep = groupedep(eplist ?? []);
 
-  // Changing Range of Episodes
   const changerange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedrange = e.target.value.split("-")[0];
     setrangeindex((+selectedrange - 1) / 100);

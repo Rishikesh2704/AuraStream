@@ -11,8 +11,8 @@ type propsType = {
   id: string;
   loading?: boolean;
   sub?: string;
-  type?:string
-  duration?:string
+  type?: string;
+  duration?: string;
 };
 
 export default function AnimeCard(props: propsType) {
@@ -28,7 +28,6 @@ export default function AnimeCard(props: propsType) {
     dispatch(setInfoid(id));
   };
 
- 
   const handleMouseOverElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
@@ -49,43 +48,6 @@ export default function AnimeCard(props: propsType) {
     img.style.setProperty("--tanslateY", "-0rem");
     e.currentTarget.style.bottom = "1rem";
   };
-
-  // useEffect(() => {
-  //   let elementC = element.current as HTMLDivElement;
-
-  //   if (elementC && (page[1] === "genre" || page[1] === "search")) {
-  //     if (
-  //       elementC?.getBoundingClientRect().bottom >= 0 &&
-  //       elementC?.getBoundingClientRect().bottom <=
-  //         window.innerHeight + elementC?.getBoundingClientRect().width
-  //     ) {
-  //       elementC.style.setProperty("--size", "scale(1)");
-  //     }
-  //     window.addEventListener("scroll", () => {
-  //       if (
-  //         elementC?.getBoundingClientRect().bottom >= 0 &&
-  //         elementC?.getBoundingClientRect().bottom <=
-  //           window.innerHeight + elementC?.getBoundingClientRect().width
-  //       ) {
-  //         elementC.style.setProperty("--size", "scale(1)");
-  //       }
-  //     });
-  //   } else {
-  //     elementC.style.setProperty("--size", "scale(1)");
-  //   }
-
-  //   return () => {
-  //     window.removeEventListener("scroll", () => {
-  //       if (
-  //         elementC?.getBoundingClientRect().bottom >= 0 &&
-  //         elementC?.getBoundingClientRect().bottom <=
-  //           window.innerHeight + elementC?.getBoundingClientRect().width
-  //       ) {
-  //         elementC.style.transform = "scale(1)";
-  //       }
-  //     });
-  //   };
-  // });
 
   useEffect(() => {
     let animeContainer = document.querySelectorAll(
@@ -142,10 +104,14 @@ export default function AnimeCard(props: propsType) {
         />
       </figure>
 
-        <div className="Stats">
-          <span>{type}</span>
-         {duration&& <span ><i className="fa-solid fa-clock"></i>{" "} {duration}</span>}
-        </div>
+      <div className="Stats">
+        <span>{type}</span>
+        {duration && (
+          <span>
+            <i className="fa-solid fa-clock"></i> {duration}
+          </span>
+        )}
+      </div>
       <figcaption className="info">
         {sub && <span id="episodes">Episode {sub}</span>}
         <span className="coverName">{name}</span>

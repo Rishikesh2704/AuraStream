@@ -19,7 +19,6 @@ export default function List(props: propsType) {
     currgen = name[1].split("/")[1];
   }
 
-
   return (
     <>
       <article

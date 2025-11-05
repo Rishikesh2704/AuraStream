@@ -70,9 +70,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${inter.variable}  antialiased`}>
-        <ReduxProvider>
-            {children}
-        </ReduxProvider>
+        <ReduxProvider>{children}</ReduxProvider>
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"

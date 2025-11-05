@@ -85,7 +85,7 @@ const TopAnimesSection = memo((props: { animes: propsType }) => {
                     <section
                       className="Topanime-container"
                       key={animes.id}
-                      onClick={() => showinfo(animes.id)} /*ref={element}*/
+                      onClick={() => showinfo(animes.id)} 
                       onMouseOver={(e) => handleMouseOver(e)}
                       onMouseOut={(e) => handleMouseOut(e)}
                     >

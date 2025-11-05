@@ -9,10 +9,8 @@ export default async function Homepage(){
     await store.dispatch(Animeapi.endpoints.Home.initiate(''))
     const preloadedState = store.getState();
    return(
-      <>
       <ReduxProvider preloadedState={preloadedState}>
         <Home />  
       </ReduxProvider>
-      </>
    )
 }

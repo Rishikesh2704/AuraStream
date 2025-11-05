@@ -39,9 +39,9 @@ export default function VideoPlayer(props: propsType) {
       setsubtitlesrc(subtitle?.file);
       setLoading(false);
     }
-    // return () => {
-    //     seturl("")
-    // }
+    return () => {
+        seturl("")
+    }
   }, [epid, id, eplink, currserv.serverName, currserv.type]);
 
   if (Loading) {
@@ -65,13 +65,13 @@ export default function VideoPlayer(props: propsType) {
             crossOrigin="use-credentials"
           >
             <MediaProvider>
-              {/* <Track 
+              <Track 
                                 label="English"
                                 kind="captions"
                                 src={subtitlesrc}
                                 default
                                 key={subtitlesrc} 
-                            /> */}
+                            />
             </MediaProvider>
 
             <PlyrLayout icons={plyrLayoutIcons} />

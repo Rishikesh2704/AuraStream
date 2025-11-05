@@ -10,7 +10,6 @@ export default function ListLayout({
   heading: string;
   isLoading: boolean;
 }) {
-    
   const loadingImage = (
     <div className="h-[100vw] w-[100%] flex flex-col justify-center items-center">
       <Image src={"/kidzoro.png"} alt="loadingImage" height={150} width={150} />
