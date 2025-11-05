@@ -66,11 +66,14 @@
     top: 0rem;
   }
 
+  .Top10 {
+    order: 1;
+  }
+
   .Top10List {
     height: 50rem;
     width: 100%;
     column-gap: 1.5rem;
-    order:0
   }
 
   .Modal-contentbox-main {
