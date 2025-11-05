@@ -6,6 +6,12 @@ interface animeType{
    title:string,
    showType:string,
    duration:string;
+   tvInfo:{
+    duration:string;
+    dub:string;
+    sub:string;
+    showType:string
+   }
    [key:string] :string
 }
 

@@ -10,11 +10,13 @@ type propsType = {
   img: string;
   id: string;
   loading?: boolean;
-  eps?: number;
+  sub?: string;
+  type?:string
+  duration?:string
 };
 
 export default function AnimeCard(props: propsType) {
-  const { name, img, id, loading, eps } = props;
+  const { name, img, id, loading, sub, type, duration } = props;
 
   const element = useRef<HTMLDivElement>(null);
   const location = usePathname();
@@ -26,6 +28,7 @@ export default function AnimeCard(props: propsType) {
     dispatch(setInfoid(id));
   };
 
+ 
   const handleMouseOverElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
@@ -123,7 +126,7 @@ export default function AnimeCard(props: propsType) {
       ref={element}
       onMouseOver={(e) => handleMouseOverElement(e)}
       onMouseOut={(e) => handleMouseOutElement(e)}
-      onKeyDown={(e) => e.key=="Enter" && showinfo()}
+      onKeyDown={(e) => e.key == "Enter" && showinfo()}
     >
       <figure className="img">
         <Image
@@ -139,9 +142,13 @@ export default function AnimeCard(props: propsType) {
         />
       </figure>
 
+        <div className="Stats">
+          <span>{type}</span>
+         {duration&& <span ><i className="fa-solid fa-clock"></i>{" "} {duration}</span>}
+        </div>
       <figcaption className="info">
+        {sub && <span id="episodes">Episode {sub}</span>}
         <span className="coverName">{name}</span>
-        {eps && <p>Episode {eps}</p>}
       </figcaption>
     </article>
   );

@@ -151,9 +151,8 @@ li {
   transition: 0.2s ease-out;
 }
 
-.suggestedAnimes:hover{
+.suggestedAnimes:hover {
   background-color: #191717;
-
 }
 
 .suggestedAnimeImgWrapper {
@@ -200,7 +199,8 @@ li {
   width: inherit;
 }
 
-#SuggestionSub,#SuggestionDub{
+#SuggestionSub,
+#SuggestionDub {
   & > i {
     margin-right: 0.2rem;
     color: var(--ElementColor);
@@ -347,17 +347,11 @@ ul > hr {
   background-color: #d4d1c9;
 }
 
-
-
-
 .Result {
   height: auto;
   margin: 0.5rem 1.5rem 1.75rem 0rem;
   transition: 0.3s ease-in-out;
-
 }
-
-
 
 .CName {
   width: fit-content;
@@ -555,7 +549,7 @@ ul > hr {
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 53%
+    rgba(0, 0, 0, 0) 63%
   );
   transform: scale(var(--tranformCover, 1))
     translate(var(--tanslateX, 0rem), var(--tanslateY, 0rem));
@@ -570,7 +564,7 @@ ul > hr {
 
 .trendingContainer > .element-container > .info {
   position: absolute;
-  bottom: 0.2rem;
+  bottom: 0.9rem;
   z-index: 1;
   max-height: 4rem;
   overflow: hidden;
@@ -611,25 +605,27 @@ ul > hr {
 /*Top10 Anime List*/
 
 .Top10 {
-  order: 1;
+  order: -1;
   height: 50rem;
-  width: 8rem;
+  width: 95vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-content: flex-start;
   justify-content: flex-start;
   gap: 1rem;
   padding-top: 0.7rem;
+  margin-bottom: 6rem;
 }
 
 .Top10List {
-  height: 42rem;
-  width: 8rem;
+  height: 45rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  column-gap: 8rem;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 1rem;
   position: relative;
   margin-top: 2.5rem;
 }
@@ -651,6 +647,7 @@ ul > hr {
   border: 2px solid white;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 2px #555;
+  text-align: center;
 }
 
 #top10 {
@@ -661,7 +658,6 @@ ul > hr {
   border-radius: 8px;
   font-size: 1.1rem;
   display: flex;
-  /* gap:1.8rem; */
   background-color: #060606;
   text-align: center;
   overflow: hidden;
@@ -700,59 +696,22 @@ ul > hr {
   margin-right: 0rem !important;
 }
 
-@property --rotate {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-@keyframes borderanimation {
-  0% {
-    --rotate: 0deg;
-  }
-
-  100% {
-    --rotate: 360deg;
-  }
-}
 
 .Topanime-container {
-  height: 6rem;
-  width: 23rem;
+  height: 8rem;
+  width: 33rem;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  /* justify-content: space-around; */
   gap: 0.2rem;
   background-color: #060606;
-  box-shadow: 0px 0px 10px 2px #242323;
-  margin-bottom: 3rem;
+  box-shadow: 0px 0px 10px 2px #424141;
   border-radius: 1.08rem;
   position: relative;
+  cursor: pointer;
+  pointer-events: auto;
 }
-.Topanime-container::after,
-.Topanime-container::before {
-  content: "";
-  height: 105%;
-  width: 101.6%;
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0rem;
-  transition: 3.4s ease-out;
-  background-image: conic-gradient(
-    from var(--rotate),
-    rgb(0, 0, 0),
-    rgb(0, 0, 0),
-    var(--ElementColor),
-    rgb(0, 0, 0),
-    rgb(0, 0, 0),
-    rgb(0, 0, 0),
-    rgb(0, 0, 0)
-  );
-  animation: 4s linear infinite borderanimation;
-  transform: translate(-0.16rem, -0.2rem);
-  border-radius: 1.2rem;
-}
+
 .Topanime-container::before {
   filter: blur(0.25rem);
 }
@@ -764,47 +723,61 @@ ul > hr {
   transition: 0.4s linear;
 }
 
-/* .Top10CName>h2{
-background: linear-gradient(0deg, rgb(255, 255, 255)0%, rgb(0, 235, 208)92%);
-color:transparent;  
-background-clip: text;
-text-shadow: 0px 0px 5px rgb(0, 255, 225);
-} */
 
 .Topanimeimg-wrapper {
   position: relative;
-  width: 6rem;
-  height: 8rem;
-  border-radius: 0.7rem;
+  width: 45%;
+  height: 100%;
+  border-radius: 0.8rem;
   transition: 2s ease-out;
   cursor: pointer;
-  /* &:hover{
-
-} */
+  left: 8.5rem;
+  pointer-events: none;
 }
 
 #topNum {
-  background-image: linear-gradient(
-    45deg,
-    rgb(255, 255, 255) 59%,
-    rgb(110, 245, 229) 86%
-  );
   color: transparent;
   background-clip: text;
   position: relative;
-  top: 1.4rem;
-  left: 1rem;
-  font-size: 1.9rem;
+  bottom: 1.5rem;
+  left: 5rem;
+  font-size: 6.5rem;
   margin-right: 2rem;
+  font-weight: 700;
+  background-color: transparent;
+  pointer-events: none;
+}
+
+#Top_Tag {
+    background-image: linear-gradient(
+    290deg,
+    rgb(255, 255, 255) 40%,
+    rgb(110, 245, 229) 90%
+  );
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0px 0px 20px #555252;
+  font-weight: 700;
+  transform: rotate(-90deg);
+  font-size: 1.2rem;
+  width: 7rem;
+  height: 4rem;
+  overflow: hidden;
+  position: absolute;
+  top: 20%;
+  bottom: 50%;
+  left: 0rem;
+  z-index:-1;
+  transition: 0.2s ease-in-out;
+  
 }
 
 #Topanimeimg {
-  height: 5rem;
-  width: 3rem;
-  border-radius: 0.7rem;
-  z-index: 1;
-  position: relative;
-  top: 0.5rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.8rem;
+  object-fit: cover;
+
 }
 
 .Topanimeinfo {
@@ -867,9 +840,6 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   grid-template-columns: repeat(8, 94rem);
   transition: all 0.4s ease-out;
   transform: translateX(var(--changeCover, 0rem));
-  /* overflow-y: hidden;
-  overflow-x: scroll;
-  scroll-behavior: smooth; */
 }
 
 .CoverNextBtn {
@@ -914,56 +884,53 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   }
 }
 
-/*linear-gradient(0deg, rgb(7,7,7) 0%, rgba(68, 68, 68, 0) 15%)*/
 @keyframes spotlightPosterAnimation {
-  0%{
-    transform:translateX(-5rem);
-    opacity:0
+  0% {
+    transform: translateX(-5rem);
+    opacity: 0;
   }
-  70%{
-    opacity:0.5
+  70% {
+    opacity: 0.5;
   }
-  100%{
-    transform:translateX(0rem);
-    opacity:1
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
   }
 }
 
 @keyframes spotlightTitleAnimation {
-  0%{
-    transform:translateX(5rem);
-    opacity:0
+  0% {
+    transform: translateX(5rem);
+    opacity: 0;
   }
-  70%{
-    opacity:0.5
+  70% {
+    opacity: 0.5;
   }
-  100%{
-    transform:translateX(0rem);
-    opacity:1
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
   }
 }
 
 @keyframes spotlightDescriptionAnimation {
-  0%{
-    transform:translateY(5rem);
-    opacity:0
+  0% {
+    transform: translateY(5rem);
+    opacity: 0;
   }
-  70%{
-    opacity:0.5
+  70% {
+    opacity: 0.5;
   }
-  100%{
-    transform:translateY(0rem);
-    opacity:1
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
   }
 }
-
 
 .SpotlightAnime-container {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   position: relative;
 }
 .Cover {
@@ -995,7 +962,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 
 .Cover-Info > p {
   font-weight: 500;
-  animation:spotlightDescriptionAnimation 0.4s ease-out;
+  animation: spotlightDescriptionAnimation 0.4s ease-out;
 }
 
 .Cover-Info > span {
@@ -1005,32 +972,57 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
 }
 
 .Title {
-  word-wrap: break-word;
   text-align: center;
-  width: 28rem;
+  width: 37rem;
   display: flex;
-  /* flex-direction: column; */
   gap: 0.8rem;
+  align-items: center;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+#ep-info {
+  position: relative;
+}
+
+.SpotlightWatch-btn {
+  display: block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.85rem;
+  color: black;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--ElementColor);
+  /* background-color: rgb(7, 154, 252); */
+  transition: 0.2s ease-out;
+  display: flex;
   align-items: center;
 }
 
+.SpotlightWatch-btn:hover {
+  background-color: rgb(20, 213, 210);
+}
 
-
+.SpotlightWatch-btn i {
+  position: relative;
+  font-size: 0.9rem;
+  right: 0.1rem;
+}
 
 .Title > #ep-info > figcaption {
   /* font-family: "Playful fair"; */
+  font-style: italic;
   font-size: 1.6rem;
-  font-weight: 500;
+  font-weight: 700;
   width: 100%;
   letter-spacing: 0.05rem;
   word-spacing: 0.1rem;
-  color: rgb(250, 247, 247);
-  text-shadow: 0px 0px 4px rgb(114, 246, 230);
-  animation: spotlightTitleAnimation 0.4s ease-out
+  color: rgb(228, 228, 228);
+  text-shadow: 0px 0px 5px rgb(183, 183, 183);
+  animation: spotlightTitleAnimation 0.4s ease-out;
 }
-
-
-
 
 .Title > #Coverimg-src {
   height: 18rem;
@@ -1039,7 +1031,7 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
   box-shadow: 4px 4px 10px 2px black;
   cursor: pointer;
   border: 1px solid white;
-  animation:spotlightPosterAnimation 0.4s ease-out
+  animation: spotlightPosterAnimation 0.4s ease-out;
 }
 
 .CoverDark {
@@ -1052,29 +1044,18 @@ text-shadow: 0px 0px 5px rgb(0, 255, 225);
     linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%);
 }
 
-/* 
-#slide-main {
-position: absolute;
-z-index: 1;
-top: 5rem;
-right: 18rem;
-} */
-
 #Cover {
-  background-color: rgb(30, 236, 219);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: black;
+  background-color: rgb(225, 226, 227);
+  /* border:1px solid rgb(30, 236, 219); */
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgb(0, 0, 0);
   border-radius: 4px;
-  padding: 0.08rem 0.14rem;
-  animation:spotlightTitleAnimation 0.4s ease-out
-
+  padding: 0.1rem 0.2rem;
+  animation: spotlightTitleAnimation 0.4s ease-out;
 }
 
 /*Anime Elements */
-
-
-
 
 .element-container {
   height: 15rem;
@@ -1137,39 +1118,28 @@ right: 18rem;
   transition: 0.3s ease-out;
 }
 
-/* .element-container:hover{ */
-
-/* &::before {
-
-  content: '';
-  z-index: 1;
-  width: 100%;
-  height: 104.5%;
-  display: block;
-  position: absolute;
-  border-radius: 0.7rem;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 53%);
-
-} */
-
-/* } */
-
-/* .element-container:hover {
-transition: 0.2s ease-out;
-color: white;
-} */
-
 .info {
   position: absolute;
-  bottom: 0.7rem;
+  bottom: 0.9rem;
   z-index: 1;
   max-height: 3rem;
   overflow: hidden;
   text-align: center;
 }
 
-.info > h4 {
-  text-shadow: 0px 0px 6px rgb(6, 6, 6);
+.info > .coverName {
+  font-weight: 600;
+  font-size: 1.02rem;
+  text-shadow: 0px 0px 3px rgb(153, 147, 147);
+}
+
+#episodes {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-style: italic;
+  color: rgb(253, 251, 251);
+  margin-bottom: 0.2rem;
 }
 
 .img::before {
@@ -1197,6 +1167,29 @@ color: white;
   width: 11rem;
   object-fit: cover;
   border-radius: 0.7rem;
+}
+
+.Stats {
+  width: 102%;
+  height: 1.4rem;
+  position: absolute;
+  top: 0.02rem;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: auto;
+}
+
+.Stats span {
+  width: fit-content;
+  padding: 0rem 0.5rem;
+  background-color: var(--ElementColor);
+  /* background-color: rgb(8, 160, 255); */
+  border-radius: 0.35rem;
+  color: black;
+  line-height: 1.4rem;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 .Modal-bg {
@@ -1259,6 +1252,7 @@ color: white;
   flex-direction: column;
   gap: 1rem;
 }
+
 #backgroundImgWrapper {
   height: 70%;
   width: 100%;

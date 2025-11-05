@@ -19,7 +19,7 @@ function isHydrateAction(action: Action): any {
   return action.type === HYDRATE;
 }
 
-// const FetchURl = process.env.NODE_ENV === "development"?"http://localhost:4444/api":"https://anime-api-vert-alpha.vercel.app/api"
+
 
 export const Animeapi = createApi({
   reducerPath: "Animeapi",

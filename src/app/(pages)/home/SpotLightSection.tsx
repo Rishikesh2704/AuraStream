@@ -20,11 +20,12 @@ const SpotLightSection = ({
   const [animeimg, setanimeimg] = useState<string[]>([]);
   const [currentindx, setcurrentindx] = useState(0);
   const [isMobile, setisMobile] = useState(false);
+  const icons = ["fa-tv","fa-clock", 'fa-calendar'];
 
-  const spotlightAnimeRef = useRef<HTMLElement>(null)
+  const spotlightAnimeRef = useRef<HTMLElement>(null);
   const grid = useRef<HTMLDivElement>(null);
   const spotlightimgContRef = useRef<HTMLDivElement>(null);
-
+  
   const id = spotlightCoverAnimes.map((ani) => ani.id);
   let fetchingid = id[currentindx];
   const { data } = useAnimeinfoQuery(fetchingid);
@@ -43,7 +44,6 @@ const SpotLightSection = ({
       if (currentindx <= id.length) setcurrentindx((prev) => prev + 1);
     }
   }, [data]);
-
 
   const handleNextCover = () => {
     if (currentrem.current < sliderem * 7) {
@@ -98,7 +98,7 @@ const SpotLightSection = ({
                   <Image
                     src={spotlight.poster || "/kidzoro.png"}
                     fetchPriority="high"
-                    priority={idx !== 0 ? false : true }
+                    priority={idx !== 0 ? false : true}
                     width="963"
                     height="541"
                     alt=""
@@ -134,7 +134,7 @@ const SpotLightSection = ({
                         priority={true}
                         onClick={() => handleModal(spotlight.id)}
                         unoptimized={true}
-                        onKeyDown={(e) => { 
+                        onKeyDown={(e) => {
                           if (e.key === "Enter") {
                             handleModal(spotlight.id);
                           }
@@ -143,12 +143,15 @@ const SpotLightSection = ({
                     }
 
                     <section id="ep-info">
-                     
                       <figcaption>{spotlight.title}</figcaption>
+
                       {Object.entries(spotlight.tvInfo)
                         .filter(([key]) => key !== "episodeInfo")
                         .map(([key, value], idx) => (
                           <span id="Cover" key={idx + 1}>
+                            <i
+                              className={idx<3?`fa-solid ${icons[idx]}`:' '}
+                            />{" "}
                             {value as string}
                           </span>
                         ))}
@@ -172,10 +175,16 @@ const SpotLightSection = ({
                           );
                         }
                       })}
-                     
-                    </section>
 
-                    
+                      <button
+                        className="SpotlightWatch-btn"
+                        onClick={() => dispatch(setModalState(false))}
+                        aria-label={`watch ${spotlight.title}`}
+                      >
+                        <i className="fa-solid fa-play" aria-hidden={true}></i>{" "}
+                        Watch
+                      </button>
+                    </section>
                   </figure>
 
                   <p>

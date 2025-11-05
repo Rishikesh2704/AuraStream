@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Playfair, Playfair_Display } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Inter,
+  Playfair,
+  Playfair_Display,
+} from "next/font/google";
 import "./globals.css";
 import "./index.css";
 import "./responsive.css";
+import "./skeleton.css";
 import "./Authentication/auth.css";
 import ReduxProvider from "./ReduxProvider";
 import Script from "next/script";
+import { Suspense } from "react";
+import Navbar from "./Components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,8 +69,10 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={ `${playfair.variable} ${inter.variable}  antialiased`}>
-        <ReduxProvider>{children}</ReduxProvider>
+      <body className={`${playfair.variable} ${inter.variable}  antialiased`}>
+        <ReduxProvider>
+            {children}
+        </ReduxProvider>
 
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/all.min.js"

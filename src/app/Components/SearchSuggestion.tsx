@@ -23,7 +23,7 @@ export default function SearchSuggestion({searchSuggestionsAnimes}:propsType) {
                         <div className="suggestedAnimeInfo">
                             <h4 className="SuggestedanimecoverName" >{suggestedAnime.title&&suggestedAnime.title?.length>=25?suggestedAnime.title.slice(0,30)+"...":suggestedAnime.title}</h4>
                             <span id="SuggestionEpisodeType">
-                                <span id="SuggestionSub"><i className="fa-solid fa-closed-captioning" aria-hidden={true}></i>{suggestedAnime.showType}</span>
+                                <span id="SuggestionSub"><i className="fa-solid fa-tv" aria-hidden={true}></i>{suggestedAnime.showType}</span>
                                 <span id="SuggestionDub"><i className="fa-solid fa-clock" aria-hidden={true}></i>{suggestedAnime.duration}</span>
                             </span>
                         </div>

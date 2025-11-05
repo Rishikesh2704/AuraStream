@@ -160,16 +160,7 @@ export default function Info({ aniinfo, id, firstEp }: propsType) {
           </article>
         </section>
       ) : (
-        <div className="h-full w-full flex flex-col items-center justify-center">
-          <Image
-            src={"/kidzoro.png"}
-            alt="loadingImage"
-            height={150}
-            width={150}
-            unoptimized
-          />
-          <h1>Loading...</h1>
-        </div>
+        <h2></h2>
       )}
 
       {aniinfo?.seasons && (

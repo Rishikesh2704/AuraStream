@@ -1,0 +1,209 @@
+@keyframes SpotlightSkeleton {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.Spotlight_Skeleton {
+  width: 94vw;
+  height: 94vh;
+  border-radius: 0.8rem;
+  background: linear-gradient(
+    90deg,
+    rgb(15, 14, 14) 20%,
+    rgb(55, 53, 53) 50%,
+    rgb(19, 19, 19) 70%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2.5s linear infinite;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.SpotlightInfo_Wrapper {
+  height: auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  text-align: start;
+  gap: 2rem;
+  z-index: 2;
+  position: absolute;
+  left: 10.8%;
+  top: 9.5rem;
+}
+
+.SpotlightPoster_Wrapper {
+  text-align: center;
+  width: 37rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+#SpotlightPoster_Skeleton {
+  flex-shrink: 0;
+  height: 18rem;
+  width: 12rem;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgb(116, 114, 114) 15%,
+    rgb(94, 95, 95) 50%,
+    rgb(116, 114, 114) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+#SpotlightPoster_Title {
+  height: 2rem;
+  width: 60%;
+  border-radius: 0.3rem;
+  position: relative;
+  bottom: 3rem;
+  background: linear-gradient(
+    90deg,
+    rgb(116, 114, 114) 15%,
+    rgb(94, 95, 95) 50%,
+    rgb(116, 114, 114) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+.SpotlightDescriptionline {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#line1 {
+  height: 1rem;
+  width: 100%;
+  border-radius: 0.3rem;
+  background: linear-gradient(
+    90deg,
+    rgb(92, 89, 89) 15%,
+    rgb(124, 126, 126) 50%,
+    rgb(85, 84, 84) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+#line2 {
+  height: 1rem;
+  width: 80%;
+  border-radius: 0.3rem;
+  background: linear-gradient(
+    90deg,
+    rgb(92, 89, 89) 15%,
+    rgb(124, 126, 126) 50%,
+    rgb(85, 84, 84) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+#line3 {
+  height: 1rem;
+  width: 95%;
+  border-radius: 0.3rem;
+  background: linear-gradient(
+    90deg,
+    rgb(92, 89, 89) 15%,
+    rgb(124, 126, 126) 50%,
+    rgb(85, 84, 84) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+/* Modal Skeleton */
+
+.Info_Skeleton_Container {
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+  z-index: 1;
+  & > * {
+    z-index: 1;
+  }
+}
+
+.Info_Skeleton_Poster {
+  height: 14rem;
+  width: 11rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(
+    90deg,
+    rgb(79, 77, 77) 5%,
+    rgb(87, 90, 90) 55%,
+    rgb(84, 83, 83) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+#Info_Skeleton_PosterBg {
+  height: 45%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  opacity: 0.7;
+  overflow: hidden;
+  background: rgb(49, 50, 50) 50%;
+  background-size: 400%;
+  &::after {
+    content: "";
+    height: 20%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: -0.5rem;
+    background: linear-gradient(
+      0deg,
+      rgb(32, 31, 31) 15%,
+      rgba(68, 68, 68, 0) 65%
+    );
+  }
+}
+
+#Info_Skeleton_Title {
+  height: 1.4rem;
+  width: 20%;
+  border-radius: 0.3rem;
+  position: relative;
+  right: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgb(116, 114, 114) 15%,
+    rgb(94, 95, 95) 50%,
+    rgb(116, 114, 114) 80%
+  );
+  background-size: 400%;
+  animation: SpotlightSkeleton 2s linear infinite;
+}
+
+.Info_Desc-skeleton {
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
