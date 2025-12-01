@@ -20,7 +20,7 @@ export default function OtherSection({
 
   useEffect(() => {
     function getMediaQuery() {
-      if (window.matchMedia("(max-width: 400px)").matches) return "9rem";
+      if (window.matchMedia("(max-width: 400px)").matches) return "12rem";
       else if (window.matchMedia("(max-width: 600px)").matches) return "14rem";
       else return "18rem";
     }

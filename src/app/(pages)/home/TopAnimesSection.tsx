@@ -113,6 +113,7 @@ const TopAnimesSection = memo((props: { animes: propsType }) => {
                           fetchPriority="low"
                           unoptimized={true}
                         />
+
                       </figure>
                       {/* <article className="Topanimeinfo" >
                                     <h2 className="TopanimecoverName" >{animes.title.length>28?animes.title.slice(0,28)+"...":animes.title}</h2>

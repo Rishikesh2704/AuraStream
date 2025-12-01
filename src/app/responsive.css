@@ -68,10 +68,15 @@
 
   .Top10 {
     order: 1;
+    height: auto;
+  }
+
+  #Top_Tag {
+    visibility: hidden;
   }
 
   .Top10List {
-    height: 50rem;
+    height: auto;
     width: 100%;
     column-gap: 1.5rem;
   }
@@ -212,6 +217,15 @@
 
   .Top10 {
     order: 1;
+    height: auto;
+  }
+
+  .Top10List {
+    height: auto;
+  }
+
+  #Top_Tag {
+    visibility: hidden;
   }
 }
 
@@ -355,6 +369,15 @@
 
   .Top10 {
     order: 1;
+    height: auto;
+  }
+
+  .Top10List {
+    height: auto;
+  }
+
+  #Top_Tag {
+    visibility: hidden;
   }
 
   .CName > h2 {
@@ -595,7 +618,7 @@
 
   .Top10List {
     height: auto;
-    width: 8rem;
+    width: inherit;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -606,7 +629,7 @@
   }
 
   .Top10CName {
-    width: 20rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -632,7 +655,7 @@
   }
 
   .Topanime-container {
-    height: 5rem;
+    height: 5.8rem;
     width: 21rem;
     display: flex;
     /* justify-content: flex-start; */
@@ -655,18 +678,21 @@
     position: relative;
     top: 0rem;
     left: 1rem;
-    font-size: 1.3rem;
+    font-size: 2.9rem;
     margin-right: 1rem;
   }
 
   .Topanimeimg-wrapper {
-    height: 3.8rem;
-    width: auto;
+    width: 59.5%;
+    height: 5.8rem;
+    overflow: hidden;
+    position:absolute;
+    /* left:calc(100% - 0.2rem); */
   }
 
   #Topanimeimg {
     height: 3.8rem;
-    width: auto;
+    height:inherit;
     border-radius: 0.7rem;
     z-index: 1;
     position: relative;
