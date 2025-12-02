@@ -12,7 +12,6 @@ export default function OtherSection({
 }) {
   const showMoreBtn = useRef(null);
   const [height, setheight] = useState("18rem");
-  const [showmore, setshowmore] = useState("hidden");
   const location = usePathname();
 
   let name = location.split("/");
@@ -20,10 +19,11 @@ export default function OtherSection({
 
   useEffect(() => {
     function getMediaQuery() {
-      if (window.matchMedia("(max-width: 400px)").matches) return "12rem";
-      else if (window.matchMedia("(max-width: 600px)").matches) return "14rem";
+      if (window.matchMedia("(max-width: 450px)").matches) return "12rem";
+      else if (window.matchMedia("(max-width: 600px)").matches) return "15rem";
       else return "18rem";
     }
+    
     setheight(() => getMediaQuery());
   }, []);
 
@@ -37,15 +37,14 @@ export default function OtherSection({
     moreBtn.style.transform === "rotate(0deg)"
       ? (moreBtn.style.transform = "rotate(-180deg)")
       : (moreBtn.style.transform = "rotate(0deg)");
-    let clist = e.currentTarget.parentElement?.nextElementSibling
-      ?.children[0] as HTMLElement;
+    let clist = e.currentTarget.parentElement?.nextElementSibling?.children[0] as HTMLElement;
     if (name[1].split("/")[0] == "genre" || name[1] === "search") {
       clist.style.height = "auto";
       clist.style.overflow = " ";
     } else {
-      clist.style.maxHeight == "fit-content"
+      clist.style.maxHeight == "100rem"
         ? (clist.style.maxHeight = height)
-        : (clist.style.maxHeight = "fit-content");
+        : (clist.style.maxHeight = "100rem");
       clist.style.overflow == " "
         ? (clist.style.overflow = "hidden")
         : (clist.style.overflow = " ");
@@ -83,7 +82,7 @@ export default function OtherSection({
         </header>
 
         <section aria-label={`${Homeheading(keys)}`} className="Result">
-          <List anime={animeli} next={showmore} height={height} />
+          <List anime={animeli}  />
         </section>
       </section>
     </>

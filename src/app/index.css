@@ -452,12 +452,21 @@ ul > hr {
   margin-bottom: 8rem;
 }
 
+@keyframes infinitCarousel {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform:translateX(-50%)
+  }
+}
 .Trending-Main {
   width: 100%;
   position: relative;
   overflow-x: scroll;
   top: 2rem;
   right: 0.3rem;
+
 }
 
 .PrevBtn {
@@ -504,16 +513,17 @@ ul > hr {
   }
 }
 
+
+
 .trendingContainer {
   height: 22rem;
-  width: 95vw;
+  width:fit-content;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  /* transform: translate(0.5rem,0rem); */
-  /* position:relative; */
-  transform: translateX(0rem);
+  transform: translateY(0rem);
   transition: 0.4s ease-out;
+  animation: infinitCarousel 22s linear infinite;
   & > * {
     flex-shrink: 0;
   }
@@ -552,7 +562,7 @@ ul > hr {
     rgba(0, 0, 0, 0) 63%
   );
   transform: scale(var(--tranformCover, 1))
-    translate(var(--tanslateX, 0rem), var(--tanslateY, 0rem));
+  translate(var(--tanslateX, 0rem), var(--tanslateY, 0rem));
 }
 
 .trendingContainer > .element-container > .img > #elementimg {
@@ -599,8 +609,12 @@ ul > hr {
   column-gap: 1.4rem;
   align-items: center;
   justify-content: flex-start;
-  transition: 0.4s ease-in-out;
+  transition:all 0.4s ease-in-out;
+  max-height:18rem;
+  row-gap: 2.2rem;
+  overflow: hidden;
 }
+
 
 /*Top10 Anime List*/
 

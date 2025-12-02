@@ -227,6 +227,8 @@
   #Top_Tag {
     visibility: hidden;
   }
+
+  
 }
 
 @media only screen and (max-width: 600px) {
@@ -413,6 +415,8 @@
     align-items: center;
     justify-content: flex-start;
     transition: 0.4s ease-in-out;
+    max-height: 14rem;
+    row-gap: 0rem;
   }
 
   .element-container {
@@ -686,13 +690,13 @@
     width: 59.5%;
     height: 5.8rem;
     overflow: hidden;
-    position:absolute;
+    position: absolute;
     /* left:calc(100% - 0.2rem); */
   }
 
   #Topanimeimg {
     height: 3.8rem;
-    height:inherit;
+    height: inherit;
     border-radius: 0.7rem;
     z-index: 1;
     position: relative;
@@ -760,6 +764,8 @@
   .Anime-List {
     grid-template-columns: repeat(auto-fit, 5.8rem);
     column-gap: 0.5rem;
+    max-height: 12rem;
+    row-gap: 0rem;
   }
 
   .element-container {

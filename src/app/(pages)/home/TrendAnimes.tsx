@@ -1,4 +1,4 @@
-import { memo, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { setInfoid, setModalState } from "@/Redux/StateSlice";
 import { useAppDispatch } from "@/Redux/hooks";
 import Image from "next/image";
@@ -12,12 +12,14 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
 
   /*********************Functions **********************/
 
+
   const handleMouseOverElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
     // Hover Animation //
     let img = e.target as HTMLDivElement;
     let animeimg = img.querySelector("img") as HTMLImageElement;
+    const carousel = trendContent.current as HTMLDivElement
 
     e.currentTarget.style.transition = "0.3s ease-out";
 
@@ -26,6 +28,7 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
       animeimg.style.transform = "scale(1.1)";
     }
 
+    carousel.style.animationPlayState = "paused"
     img.style.setProperty("--heightofcover", "23.1rem");
     img.style.setProperty("--widthofcover", "16.5rem");
     img.style.setProperty("--transformcover", "1.1");
@@ -37,15 +40,16 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
   const handleMouseOutElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
   ) => {
-    // Hover-out Animation //
     let img = e.target as HTMLDivElement;
     let animeimg = img?.querySelector("img") as HTMLImageElement;
+    const carousel = trendContent.current as HTMLDivElement
 
     if (animeimg) {
       animeimg.style.transition = "0.4s ease-out";
       animeimg.style.transform = "scale(1)";
     }
 
+    carousel.style.animationPlayState = "running"
     e.currentTarget.style.bottom = "0rem";
     img.style.setProperty("--heightofcover", "21.8rem");
     img.style.setProperty("--widthofcover", "15rem");
@@ -92,7 +96,7 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
         ref={trendContainer}
       >
         <div className="Trending-Main" tabIndex={0}>
-          <button
+          {/* <button
             className="PrevBtn"
             aria-label="Next TrendAnimes"
             onClick={() => handlePrevSlide()}
@@ -103,6 +107,7 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
               onClick={() => handlePrevSlide()}
             ></i>
           </button>
+          
           <button
             className="NextBtn"
             aria-label="Previous TrendAnimes"
@@ -113,10 +118,51 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
               aria-hidden={true}
               onClick={() => handleNextSlide()}
             ></i>
-          </button>
+          </button> */}
+
           <div className="trendingContainer" ref={trendContent}>
             {animes.map((anime: animeType) => {
-                  {console.log(anime)}
+
+              return (
+                <article
+                  className="element-container"
+                  key={anime.id}
+                  data-label={anime.id}
+                  onClick={() => showinfo(anime.id)}
+                  ref={element}
+                  onMouseOver={(e) => handleMouseOverElement(e)}
+                  onMouseOut={(e) => handleMouseOutElement(e)}
+                >
+                  <figure className="img" role="button" tabIndex={0}>
+                    <Image
+                      id="elementimg"
+                      src={anime.poster || "/kidzoro.png"}
+                      height={400}
+                      width={300}
+                      loading="lazy"
+                      alt={
+                        anime.title.length > 25
+                          ? anime.title.slice(0, 26) + "poster"
+                          : anime.title + " poster"
+                      }
+                      unoptimized={true}
+                      tabIndex={8}
+                      onKeyDown={(e) => {
+                        if (e.key == "Enter") {
+                          showinfo(anime.id);
+                        }
+                      }}
+                    />
+                  </figure>
+
+
+                  <span className="info">
+                    <h3 className="coverName">{anime.title}</h3>
+                  </span>
+                </article>
+              );
+            })}
+            {animes.map((anime: animeType) => {
 
               return (
                 <article

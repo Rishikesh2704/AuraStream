@@ -66,7 +66,7 @@
 
 #SpotlightPoster_Title {
   height: 2rem;
-  width: 60%;
+  width: 20vw;
   border-radius: 0.3rem;
   position: relative;
   bottom: 3rem;
@@ -90,7 +90,7 @@
 
 #line1 {
   height: 1rem;
-  width: 100%;
+  width: 80vw;
   border-radius: 0.3rem;
   background: linear-gradient(
     90deg,
@@ -104,7 +104,7 @@
 
 #line2 {
   height: 1rem;
-  width: 80%;
+  width: 60vw;
   border-radius: 0.3rem;
   background: linear-gradient(
     90deg,
@@ -118,7 +118,7 @@
 
 #line3 {
   height: 1rem;
-  width: 95%;
+  width: 80vw;
   border-radius: 0.3rem;
   background: linear-gradient(
     90deg,
