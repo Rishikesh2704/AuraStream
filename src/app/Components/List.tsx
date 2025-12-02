@@ -4,10 +4,12 @@ import AnimeCard from "./AnimeCard";
 
 type propsType = {
   anime: animeType[];
+  next?: string;
+  height?: string;
 };
 
 export default function List(props: propsType) {
-  const { anime } = props;
+  const { anime ,height} = props;
   const location = usePathname();
 
   let name = location.split("/");
@@ -20,7 +22,7 @@ export default function List(props: propsType) {
 
   if (name[1] !== "Home" && name[1]!== "") {
     style = {
-      maxHeight:"fit-content"
+      maxHeight:height
     };
   }
 
