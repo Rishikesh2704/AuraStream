@@ -17,6 +17,7 @@ export default function ListLayout({
     </div>
   );
 
+ 
   return (
     <>
       <section className="Search-container">
@@ -25,7 +26,6 @@ export default function ListLayout({
             {heading.slice(0, 1).toUpperCase() + heading.slice(1)}
           </h2>
         </header>
-
         {!isLoading ? (
           <section className="Result" aria-labelledby="listHeading">
             {Animes && <List anime={Animes} height="57rem" />}
