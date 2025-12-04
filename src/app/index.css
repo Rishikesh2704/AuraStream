@@ -415,13 +415,15 @@ ul > hr {
 .CName > h2::before {
   filter: blur(0.5rem);
 }
+ 
+
 
 .CName > i {
   height: fit-content;
   width: fit-content;
-  position: relative;
+  position: absolute;
   top: 0.8rem;
-  left: calc(100vw - 5rem);
+  left: 9rem;
   cursor: pointer;
   font-size: 1.2rem;
 }
@@ -592,11 +594,14 @@ ul > hr {
 
 #showmore {
   max-height: 12rem;
+  width: fit-content;
   transition: 0.4s ease-out;
   position: absolute;
+  top: 0.8rem;
   left: calc(100vw - 7rem);
   cursor: pointer;
   font-size: 1.2rem;
+
 }
 
 .Anime-List {

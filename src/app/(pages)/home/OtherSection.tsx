@@ -64,7 +64,7 @@ export default function OtherSection({
 
   return (
     <>
-      <section aria-label={`${Homeheading(keys)} Section`} >
+      <section aria-label={`Section ${Homeheading(keys)} `} >
         <header className="CName">
           <h2>{Homeheading(keys)}</h2>
 

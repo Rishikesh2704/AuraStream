@@ -64,26 +64,6 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
     dispatch(setInfoid(id));
   };
 
-  let slide = 0;
-
-  const handleNextSlide = () => {
-    let trendcontainer = trendContent.current as HTMLDivElement;
-    slide += 25;
-    if (slide > 65) {
-      slide = 65;
-    }
-    trendcontainer.style.transform = `translateX(-${slide}%)`;
-  };
-
-  const handlePrevSlide = () => {
-    let trendcontainer = trendContent.current as HTMLDivElement;
-    slide -= 30;
-    if (slide < 10) {
-      slide = 0;
-    }
-    trendcontainer.style.transform = `translateX(-${slide}%)`;
-  };
-
   return (
     <>
       <header className="CName" aria-labelledby="trendH2">
@@ -96,37 +76,14 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
         ref={trendContainer}
       >
         <div className="Trending-Main" tabIndex={0}>
-          {/* <button
-            className="PrevBtn"
-            aria-label="Next TrendAnimes"
-            onClick={() => handlePrevSlide()}
-          >
-            <i
-              className="fa-solid fa-chevron-left"
-              aria-hidden={true}
-              onClick={() => handlePrevSlide()}
-            ></i>
-          </button>
-          
-          <button
-            className="NextBtn"
-            aria-label="Previous TrendAnimes"
-            onClick={() => handleNextSlide()}
-          >
-            <i
-              className="fa-solid fa-chevron-right"
-              aria-hidden={true}
-              onClick={() => handleNextSlide()}
-            ></i>
-          </button> */}
-
+         
           <div className="trendingContainer" ref={trendContent}>
-            {animes.map((anime: animeType) => {
+            {[...animes,...animes].map((anime: animeType) => {
 
               return (
                 <article
                   className="element-container"
-                  key={anime.id}
+                  key={anime.id + Math.random()}
                   data-label={anime.id}
                   onClick={() => showinfo(anime.id)}
                   ref={element}
@@ -162,47 +119,7 @@ const TrendAnimes = memo((props: { animes: animeType[] }) => {
                 </article>
               );
             })}
-            {animes.map((anime: animeType) => {
-
-              return (
-                <article
-                  className="element-container"
-                  key={anime.id}
-                  data-label={anime.id}
-                  onClick={() => showinfo(anime.id)}
-                  ref={element}
-                  onMouseOver={(e) => handleMouseOverElement(e)}
-                  onMouseOut={(e) => handleMouseOutElement(e)}
-                >
-                  <figure className="img" role="button" tabIndex={0}>
-                    <Image
-                      id="elementimg"
-                      src={anime.poster || "/kidzoro.png"}
-                      height={400}
-                      width={300}
-                      loading="lazy"
-                      alt={
-                        anime.title.length > 25
-                          ? anime.title.slice(0, 26) + "poster"
-                          : anime.title + " poster"
-                      }
-                      unoptimized={true}
-                      tabIndex={8}
-                      onKeyDown={(e) => {
-                        if (e.key == "Enter") {
-                          showinfo(anime.id);
-                        }
-                      }}
-                    />
-                  </figure>
-
-
-                  <span className="info">
-                    <h3 className="coverName">{anime.title}</h3>
-                  </span>
-                </article>
-              );
-            })}
+           
           </div>
         </div>
       </section>

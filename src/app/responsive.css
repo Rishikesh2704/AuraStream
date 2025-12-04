@@ -227,8 +227,6 @@
   #Top_Tag {
     visibility: hidden;
   }
-
-  
 }
 
 @media only screen and (max-width: 600px) {
@@ -295,7 +293,7 @@
     background-color: black;
     color: var(--ElementColor);
     position: absolute;
-    z-index: 3;
+    z-index: 6;
     transform: translateX(var(--menu, -80vw));
     visibility: var(--hideMenu, hidden);
     transition: 0.2s ease-in-out;
@@ -306,7 +304,7 @@
     color: var(--ElementColor);
     border: none;
     position: absolute;
-    right: 0.8rem;
+    right: 3.5rem;
     top: 0.9rem;
   }
 
@@ -357,6 +355,10 @@
     flex-direction: column;
   }
 
+  .SpotlightWatch-btn {
+    font-size: 0.65rem;
+  }
+
   .Title > #ep-info > figcaption {
     font-size: 1rem;
   }
@@ -398,6 +400,10 @@
     height: auto;
     /* margin: 0.5rem 1.5rem 1rem 0rem; */
     transition: 0.3s ease-in-out;
+  }
+
+  #showmore {
+    left: calc(100vw - 4rem);
   }
 
   #Epstreamlist-tag {
@@ -754,9 +760,27 @@
   .Home {
     left: 0.5rem;
   }
+
+  .Cover-Info {
+    left: 23%;
+  }
+
+  .Title {
+    width: 16rem;
+  }
+
+  .Title > #ep-info > figcaption {
+    font-size: 0.8rem;
+  }
+
+  .search {
+    width: 6rem;
+  }
+
   .Top10 {
     order: 1;
   }
+
   .Result {
     margin: 0rem;
   }
