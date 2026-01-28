@@ -42,9 +42,9 @@ export default function OtherSection({
       clist.style.height = "auto";
       clist.style.overflow = " ";
     } else {
-      clist.style.maxHeight == "100rem"
+      clist.style.maxHeight == "fit-content"
         ? (clist.style.maxHeight = height)
-        : (clist.style.maxHeight = "100rem");
+        : (clist.style.maxHeight = "fit-content");
       clist.style.overflow == " "
         ? (clist.style.overflow = "hidden")
         : (clist.style.overflow = " ");

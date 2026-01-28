@@ -9,6 +9,7 @@ import { auth } from "@/config/Firebase";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import useDebounce from "@/Hooks/useDebounce";
 
 export default function Navbar() {
   const [searchkey, setsearchkey] = useState("");
@@ -24,7 +25,6 @@ export default function Navbar() {
   const navigate = useRouter();
 
   let path = pathname.split("/")[1];
-
   const {
     data: ReduxHome,
     isLoading: Reduxloading,
@@ -33,10 +33,12 @@ export default function Navbar() {
     pollingInterval: 60 * 60000,
     skipPollingIfUnfocused: true,
   });
-
+  
+  const debouncedValue = useDebounce(searchkey,200)
   const { data: searchsuggestions } = useSearchSuggestionsQuery(
-    inputRef.current?.value ?? skipToken
+    debouncedValue ?? skipToken
   );
+
   useEffect(() => {
     if (!Reduxloading) {
       Object.entries(ReduxHome).map((categ) => {

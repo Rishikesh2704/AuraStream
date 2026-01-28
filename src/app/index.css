@@ -609,7 +609,7 @@ ul > hr {
   padding-bottom: 2rem;
   height: auto;
   display: grid;
-  grid-template-columns: repeat(8, 10.1rem);
+  grid-template-columns: repeat(auto-fit, 10.1rem);
   grid-template-rows: repeat(auto-fit, 14.8rem);
   column-gap: 1.4rem;
   align-items: center;
@@ -714,6 +714,7 @@ ul > hr {
 #li2 {
   margin-right: 0rem !important;
 }
+
 
 .Topanime-container {
   height: 8rem;
@@ -1211,10 +1212,10 @@ ul > hr {
 
 .Modal-bg {
   background-color: rgba(0, 0, 0, 0.6);
-  height: 1000%;
+  height: 100%;
   width: 100%;
   z-index: 5;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
