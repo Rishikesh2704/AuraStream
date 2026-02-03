@@ -48,7 +48,6 @@ export default function Home() {
     key !== "today";
 
   if (!ReduxHome) return null;
-
   return (
     <main tabIndex={0}>
       {Object.entries(ReduxHome).map(([key, value]) => {

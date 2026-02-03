@@ -5,9 +5,13 @@ import { useGenreAnimeInfiniteQuery } from "@/Redux/Fetchslice";
 import ListLayout from "@/app/Components/ListLayout";
 import { useAppSelector } from "@/Redux/hooks";
 import { usePathname } from "next/navigation";
+import AuhtUI from "@/app/Authentication/AuthUI";
 
 export default function GenreAnimePage() {
-  const { modalState, infoid } = useAppSelector((state) => state.states);
+  const { modalState, infoid, authModalState } = useAppSelector(
+    (state) => state.states,
+  );
+
   const [Genre, setGenre] = useState<animeType[]>();
   const location = usePathname();
 
@@ -22,7 +26,6 @@ export default function GenreAnimePage() {
 
   // // SETTING GENRE ANIMES STATE //
   useEffect(() => {
-
     if (!isLoading && name[1].split("/")[0] === "genre") {
       let animes = data?.pages.map((pageAnimes) => pageAnimes.data)?.flat();
       setGenre(animes);
@@ -34,7 +37,7 @@ export default function GenreAnimePage() {
 
   // SCROLL END FUNCTION //
   const scrollFunction = () => {
-  const body = document.getElementsByTagName("body")[0];
+    const body = document.getElementsByTagName("body")[0];
 
     if (body) {
       if (
@@ -48,7 +51,7 @@ export default function GenreAnimePage() {
 
   // INFINITE SCROLL //
   useEffect(() => {
-  const body = document.getElementsByTagName("body")[0];
+    const body = document.getElementsByTagName("body")[0];
 
     try {
       if (name[1].split("/")[0] === "genre" && body) {
@@ -75,12 +78,11 @@ export default function GenreAnimePage() {
     return () => {};
   }, []);
 
-
   return (
     <main>
-
       <ListLayout Animes={Genre} heading={currgen} isLoading={isLoading} />
       {modalState && <Modal id={infoid} />}
+      {authModalState && <AuhtUI />}
     </main>
   );
 }

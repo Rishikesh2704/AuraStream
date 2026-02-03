@@ -4,9 +4,10 @@ import AnimeCard from "@/app/Components/AnimeCard";
 import { useAppSelector } from "@/Redux/hooks";
 import { auth } from "@/config/Firebase";
 import { useEffect, useState } from "react";
+import AuhtUI from "@/app/Authentication/AuthUI";
 
 export default function FavoritePage() {
-  const { infoid, modalState } = useAppSelector((state) => state.states);
+  const { infoid, modalState, authModalState } = useAppSelector((state) => state.states);
   const [favorites, setFavorites] = useState<favoriteAnimetype[]>([]);
 
   useEffect(() => {
@@ -49,6 +50,8 @@ export default function FavoritePage() {
         </article>
       </section>
       {modalState && <Modal id={infoid} />}
+      {authModalState && <AuhtUI />}
+      
     </main>
   );
 }

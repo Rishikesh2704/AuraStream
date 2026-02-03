@@ -9,8 +9,8 @@ import Servers from "./Servers";
 import AnimeInfo from "./AnimeInfo";
 import EpisodeList from "./EpisodeList";
 import VideoPlayer from "./VideoPlayer";
-import { useParams, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import AuhtUI from "@/app/Authentication/AuthUI";
+import { useAppSelector } from "@/Redux/hooks";
 
 type serverType = {
   serverName: string;
@@ -22,6 +22,7 @@ type propsType = {
 };
 
 export default function Epstream({ params, searchParams }: propsType) {
+  const { authModalState } = useAppSelector((state) => state.states);
   const [currep, setcurrep] = useState<episodeType | undefined>();
   const [currserv, setcurrserv] = useState<serverType>({
     serverName: "HD-1",
@@ -31,7 +32,7 @@ export default function Epstream({ params, searchParams }: propsType) {
   const [prevep, setprevep] = useState<episodeType | undefined>();
 
   const epid = use(searchParams).ep;
-  const  id = use(params).animeEpisode
+  const id = use(params).animeEpisode;
 
   // let epid:string | null = animeid.get('ep');
   // let navigate = useRouter();
@@ -59,25 +60,32 @@ export default function Epstream({ params, searchParams }: propsType) {
   // const epid = (await searchParams).ep;
 
   return (
-      <main className="Container" >
-        <section className="Stream-container" role="region">
-          <article className="Video-container">
-            {
-              <figure className="Ep-stream">
-                <VideoPlayer id={id} epid={epid} currserv={currserv} /> 
+    <main className="Container">
+      <section className="Stream-container" role="region">
+        <article className="Video-container">
+          {
+            <figure className="Ep-stream">
+              <VideoPlayer id={id} epid={epid} currserv={currserv} />
 
-                <div className='Ep-btns'>
-                     {/* <button className="prev" onClick={handleprev}>Prev Ep</button>
+              <div className="Ep-btns">
+                {/* <button className="prev" onClick={handleprev}>Prev Ep</button>
                      <button className="next" onClick={handlenext}>Next Ep</button> */}
-                  </div>
-              </figure>
-            }
-            <EpisodeList id={id} epid={epid}  setcurrep={setcurrep}  /> 
-            <Servers epid={epid} id={id} currserv={currserv} setcurrserv={setcurrserv} currep={currep}/>{" "}
-          </article>
+              </div>
+            </figure>
+          }
+          <EpisodeList id={id} epid={epid} setcurrep={setcurrep} />
+          <Servers
+            epid={epid}
+            id={id}
+            currserv={currserv}
+            setcurrserv={setcurrserv}
+            currep={currep}
+          />{" "}
+        </article>
 
-          <AnimeInfo id={id} />
-        </section>
-      </main>
+        <AnimeInfo id={id} />
+      </section>
+      {authModalState && <AuhtUI />}
+    </main>
   );
 }
