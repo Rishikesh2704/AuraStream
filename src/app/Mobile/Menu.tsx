@@ -44,7 +44,7 @@ export default function Menu() {
       </button>
       <ul>
         <li id="category-main" onClick={() => handleCloseMenu()}>
-          <Link href="/Home" id="category">
+          <Link href="/" id="category">
             <i className="fa-solid fa-house"></i>
           </Link>
         </li>

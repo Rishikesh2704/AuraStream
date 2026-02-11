@@ -980,6 +980,7 @@ ul > hr {
 
 .Cover-Info > p {
   font-weight: 500;
+  color:white;
   animation: spotlightDescriptionAnimation 0.4s ease-out;
 }
 

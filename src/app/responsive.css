@@ -368,6 +368,7 @@
   }
 
   .Cover-Info > p {
+    color:white;
     font-size: 0.5rem;
   }
 
@@ -403,7 +404,7 @@
   }
 
   #showmore {
-    left: calc(100vw - 4rem);
+    left: calc(100vw - 3rem);
   }
 
   #Epstreamlist-tag {
@@ -786,7 +787,7 @@
   }
 
   .Anime-List {
-    grid-template-columns: repeat(auto-fit, 5.8rem);
+    grid-template-columns: repeat(auto-fit, minmax(5.8rem, 1fr));
     column-gap: 0.5rem;
     max-height: 12rem;
     row-gap: 0rem;
