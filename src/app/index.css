@@ -1667,16 +1667,15 @@ ul > hr {
 
 .Ep-grid {
   display: grid;
-  grid-template-columns: repeat(9, 3.7rem);
+  grid-template-columns: repeat(auto-fit, minmax(4rem,3.7rem));
   grid-template-rows: auto;
   margin-top: 0.1rem;
 }
 
 .episodes {
   height: 92%;
-  width: 80%;
+  width: 100%;
   margin-top: 0.7rem;
-  padding-right: 2rem;
 }
 
 .Ep-list::-webkit-scrollbar {

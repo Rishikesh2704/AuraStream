@@ -368,7 +368,7 @@
   }
 
   .Cover-Info > p {
-    color:white;
+    color: white;
     font-size: 0.5rem;
   }
 
@@ -422,7 +422,7 @@
     align-items: center;
     justify-content: flex-start;
     transition: 0.4s ease-in-out;
-    max-height: 14rem;
+    max-height: 13rem;
     row-gap: 0rem;
   }
 
@@ -468,12 +468,10 @@
 
   .trendingContainer > .element-container > .img > #elementimg {
     height: 13.8rem;
-    width: 9rem;
   }
 
   #elementimg {
     height: 10rem;
-    width: 7rem;
   }
 
   .img::before {
@@ -567,6 +565,14 @@
     );
   }
 
+  .Watch-btn {
+    font-size: 0.7rem;
+    left: 1rem;
+  }
+
+  desc > span {
+    font-size: 1.3vmax;
+  }
   .SpotlightAnime-container {
     height: 25rem;
     width: 100%;
@@ -606,6 +612,11 @@
     color: rgb(250, 247, 247);
     text-shadow: 0px 0px 10px rgb(6, 6, 6);
     font-size: 0.7rem;
+  }
+
+  .Img-Container > img {
+    height: auto;
+    width: 7rem;
   }
 
   #ep-info {
