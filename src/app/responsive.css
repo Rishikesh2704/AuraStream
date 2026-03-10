@@ -231,9 +231,14 @@
 
 @media only screen and (max-width: 600px) {
   .navbar {
-    display: flex;
+    display: none;
+    /* display: flex;
     justify-content: center;
-    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(1, 1, 1, 0) 90%);
+    background: linear-gradient(180deg, rgb(0, 0, 0) 0%, rgba(1, 1, 1, 0) 90%); */
+  }
+
+  .MobileNavbar{
+    display: flex;
   }
 
   .Other {

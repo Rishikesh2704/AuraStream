@@ -38,7 +38,7 @@ export default function MobileNavbar() {
       <Menu />
 
       <div
-        className="navbar"
+        className="MobileNavbar"
         style={{
           position: path === "Home" || path === "" ? "absolute" : "fixed",
           backgroundColor:

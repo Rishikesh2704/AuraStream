@@ -18,7 +18,8 @@ export default function RootLayout({
   
   return (
     <>
-      {isMobile ? <MobileNavbar /> : <Navbar />}
+      <MobileNavbar /> 
+      <Navbar />
 
       {children}
     </>
