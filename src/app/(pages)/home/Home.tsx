@@ -1,4 +1,5 @@
 "use client";
+import './home.css'
 
 import Modal from '@/app/Components/Modal/Modal'
 import { useHomeQuery } from "@/Redux/Fetchslice";

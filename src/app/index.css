@@ -328,6 +328,12 @@ ul > hr {
 
 /*Home*/
 
+.showItem{
+    transform: translateY(0%);
+    opacity: 1;
+    transition:0.2s ease-in-out;
+}
+
 .Home {
   height: auto;
   width: 98%;
@@ -1079,6 +1085,8 @@ ul > hr {
 /*Anime Elements */
 
 .element-container {
+  opacity: 0;
+  transform: translateY(50%);
   height: 15rem;
   width: fit-content;
   display: flex;

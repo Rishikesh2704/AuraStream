@@ -4,7 +4,7 @@ import { setInfoid, setModalState } from "../../Redux/StateSlice";
 import { useAppDispatch } from "../../Redux/hooks";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
+import '../(pages)/home/home.css'
 type propsType = {
   name: string;
   img: string;
@@ -57,6 +57,19 @@ export default function AnimeCard(props: propsType) {
       element.style.setProperty("--loading", loading ? "visible" : "hidden");
     });
   }, [loading]);
+
+  useEffect(() => {
+    const animeContainers = document.querySelectorAll('.element-container')
+    const observer = new IntersectionObserver( (entries) => {
+      entries.forEach( (entry) => {
+        entry.target.classList.toggle('showItem', entry.isIntersecting)
+        if(entry.isIntersecting) observer.unobserve(entry.target)
+      })
+    })
+
+    animeContainers.forEach( (anime) => observer.observe(anime))
+
+  },[])
 
   const handleMouseOutElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
