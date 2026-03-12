@@ -328,11 +328,6 @@ ul > hr {
 
 /*Home*/
 
-.showItem{
-    transform: translateY(0%);
-    opacity: 1;
-    transition:0.2s ease-in-out;
-}
 
 .Home {
   height: auto;

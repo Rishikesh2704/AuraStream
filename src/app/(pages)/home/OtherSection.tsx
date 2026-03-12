@@ -27,18 +27,7 @@ export default function OtherSection({
     setheight(() => getMediaQuery());
   }, []);
 
-  useEffect(() => {
-     const sections = document.querySelectorAll('.Section')
-     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle('showItem', entry.isIntersecting)
-          if(entry.isIntersecting) observer.unobserve(entry.target)
-        })
-     })
-
-     sections.forEach((section) => observer.observe(section))
-  },[]) 
-
+ 
   if (name[1] === "genre") {
     name[1] = location.slice(1);
     currgen = name[1].split("/")[1];
@@ -77,7 +66,7 @@ export default function OtherSection({
   
 
   return (
-      <section className="Section" aria-label={`Section ${Homeheading(keys)} `} >
+      <section  aria-label={`Section ${Homeheading(keys)} `} >
         <header className="CName">
           <h2>{Homeheading(keys)}</h2>
 

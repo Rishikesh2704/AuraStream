@@ -58,18 +58,6 @@ export default function AnimeCard(props: propsType) {
     });
   }, [loading]);
 
-  useEffect(() => {
-    const animeContainers = document.querySelectorAll('.element-container')
-    const observer = new IntersectionObserver( (entries) => {
-      entries.forEach( (entry) => {
-        entry.target.classList.toggle('showItem', entry.isIntersecting)
-        if(entry.isIntersecting) observer.unobserve(entry.target)
-      })
-    })
-
-    animeContainers.forEach( (anime) => observer.observe(anime))
-
-  },[])
 
   const handleMouseOutElement = (
     e: React.MouseEvent<HTMLElement, MouseEvent>
