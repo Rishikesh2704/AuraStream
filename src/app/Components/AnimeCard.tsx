@@ -4,7 +4,6 @@ import { setInfoid, setModalState } from "../../Redux/StateSlice";
 import { useAppDispatch } from "../../Redux/hooks";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import '../(pages)/home/home.css'
 type propsType = {
   name: string;
   img: string;
