@@ -24,7 +24,7 @@ function isHydrateAction(action: Action): any {
 export const Animeapi = createApi({
   reducerPath: "Animeapi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://anime-api-vert-alpha.vercel.app/api",
+    baseUrl: "https://anime-api-rho-two.vercel.app/api",
   }),
   extractRehydrationInfo(action, { reducerPath }): any {
     if (isHydrateAction(action)) {
