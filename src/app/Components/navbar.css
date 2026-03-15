@@ -1,11 +1,47 @@
-.navbar{
-    position:fixed;
-    top:50%;
+@keyframes Navanimation {
+  0% {
+    transform: translate(-100%,-50%);
+    opacity:0;
+  }
+  
+  100%{
+      transform: translate(0%, -50%);
+    opacity:1
+  }
+}
+
+.Navbar {
+    position: fixed;
+    top: 50%;
     transform: translateY(-50%);
-    left:01rem;
-    height:30%;
-    width:rem;
+    left: 1rem;
+    height: 25%;
+    width: 2.5em;
     z-index: 5;
-    background-color: rgb(193, 0, 0);
-    border-radius:0.7rem;
+    background-color: rgb(25, 25, 25);
+    border-radius: 0.7rem;
+    display: flex;
+    animation:Navanimation 0.5s ease-in-out ;
+    box-shadow:0px 0px 5px rgb(39, 38, 38);
+}
+
+.Navbar ul {
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.Navbar ul li {
+  font-size: 1.2vmax;
+  cursor:pointer;
+  &li:hover {
+    color: var(--ElementColor);
+  }
+
+  &li:active {
+    color: rgb(2, 142, 125);
+  }
 }

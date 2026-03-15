@@ -83,10 +83,11 @@ const SpotLightSection = ({
         </button>
 
         <section className="Animes-Container">
-          <div className="Slide-Images" ref={grid}>
+          <div className="Slide-Images" id="Carousel" ref={grid}>
             {spotlightCoverAnimes.map((spotlight, idx: number) => (
               <div
                 className="SpotlightAnime-container"
+                id= "CaouselBgImg"
                 ref={spotlightimgContRef}
                 key={spotlight.id + idx}
                 onClick={() => handleModal(spotlight.id)}
@@ -97,8 +98,8 @@ const SpotLightSection = ({
                     src={spotlight.poster || "/kidzoro.png"}
                     fetchPriority="high"
                     priority={idx !== 0 ? false : true}
-                    width="963"
-                    height="541"
+                    width="400"
+                    height="980"
                     alt=""
                     aria-hidden={true}
                     loading={idx !== 0 ? "lazy" : "eager"}
@@ -116,7 +117,7 @@ const SpotLightSection = ({
                   className="Cover-Info"
                 >
                   <figure className="Title" ref={spotlightAnimeRef}>
-                    {
+                    {/* {
                       <Image
                         id="Coverimg-src"
                         width={80}
@@ -133,7 +134,7 @@ const SpotLightSection = ({
                           }
                         }}
                       />
-                    }
+                    } */}
 
                     <section id="ep-info">
                       <figcaption>{spotlight.title}</figcaption>
@@ -169,7 +170,16 @@ const SpotLightSection = ({
                         }
                       })}
 
-                      <button
+                    
+                    </section>
+                    
+                  </figure>
+
+                  <p>
+                    {spotlight?.description.slice(0, isMobile ? 150 : 348)}
+                    ...
+                  </p>
+                    <button
                         className="SpotlightWatch-btn"
                         onClick={() => dispatch(setModalState(false))}
                         aria-label={`watch ${spotlight.title}`}
@@ -177,15 +187,10 @@ const SpotLightSection = ({
                         <i className="fa-solid fa-play" aria-hidden={true}></i>{" "}
                         Watch
                       </button>
-                    </section>
-                  </figure>
-
-                  <p>
-                    {spotlight?.description.slice(0, isMobile ? 150 : 498)}
-                    ...
-                  </p>
                 </article>
+                
               </div>
+              
             ))}
           </div>
         </section>

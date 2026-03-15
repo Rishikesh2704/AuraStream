@@ -6,6 +6,7 @@ import SpotLightSection from "@/app/(pages)/home/SpotLightSection";
 import { useAppSelector } from "@/Redux/hooks";
 import AuhtUI from "@/app/Authentication/AuthUI";
 import dynamic from "next/dynamic";
+import './home.css'
 
 const OtherSection = dynamic(() => import("@/app/(pages)/home/OtherSection"));
 const TrendAnimes = dynamic(() => import("./TrendAnimes"));

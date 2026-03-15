@@ -32,7 +32,7 @@ a {
 }
 
 /* Navbar */
-.navbar {
+/* .navbar {
   height: 50px;
   width: 100%;
   background-color: linear-gradient(
@@ -102,7 +102,6 @@ li {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5px);
   margin-right: 2rem;
-  /* border:2px solid #000000; */
   border-radius: 5px;
 }
 
@@ -305,7 +304,7 @@ ul > hr {
   height: 2.5rem;
   position: relative;
   top: 0.3rem;
-}
+} */
 
 @font-face {
   font-family: "sukajanBrush";
@@ -324,6 +323,10 @@ ul > hr {
   background-clip: text;
   font-size: 1.8rem;
   transform: translate(0, 0.3rem);
+  position:absolute;
+  top:1rem;
+  left:2rem;
+  z-index:1;
 }
 
 /*Home*/
@@ -836,252 +839,10 @@ ul > hr {
   transform: translate(1.7rem, 4rem);
 }
 
-.Slider-Container {
-  height: 46rem;
-  width: 99vw;
-  overflow: hidden;
-
-  display: flex;
-  justify-content: center;
-  & > i {
-    border: none;
-    color: white;
-  }
-}
-.Animes-Container {
-  height: 46rem;
-  width: 94rem;
-}
-
-.Slide-Images {
-  height: 100%;
-  width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(8, 94rem);
-  transition: all 0.4s ease-out;
-  transform: translateX(var(--changeCover, 0rem));
-}
-
-.CoverNextBtn {
-  height: 95%;
-  width: 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 1;
-  font-size: 1.7rem;
-  right: 0rem;
-  transition: 0.5s ease-out;
-  background: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
-  &:hover {
-    cursor: pointer;
-    transition: 0.5s ease-out;
-    background: linear-gradient(
-      270deg,
-      rgb(0, 0, 0) 0%,
-      rgba(68, 68, 68, 0) 75%
-    );
-  }
-}
-.CoverPrevBtn {
-  height: 95%;
-  width: 5rem;
-  position: absolute;
-  z-index: 1;
-  left: 0rem;
-  font-size: 1.7rem;
-  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
-  transition: 0.5s ease-out;
-  &:hover {
-    cursor: pointer;
-    transition: 0.5s ease-out;
-    background: linear-gradient(
-      90deg,
-      rgb(0, 0, 0) 0%,
-      rgba(68, 68, 68, 0) 75%
-    );
-  }
-}
-
-@keyframes spotlightPosterAnimation {
-  0% {
-    transform: translateX(-5rem);
-    opacity: 0;
-  }
-  70% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0rem);
-    opacity: 1;
-  }
-}
-
-@keyframes spotlightTitleAnimation {
-  0% {
-    transform: translateX(5rem);
-    opacity: 0;
-  }
-  70% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0rem);
-    opacity: 1;
-  }
-}
-
-@keyframes spotlightDescriptionAnimation {
-  0% {
-    transform: translateY(5rem);
-    opacity: 0;
-  }
-  70% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0rem);
-    opacity: 1;
-  }
-}
-
-.SpotlightAnime-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.Cover {
-  height: 100%;
-  width: 100%;
-}
-
-.Cover > img {
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  object-fit: cover;
-}
-
-.Cover-Info {
-  height: auto;
-  width: 60rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  text-align: start;
-  gap: 2rem;
-  z-index: 2;
-  position: absolute;
-  left: 10.8%;
-  top: 9.5rem;
-}
-
-.Cover-Info > p {
-  font-weight: 500;
-  color: white;
-  animation: spotlightDescriptionAnimation 0.4s ease-out;
-}
-
-.Cover-Info > span {
-  color: rgb(250, 247, 247);
-  text-shadow: 0px 0px 10px rgb(6, 6, 6);
-  font-size: 1rem;
-}
-
-.Title {
-  text-align: center;
-  width: 37rem;
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  position: relative;
-  flex-wrap: nowrap;
-}
-
-#ep-info {
-  position: relative;
-}
-
-.SpotlightWatch-btn {
-  display: block;
-  padding: 0.6rem 0.9rem;
-  border-radius: 0.85rem;
-  color: black;
-  border: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  background-color: var(--ElementColor);
-  /* background-color: rgb(7, 154, 252); */
-  transition: 0.2s ease-out;
-  display: flex;
-  align-items: center;
-}
-
-.SpotlightWatch-btn:hover {
-  background-color: rgb(20, 213, 210);
-}
-
-.SpotlightWatch-btn i {
-  position: relative;
-  font-size: 0.9rem;
-  right: 0.1rem;
-}
-
-.Title > #ep-info > figcaption {
-  /* font-family: "Playful fair"; */
-  font-style: italic;
-  font-size: 1.6rem;
-  font-weight: 700;
-  width: 100%;
-  letter-spacing: 0.05rem;
-  word-spacing: 0.1rem;
-  color: rgb(228, 228, 228);
-  text-shadow: 0px 0px 5px rgb(183, 183, 183);
-  animation: spotlightTitleAnimation 0.4s ease-out;
-}
-
-.Title > #Coverimg-src {
-  height: 18rem;
-  width: 12rem;
-  border-radius: 10px;
-  box-shadow: 4px 4px 10px 2px black;
-  cursor: pointer;
-  border: 1px solid white;
-  animation: spotlightPosterAnimation 0.4s ease-out;
-}
-
-.CoverDark {
-  height: 46rem;
-  width: 94rem;
-  position: absolute;
-  background:
-    linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 90%),
-    linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 65%),
-    linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 10%),
-    linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%);
-}
-
-#Cover {
-  background-color: rgb(225, 226, 227);
-  /* border:1px solid rgb(30, 236, 219); */
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: rgb(0, 0, 0);
-  border-radius: 4px;
-  padding: 0.1rem 0.2rem;
-  animation: spotlightTitleAnimation 0.4s ease-out;
-}
 
 /*Anime Elements */
 
 .element-container {
-  opacity: 0;
-  transform: translateY(50%);
   height: 15rem;
   width: fit-content;
   display: flex;

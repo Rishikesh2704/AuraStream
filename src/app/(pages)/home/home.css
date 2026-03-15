@@ -1,0 +1,251 @@
+/********* SpotLight Animes ********/
+
+@keyframes spotlightPosterAnimation {
+  0% {
+    transform: translateX(-5rem);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes spotlightTitleAnimation {
+  0% {
+    transform: translateX(5rem);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes spotlightDescriptionAnimation {
+  0% {
+    transform: translateY(5rem);
+    opacity: 0;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+
+.Slider-Container {
+  height: 46rem;
+  width: 99vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  cursor:pointer;
+  
+  & > i {
+    border: none;
+    color: white;
+  }
+}
+.Animes-Container {
+  height: 46rem;
+  width: 94rem;
+}
+
+.Slide-Images {
+  height: 100%;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(9, 94rem);
+  transition: all 0.4s ease-out;
+  transform: translateX(var(--changeCover, 0rem));
+}
+
+.SpotlightAnime-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  background-color: rgb(0, 0, 0);
+  padding: 0 0 0 5rem;
+}
+
+.Cover {
+  height: 100%;
+  width: 55%;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+}
+
+.Cover > img {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  object-fit: cover;
+}
+
+.CoverDark {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background:
+    linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 90%),
+    linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 65%),
+    linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 10%),
+    linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%);
+}
+
+#Cover {
+  background-color: rgb(225, 226, 227);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+  border-radius: 4px;
+  padding: 0.1rem 0.2rem;
+  animation: spotlightTitleAnimation 0.4s ease-out;
+}
+
+.CoverNextBtn {
+  height: 95%;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  font-size: 1.7rem;
+  right: 0rem;
+  transition: 0.5s ease-out;
+  background: linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+  &:hover {
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    background: linear-gradient(
+      270deg,
+      rgb(0, 0, 0) 0%,
+      rgba(68, 68, 68, 0) 75%
+    );
+  }
+}
+.CoverPrevBtn {
+  height: 95%;
+  width: 5rem;
+  position: absolute;
+  z-index: 1;
+  left: 0rem;
+  font-size: 1.7rem;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 55%);
+  transition: 0.5s ease-out;
+  &:hover {
+    cursor: pointer;
+    transition: 0.5s ease-out;
+    background: linear-gradient(
+      90deg,
+      rgb(0, 0, 0) 0%,
+      rgba(68, 68, 68, 0) 75%
+    );
+  }
+}
+
+.Cover-Info {
+  height: 40%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: start;
+  gap: 2rem;
+  z-index: 2;
+  position: relative;
+}
+
+.Cover-Info > p {
+  font-weight: 500;
+  font-size: 1.9vmin;
+  color: rgb(209, 207, 207);
+  animation: spotlightDescriptionAnimation 0.4s ease-out;
+}
+
+.Cover-Info > span {
+  color: rgb(250, 247, 247);
+  text-shadow: 0px 0px 10px rgb(6, 6, 6);
+  font-size: 1rem;
+}
+
+.Title {
+  text-align: center;
+  width: 37rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+#ep-info {
+  position: relative;
+}
+
+.SpotlightWatch-btn {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.85rem;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: var(--ElementColor);
+  transition: 0.2s ease-out;
+
+  &:hover {
+    background-color: rgb(20, 213, 210);
+  }
+}
+
+/* 
+.SpotlightWatch-btn i {
+  position: relative;
+  font-size: 0.9rem;
+  right: 0.1rem;
+} */
+
+.Title > #ep-info > figcaption {
+  font-size: 1.6rem;
+  font-weight: 700;
+  width: 100%;
+  letter-spacing: 0.05rem;
+  word-spacing: 0.1rem;
+  color: rgb(228, 228, 228);
+  text-shadow: 0px 0px 4px rgb(183, 183, 183);
+  animation: spotlightTitleAnimation 0.4s ease-out;
+}
+
+.Title > #Coverimg-src {
+  height: 18rem;
+  width: 12rem;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px 2px black;
+  cursor: pointer;
+  border: 1px solid white;
+  animation: spotlightPosterAnimation 0.4s ease-out;
+}

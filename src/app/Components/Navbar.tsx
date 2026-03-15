@@ -10,6 +10,7 @@ import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import useDebounce from "@/Hooks/useDebounce";
+import "./navbar.css";
 
 export default function Navbar() {
   const [searchkey, setsearchkey] = useState("");
@@ -33,10 +34,10 @@ export default function Navbar() {
     pollingInterval: 60 * 60000,
     skipPollingIfUnfocused: true,
   });
-  
-  const debouncedValue = useDebounce(searchkey,200)
+
+  const debouncedValue = useDebounce(searchkey, 200);
   const { data: searchsuggestions } = useSearchSuggestionsQuery(
-    debouncedValue ?? skipToken
+    debouncedValue ?? skipToken,
   );
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function Navbar() {
   };
 
   const fetchresult = async (
-    e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>
+    e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLInputElement>,
   ) => {
     e.preventDefault();
     if (searchkey !== " ") {
@@ -81,48 +82,46 @@ export default function Navbar() {
 
   return (
     <>
+      <h1 className="Main-name">Aurastream</h1>
       <nav
-        className="navbar"
+        className="Navbar"
         style={{
-          position: path === "" ? "absolute" : "fixed",
+          // position: path === "" ? "absolute" : "fixed",
           backgroundColor:
             path === ""
               ? "linear-gradient(0deg, rgb(21, 20, 20) 0% , rgba(68, 68, 68, 0) 40%)"
               : "rgb(14,14,14)",
-          top: path === "" ? "0.8rem" : "0rem",
+          // top: path === "" ? "0.8rem" : "0rem",
         }}
       >
-        <section className="Options">
-          <header aria-labelledby="SiteName">
-            <h1 id="SiteName" className="Main-name">
-              AuraStream
-            </h1>
-          </header>
+        <ul aria-label="Categories">
+          <li id="category-main"
+         
+          >
+            <Link href="/" id="HomeLink" prefetch>
+              <i className="fa-solid fa-house"></i>
+            </Link>
+          </li>
 
-          <ul aria-label="Categories">
-            <li id="category-main">
-              <Link href="/" id="category" prefetch>
-                Home
-              </Link>
-            </li>
-
-            <li
-              onMouseOver={() => {
-                handledropdown();
-              }}
-              onMouseOut={() => {
-                setshow("hidden");
-              }}
+          <li
+          
+            // onMouseOver={() => {
+            //   handledropdown();
+            // }}
+            // onMouseOut={() => {
+            //   setshow("hidden");
+            // }}
+          >
+            <button
+              className="gen-tag"
+              aria-haspopup="true"
+              aria-expanded={show === "visible"}
+              aria-controls="genre-list"
             >
-              <div className="dropdown">
-                <button
-                  className="gen-tag"
-                  aria-haspopup="true"
-                  aria-expanded={show === "visible"}
-                  aria-controls="genre-list"
-                >
-                  Genre
-                </button>
+              <i className="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+            {/* <div className="dropdown">
+               
                 <div className="options" style={{ visibility: show }}>
                   <ul id="hidden">
                     {genres ? (
@@ -146,20 +145,35 @@ export default function Navbar() {
                     )}
                   </ul>
                 </div>
-              </div>
-            </li>
+              </div> */}
+          </li>
 
-            {auth.currentUser && (
+          {/* {auth.currentUser && (
               <li id="category-main">
                 <Link href="/Favorites" id="category">
                   Favorites
                 </Link>
               </li>
-            )}
-          </ul>
-        </section>
+            )} */}
+          <li
+            className="gen-tag"
+              aria-haspopup="true"
+              aria-controls="search-tab"
+          >
+            <button
+              className="search-bt"
+              aria-label="Search Button"
+              type="submit"
+            >
+              <i
+                className="fa-solid fa-magnifying-glass"
+                aria-hidden={true}
+              ></i>
+            </button>
+          </li>
+        </ul>
 
-        <section className="Other">
+        {/* <section className="Other">
           <form
             className="search"
             role="search"
@@ -221,7 +235,7 @@ export default function Navbar() {
               Sign Out
             </button>
           )}
-        </section>
+        </section> */}
       </nav>
     </>
   );
