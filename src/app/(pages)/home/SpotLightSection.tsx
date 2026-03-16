@@ -179,14 +179,14 @@ const SpotLightSection = ({
                     {spotlight?.description.slice(0, isMobile ? 150 : 348)}
                     ...
                   </p>
-                    <button
+                    {/* <button
                         className="SpotlightWatch-btn"
                         onClick={() => dispatch(setModalState(false))}
                         aria-label={`watch ${spotlight.title}`}
                       >
                         <i className="fa-solid fa-play" aria-hidden={true}></i>{" "}
                         Watch
-                      </button>
+                      </button> */}
                 </article>
                 
               </div>

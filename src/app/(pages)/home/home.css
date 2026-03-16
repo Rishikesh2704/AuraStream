@@ -43,7 +43,7 @@
 }
 
 .Slider-Container {
-  height: 46rem;
+  height: 100vh;
   width: 99vw;
   overflow: hidden;
   display: flex;
@@ -56,7 +56,7 @@
   }
 }
 .Animes-Container {
-  height: 46rem;
+  height: 100%;
   width: 94rem;
 }
 
@@ -83,7 +83,7 @@
 
 .Cover {
   height: 100%;
-  width: 55%;
+  width: 72%;
   position: absolute;
   right: 1rem;
   top: 0;
@@ -175,7 +175,7 @@
 .Cover-Info > p {
   font-weight: 500;
   font-size: 1.9vmin;
-  color: rgb(209, 207, 207);
+  color: rgb(199, 197, 197);
   animation: spotlightDescriptionAnimation 0.4s ease-out;
 }
 
@@ -230,7 +230,7 @@
 } */
 
 .Title > #ep-info > figcaption {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 700;
   width: 100%;
   letter-spacing: 0.05rem;
