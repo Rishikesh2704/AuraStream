@@ -75,7 +75,7 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: start;
-  align-items: center;
+  align-items: end;
   position: relative;
   background-color: rgb(0, 0, 0);
   padding: 0 0 0 5rem;
@@ -83,7 +83,7 @@
 
 .Cover {
   height: 100%;
-  width: 72%;
+  width: 90%;
   position: absolute;
   right: 1rem;
   top: 0;
@@ -93,6 +93,7 @@
   height: 100%;
   width: 100%;
   z-index: 1;
+  
   object-fit: cover;
 }
 
@@ -161,33 +162,33 @@
 
 .Cover-Info {
   height: 40%;
-  width: 40%;
+  width: 45%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
+  align-items:start;
+  justify-content: start;
   text-align: start;
-  gap: 2rem;
+  gap: 1rem;
   z-index: 2;
   position: relative;
+  bottom:6rem
 }
 
 .Cover-Info > p {
-  font-weight: 500;
-  font-size: 1.9vmin;
+  font-size: 2vmin;
   color: rgb(199, 197, 197);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   animation: spotlightDescriptionAnimation 0.4s ease-out;
 }
 
 .Cover-Info > span {
   color: rgb(250, 247, 247);
   text-shadow: 0px 0px 10px rgb(6, 6, 6);
-  font-size: 1rem;
 }
 
 .Title {
   text-align: center;
-  width: 37rem;
+  width: 100%;
   display: flex;
   gap: 0.8rem;
   align-items: center;
@@ -197,17 +198,26 @@
 
 #ep-info {
   position: relative;
+
 }
+
+
+#Cover {
+  background-color:white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: black;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  animation: spotlightTitleAnimation 0.4s ease-out;
+}
+
 
 .SpotlightWatch-btn {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0.4rem 0.9rem;
+  padding: 0.6rem 01rem;
   border-radius: 0.85rem;
   color: black;
   border: none;
@@ -222,15 +232,10 @@
   }
 }
 
-/* 
-.SpotlightWatch-btn i {
-  position: relative;
-  font-size: 0.9rem;
-  right: 0.1rem;
-} */
+
 
 .Title > #ep-info > figcaption {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   width: 100%;
   letter-spacing: 0.05rem;

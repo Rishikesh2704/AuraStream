@@ -55,24 +55,13 @@ export default function VideoPlayer(props: propsType) {
     <>
       {!Loading && url && (
         <>
+        {console.log(url)}
           <MediaPlayer
             className="player"
-            title={id as string}
-            aspectRatio="16/9"
-            src="https://megacloud.blog/embed-2/v3/e-1/YCuDrdI4zXOs?k=1&autoPlay=0&oa=0&asi=1"
-            load="visible"
-            preload="auto"
-            crossOrigin="use-credentials"
+            src={url}
+            
           >
-            <MediaProvider>
-              <Track 
-                                label="English"
-                                kind="captions"
-                                src={subtitlesrc}
-                                default
-                                key={subtitlesrc} 
-                            />
-            </MediaProvider>
+           <MediaProvider/>
 
             <PlyrLayout icons={plyrLayoutIcons} />
           </MediaPlayer>
