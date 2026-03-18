@@ -18,7 +18,8 @@
     height: 25%;
     width: 2.5em;
     z-index: 5;
-    background-color: rgb(56, 56, 56);
+    background-color: rgb(17, 17, 17);
+    border:1px solid rgb(212, 211, 211);
     border-radius: 0.7rem;
     display: flex;
     animation:Navanimation 0.5s ease-in-out ;

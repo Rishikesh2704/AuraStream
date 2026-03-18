@@ -163,13 +163,12 @@ export default function Navbar() {
             <button
               className="search-bt"
               aria-label="Search Button"
-              type="submit"
             >
               <i
                 className="fa-solid fa-magnifying-glass"
                 aria-hidden={true}
               ></i>
-            </button>
+            </button> 
           </li>
         </ul>
 
