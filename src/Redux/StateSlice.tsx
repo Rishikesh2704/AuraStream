@@ -50,7 +50,7 @@ export const stateSlice = createSlice({
   },
 });
 
-export const { setModalState, setInfoid, setauthModalState } =
+export const { setModalState, setInfoid, setauthModalState, setExploreModalState } =
   stateSlice.actions;
 
 export default stateSlice.reducer;

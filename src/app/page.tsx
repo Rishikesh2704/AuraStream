@@ -2,7 +2,8 @@ import { makeStore } from "@/Redux/store"
 import Home from "./(pages)/home/Home"
 import { Animeapi } from "@/Redux/Fetchslice"
 import ReduxProvider from "./ReduxProvider";
-import Loading from "./loading";
+import Navbar from "./Components/Navbar/Navbar";
+import ExploreModal from "./Components/ExploreModal/Explore";
 
 export default async function Homepage(){
     const store = makeStore();

@@ -10,6 +10,9 @@
   }
 }
 
+i{
+  pointer-events: none;
+}
 .Navbar {
     position: fixed;
     top: 50%;

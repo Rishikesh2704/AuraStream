@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { useHomeQuery, useSearchSuggestionsQuery } from "@/Redux/Fetchslice";
-import { setauthModalState } from "@/Redux/StateSlice";
+import { setauthModalState, setExploreModalState } from "@/Redux/StateSlice";
 import { skipToken } from "@reduxjs/toolkit/query";
 import { useAppDispatch, useAppSelector } from "@/Redux/hooks";
-import SearchSuggestion from "./SearchSuggestion";
+import SearchSuggestion from "../SearchSuggestion";
 import { auth } from "@/config/Firebase";
 import { onAuthStateChanged, signOut, User } from "firebase/auth";
 import Link from "next/link";
@@ -85,18 +85,10 @@ export default function Navbar() {
       <h1 className="Main-name">Aurastream</h1>
       <nav
         className="Navbar"
-        style={{
-          // position: path === "" ? "absolute" : "fixed",
-          backgroundColor:
-            path === ""
-              ? "linear-gradient(0deg, rgb(21, 20, 20) 0% , rgba(68, 68, 68, 0) 40%)"
-              : "rgb(14,14,14)",
-          // top: path === "" ? "0.8rem" : "0rem",
-        }}
+       
       >
         <ul aria-label="Categories">
           <li id="category-main"
-         
           >
             <Link href="/" id="HomeLink" prefetch>
               <i className="fa-solid fa-house"></i>
@@ -104,48 +96,18 @@ export default function Navbar() {
           </li>
 
           <li
-          
-            // onMouseOver={() => {
-            //   handledropdown();
-            // }}
-            // onMouseOut={() => {
-            //   setshow("hidden");
-            // }}
-          >
-            <button
+            onClick={() =>{  dispatch(setExploreModalState(true))}}
+           
               className="gen-tag"
               aria-haspopup="true"
               aria-expanded={show === "visible"}
               aria-controls="genre-list"
-            >
-              <i className="fa-solid fa-wand-magic-sparkles"></i>
-            </button>
-            {/* <div className="dropdown">
-               
-                <div className="options" style={{ visibility: show }}>
-                  <ul id="hidden">
-                    {genres ? (
-                      genres.map((genre: string, index: number) => (
-                        <li
-                          className="anime-genre"
-                          value={`/genre/${genre}`}
-                          key={index}
-                          onClick={() => handledropdown()}
-                        >
-                          <Link
-                            className="genre-categories"
-                            href={`/genre/${genre}`}
-                          >
-                            {genre}
-                          </Link>
-                        </li>
-                      ))
-                    ) : (
-                      <p>NO Genres</p>
-                    )}
-                  </ul>
-                </div>
-              </div> */}
+          >
+            
+            
+              
+              <i className="fa-solid fa-wand-magic-sparkles"  ></i>
+            
           </li>
 
           {/* {auth.currentUser && (

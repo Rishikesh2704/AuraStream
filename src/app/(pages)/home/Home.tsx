@@ -7,6 +7,7 @@ import { useAppSelector } from "@/Redux/hooks";
 import AuhtUI from "@/app/Authentication/AuthUI";
 import dynamic from "next/dynamic";
 import './home.css'
+import ExploreModal from '@/app/Components/ExploreModal/Explore';
 
 const OtherSection = dynamic(() => import("@/app/(pages)/home/OtherSection"));
 const TrendAnimes = dynamic(() => import("./TrendAnimes"));
@@ -33,7 +34,7 @@ type propsType = {
 };
 
 export default function Home() {
-  const { modalState, infoid, authModalState } = useAppSelector(
+  const { modalState, infoid, authModalState, exploreModalState } = useAppSelector(
     (st) => st.states
   );
   const { data: ReduxHome } = useHomeQuery("", {
@@ -82,8 +83,10 @@ export default function Home() {
         })}
       </section>
 
+
       {modalState && <Modal id={infoid} />}
       {authModalState && <AuhtUI />}
+      {exploreModalState && <ExploreModal/>}
     </main>
   );
 }

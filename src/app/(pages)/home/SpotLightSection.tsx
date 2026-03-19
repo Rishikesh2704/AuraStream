@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useAnimeinfoQuery } from "../../../Redux/Fetchslice";
-import Navbar from "@/app/Components/Navbar";
+import Navbar from "@/app/Components/Navbar/Navbar";
 import { setInfoid, setModalState } from "../../../Redux/StateSlice";
 import MobileNavbar from "@/app/Mobile/MobileNavbar";
 import { useAppDispatch } from "../../../Redux/hooks";
@@ -69,7 +69,7 @@ const SpotLightSection = ({
 
   return (
     <>
-      {isMobile ? <MobileNavbar /> : <Navbar />}
+       {isMobile ? <MobileNavbar /> : <Navbar />}
 
       <section className="Slider-Container" role="region">
         <button
