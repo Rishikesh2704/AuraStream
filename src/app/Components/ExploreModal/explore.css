@@ -13,8 +13,8 @@
   0% {
     transform: scale(108%);
   }
-  80% {
-    transform: scale(100%);
+  20%{
+    transform:scale(100%)
   }
   100% {
     transform: scale(0%);
@@ -22,7 +22,7 @@
 }
 
 .CloseModal{
-    animation:ExploreClose 0.2s ease-out
+    animation:ExploreClose 0.2s ease-in-out !important
 }
 
 .Modal_Bg {
@@ -102,6 +102,7 @@
   display: flex;
   gap: 1rem;
 }
+
 
 .Search_Wrapper label {
   height: 1px;
