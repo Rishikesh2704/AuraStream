@@ -11,7 +11,6 @@ export default function ExploreModal() {
   const dispatch = useDispatch();
   const ModalRef = useRef<HTMLDivElement>(null);
   const navigate = useRouter();
-  document.getElementsByTagName("body")[0].style.overflow = "hidden";
 
   const {
     data: Categories,
@@ -22,13 +21,17 @@ export default function ExploreModal() {
     skipPollingIfUnfocused: true,
   });
 
-  useEffect(() => {
+  useEffect(()=> {
+    document.getElementsByTagName("body")[0].style.overflow = "hidden";
+
     if (Categories) {
       const genres = Object.entries(Categories).find(
         ([key, _]) => key === "genres",
       );
       if (genres) setGenres(genres[1]);
     }
+
+    return () =>{ document.getElementsByTagName('body')[0].style.overflow = ''}
   }, [isLoading]);
 
   const onSubmit = (
@@ -54,8 +57,8 @@ export default function ExploreModal() {
     <div
       className="Modal_Bg"
       onClick={(e) => {
-        ModalRef.current && ModalRef.current.classList.add("CloseModal");
         if (e.target === e.currentTarget ) {
+          ModalRef.current && ModalRef.current.classList.add("CloseModal");
           setTimeout(() => {
             dispatch(setExploreModalState(false));
              ModalRef.current && ModalRef.current.classList.remove("CloseModal");

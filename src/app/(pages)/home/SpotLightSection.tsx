@@ -15,8 +15,6 @@ const SpotLightSection = ({
 }) => {
   const dispatch = useAppDispatch();
   const [sliderem, setSliderem] = useState<number>(0);
-  const [animeimg, setanimeimg] = useState<string[]>([]);
-  const [currentindx, setcurrentindx] = useState(0);
   const [isMobile, setisMobile] = useState(false);
   const icons = ["fa-tv","fa-clock", 'fa-calendar'];
 
@@ -25,8 +23,6 @@ const SpotLightSection = ({
   const spotlightimgContRef = useRef<HTMLDivElement>(null);
   
   const id = spotlightCoverAnimes.map((ani) => ani.id);
-  let fetchingid = id[currentindx];
-  const { data } = useAnimeinfoQuery(fetchingid);
 
   const currentrem = useRef(0);
 
@@ -37,11 +33,8 @@ const SpotLightSection = ({
       const widthOfSpotlight = spotlightimgContRef.current.offsetWidth;
       setSliderem(widthOfSpotlight / 16);
     }
-    if (data?.data?.poster) {
-      setanimeimg((prev) => [...prev, data.data.poster]);
-      if (currentindx <= id.length) setcurrentindx((prev) => prev + 1);
-    }
-  }, [data]);
+   
+  }, []);
 
   const handleNextCover = () => {
     if (currentrem.current < sliderem * 7) {
@@ -117,24 +110,7 @@ const SpotLightSection = ({
                   className="Cover-Info"
                 >
                   <figure className="Title" ref={spotlightAnimeRef}>
-                    {/* {
-                      <Image
-                        id="Coverimg-src"
-                        width={80}
-                        height={48}
-                        src={animeimg[idx] || "/kidzoro.png"}
-                        alt={spotlight.title + "poster"}
-                        loading="eager"
-                        priority={true}
-                        onClick={() => handleModal(spotlight.id)}
-                        unoptimized={true}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") {
-                            handleModal(spotlight.id);
-                          }
-                        }}
-                      />
-                    } */}
+                   
 
                     <section id="ep-info">
                       <figcaption>{spotlight.title}</figcaption>
@@ -150,27 +126,6 @@ const SpotLightSection = ({
                           </span>
                         ))}
 
-                      {/* {Object.entries(spotlight.tvInfo).map((info) => {
-                        if (info[0] === "episodeInfo") {
-                          return Object.entries(info[1]).map(
-                            (ep, idx) =>
-                              ep[1] && (
-                                <span id="Cover" key={idx + 1}>
-                                  <i
-                                    className={
-                                      ep[0] === "sub"
-                                        ? "fa-solid fa-closed-captioning"
-                                        : "fa-solid fa-microphone"
-                                    }
-                                  />{" "}
-                                  {ep[1]}
-                                </span>
-                              )
-                          );
-                        }
-                      })} */}
-
-                    
                     </section>
                     
                   </figure>
