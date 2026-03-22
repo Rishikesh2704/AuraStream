@@ -7,6 +7,7 @@ import { useAppSelector } from "@/Redux/hooks";
 import AuhtUI from "@/app/Authentication/AuthUI";
 import dynamic from "next/dynamic";
 import './home.css'
+import './responsive.css'
 import ExploreModal from '@/app/Components/ExploreModal/Explore';
 
 const OtherSection = dynamic(() => import("@/app/(pages)/home/OtherSection"));

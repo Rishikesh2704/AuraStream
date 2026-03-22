@@ -75,7 +75,7 @@ export default function ExploreModal() {
           }}
         >
           <label>Search</label>
-          <input type="text" onChange={(e) => setSearchKey(e.target.value)} />
+          <input type="text" placeholder='Search...' onChange={(e) => setSearchKey(e.target.value)} />
           <button type="submit" aria-label="Search Button">
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>

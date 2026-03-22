@@ -1,0 +1,162 @@
+@media  only screen and (max-width:600px) {
+    
+  .Slider-Container {
+    height: 55vh;
+    width: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .Animes-Container {
+    height: 100%;
+    width: auto;
+  }
+
+  .Slide-Images {
+    height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(9, 100vw);
+    transition: all 0.4s ease-out;
+    transform: translateX(var(--changeCover, 0rem));
+  }
+
+  .CoverDark {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    /* background: linear-gradient(0deg, rgb(7, 7, 7) 0%, rgba(68, 68, 68, 0) 75%), linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 65%), linear-gradient(270deg, rgb(0, 0, 0) 0%, rgba(68, 68, 68, 0) 10%), linear-gradient(180deg, rgb(21, 20, 20) 0%, rgba(68, 68, 68, 0) 45%); */
+  }
+
+  .Cover > img {
+    height: 98%;
+    width: 100%;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  .Cover-Info {
+    text-align: start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 16rem;
+    height: -moz-fit-content;
+    height: fit-content;
+    position: absolute;
+    left: 25%;
+  }
+
+  .CoverPrevBtn {
+    height: 25rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 1.2rem;
+    top: 0rem;
+    left: 0rem;
+    transition: 0.5s ease-out;
+    background: linear-gradient(
+      90deg,
+      rgb(0, 0, 0) 0%,
+      rgba(68, 68, 68, 0) 55%
+    );
+  }
+
+  .CoverNextBtn {
+    height: 25rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 1.2rem;
+    top: 0rem;
+    right: 0rem;
+    transition: 0.5s ease-out;
+    background: linear-gradient(
+      270deg,
+      rgb(0, 0, 0) 0%,
+      rgba(68, 68, 68, 0) 55%
+    );
+  }
+
+  .Watch-btn {
+    font-size: 0.7rem;
+    left: 1rem;
+  }
+
+  desc > span {
+    font-size: 1.3vmax;
+  }
+  .SpotlightAnime-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding:0
+  }
+
+  .Title {
+    width: 14rem;
+     display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    text-align: center;
+  }
+
+  .Title > p {
+    color: rgb(250, 247, 247);
+    text-shadow: 0px 0px 10px rgb(6, 6, 6);
+    font-size: 1rem;
+  }
+
+  .Title > #Coverimg-src {
+    height: 10rem;
+    width: 7rem;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 2px black;
+    cursor: pointer;
+  }
+
+
+  .SpotlightWatch-btn {
+    font-size: 0.65rem;
+  }
+
+  .Title > #ep-info > figcaption {
+    font-size: 1rem;
+  }
+
+  #Cover {
+    font-size: 0.4rem;
+  }
+ 
+  .Cover{
+    width: 100%;
+    right:0;
+  }
+  .Cover-Info > p {
+    color: white;
+    font-size: 0.5rem;
+  }
+
+  .Cover-Info > #ep-info > span {
+    font-size: 0.5rem;
+    font-weight: 500;
+    padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  }
+
+  .Cover-Info > span {
+    color: rgb(250, 247, 247);
+    text-shadow: 0px 0px 10px rgb(6, 6, 6);
+    font-size: 0.7rem;
+  }
+
+}
