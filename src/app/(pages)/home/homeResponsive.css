@@ -1,5 +1,31 @@
-@media  only screen and (max-width:600px) {
-    
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+
+  .Slider-Container{
+    height: 70vh;
+  }
+  .SpotlightAnime-container {
+    padding: 0;
+  }
+
+  .Cover {
+    width: 100%;
+  }
+
+  .Cover > img {
+    height: 99%;
+    width: 71%;    
+  }
+
+  .Cover-Info {
+    height: auto;
+    width: calc(100vw - 5rem);
+    left: 4rem;
+    bottom:8rem;
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
   .Slider-Container {
     height: 55vh;
     width: auto;
@@ -100,12 +126,12 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
-    padding:0
+    padding: 0;
   }
 
   .Title {
     width: 14rem;
-     display: flex;
+    display: flex;
     flex-direction: column;
     word-wrap: break-word;
     text-align: center;
@@ -125,7 +151,6 @@
     cursor: pointer;
   }
 
-
   .SpotlightWatch-btn {
     font-size: 0.65rem;
   }
@@ -137,10 +162,10 @@
   #Cover {
     font-size: 0.4rem;
   }
- 
-  .Cover{
+
+  .Cover {
     width: 100%;
-    right:0;
+    right: 0;
   }
   .Cover-Info > p {
     color: white;
@@ -158,5 +183,4 @@
     text-shadow: 0px 0px 10px rgb(6, 6, 6);
     font-size: 0.7rem;
   }
-
 }

@@ -28,7 +28,7 @@
     gap: 0.6rem;
   }
 
-  .Animes-Container {
+  /* .Animes-Container {
     height: 46rem;
     width: 100vw;
     left: 0rem;
@@ -36,16 +36,16 @@
 
   .Cover > img {
     width: 100vw;
-  }
+  } */
 
-  .Cover-Info {
+  /* .Cover-Info {
     width: calc(100vw - 5rem);
     left: 4rem;
-  }
+  } */
 
-  .Slider-Container {
+  /* .Slider-Container {
     width: 99vw;
-  }
+  } */
 
   .Anime-List {
     grid-template-columns: repeat(auto-fit, 10.3rem);
@@ -480,8 +480,8 @@
   }
 
   .img::before {
-    width: 7.2rem;
-    height: 10.2rem;
+    width:101%;
+    height:103%;
   }
 /* 
   .Slider-Container {
