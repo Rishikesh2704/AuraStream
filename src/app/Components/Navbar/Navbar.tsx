@@ -83,54 +83,44 @@ export default function Navbar() {
   return (
     <>
       <h1 className="Main-name">Aurastream</h1>
-      <nav
-        className="Navbar"
-       
-      >
+      <nav className="Navbar">
         <ul aria-label="Categories">
-          <li id="category-main"
-          >
+          <li id="category-main">
             <Link href="/" id="HomeLink" prefetch>
               <i className="fa-solid fa-house"></i>
             </Link>
           </li>
 
           <li
-            onClick={() =>{  dispatch(setExploreModalState(true))}}
-           
-              className="gen-tag"
-              aria-haspopup="true"
-              aria-expanded={show === "visible"}
-              aria-controls="genre-list"
+            onClick={() => {
+              dispatch(setExploreModalState(true));
+            }}
+            className="gen-tag"
+            aria-haspopup="true"
+            aria-expanded={show === "visible"}
+            aria-controls="genre-list"
           >
-            
-            
-              
-              <i className="fa-solid fa-wand-magic-sparkles"  ></i>
-            
+            <i className="fa-solid fa-wand-magic-sparkles"></i>
           </li>
 
-          {/* {auth.currentUser && (
-              <li id="category-main">
-                <Link href="/Favorites" id="category">
-                  Favorites
-                </Link>
-              </li>
-            )} */}
-          <li
-            className="gen-tag"
-              aria-haspopup="true"
-              aria-controls="search-tab"
-          >
-            <button
-              className="search-bt"
-              aria-label="Search Button"
-            >
-              <i
-                className="fa-solid fa-magnifying-glass"
-                aria-hidden={true}
-              ></i>
-            </button> 
+          {auth.currentUser && (
+            <li id="category-main">
+              <Link href="/Favorites" id="category">
+                Favorites
+              </Link>
+            </li>
+          )}
+          
+
+          <li >
+            {!User && (
+              <button
+                onClick={() => dispatch(setauthModalState(true))}
+                aria-label="Sign In"
+              >
+                <i className="fa-regular fa-circle-user"></i>
+              </button>
+            )}
           </li>
         </ul>
 
@@ -175,28 +165,7 @@ export default function Navbar() {
           {isFocused && searchsuggestions && searchsuggestions?.length > 0 && (
             <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
           )}
-        </section>
-
-        <section className="AuthWrapper">
-          {!User && (
-            <button
-              className="SignInBtn"
-              onClick={() => dispatch(setauthModalState(true))}
-              aria-label="Sign In"
-            >
-              Sign In
-            </button>
-          )}
-          {User && (
-            <button
-              className="SignInBtn"
-              onClick={handleSignOut}
-              aria-label="Sign Out"
-            >
-              Sign Out
-            </button>
-          )}
-        </section> */}
+        </section>*/}
       </nav>
     </>
   );

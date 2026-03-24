@@ -18,8 +18,8 @@
 
   .Cover-Info {
     height: auto;
-    width: calc(100vw - 5rem);
-    left: 4rem;
+    width: calc(100vw - 8rem);
+    left: 5.5rem;
     bottom:8rem;
 
   }
