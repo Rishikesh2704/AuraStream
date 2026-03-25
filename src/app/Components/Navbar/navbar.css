@@ -21,7 +21,7 @@ i {
   height: 25%;
   width: 2.5em;
   z-index: 5;
-  background-color: rgb(17, 17, 17);
+  background-color: rgb(0, 0, 0);
   border: 1px solid rgb(212, 211, 211);
   border-radius: 0.7rem;
   display: flex;

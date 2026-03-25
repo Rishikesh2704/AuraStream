@@ -1,16 +1,26 @@
 import { setExploreModalState } from "@/Redux/StateSlice";
 import "./explore.css";
 import { useDispatch } from "react-redux";
-import { useHomeQuery } from "@/Redux/Fetchslice";
+import { useHomeQuery, useSearchSuggestionsQuery } from "@/Redux/Fetchslice";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import SearchSuggestion from "../SearchSuggestion";
+import useDebounce from "@/Hooks/useDebounce";
+import { skipToken } from "@reduxjs/toolkit/query";
+
 export default function ExploreModal() {
   const [genres, setGenres] = useState<any>([]);
   const [searchKey, setSearchKey] = useState<string>("");
   const dispatch = useDispatch();
   const ModalRef = useRef<HTMLDivElement>(null);
+  const SearchWrapperRef = useRef<HTMLDivElement>(null)
   const navigate = useRouter();
+
+  const debouncedValue = useDebounce(searchKey, 200);
+  const { data: searchsuggestions } = useSearchSuggestionsQuery(
+    debouncedValue ?? skipToken,
+  );
 
   const {
     data: Categories,
@@ -21,7 +31,7 @@ export default function ExploreModal() {
     skipPollingIfUnfocused: true,
   });
 
-  useEffect(()=> {
+  useEffect(() => {
     document.getElementsByTagName("body")[0].style.overflow = "hidden";
 
     if (Categories) {
@@ -31,7 +41,9 @@ export default function ExploreModal() {
       if (genres) setGenres(genres[1]);
     }
 
-    return () =>{ document.getElementsByTagName('body')[0].style.overflow = ''}
+    return () => {
+      document.getElementsByTagName("body")[0].style.overflow = "";
+    };
   }, [isLoading]);
 
   const onSubmit = (
@@ -46,6 +58,11 @@ export default function ExploreModal() {
     }
   };
 
+  const handelOnChange = (e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
+    setSearchKey(e.target.value)
+    if(SearchWrapperRef.current) SearchWrapperRef.current.style.setProperty("--SearchWrapperHeight","120rem")
+  }
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -53,33 +70,45 @@ export default function ExploreModal() {
   if (error) {
     return <h2>Error in fetching Genres</h2>;
   }
+
   return (
     <div
       className="Modal_Bg"
       onClick={(e) => {
-        if (e.target === e.currentTarget ) {
+        if (e.target === e.currentTarget) {
           ModalRef.current && ModalRef.current.classList.add("CloseModal");
           setTimeout(() => {
             dispatch(setExploreModalState(false));
-             ModalRef.current && ModalRef.current.classList.remove("CloseModal");
+            ModalRef.current && ModalRef.current.classList.remove("CloseModal");
           }, 150);
         }
       }}
     >
       <article className="Modal_Container" ref={ModalRef}>
-        <form
-          className="Search_Wrapper"
-          onSubmit={(e) => onSubmit(e)}
-          onKeyDown={(e) => {
-            if (e.key === "enter") onSubmit(e);
-          }}
-        >
-          <label>Search</label>
-          <input type="text" placeholder='Search...' onChange={(e) => setSearchKey(e.target.value)} />
-          <button type="submit" aria-label="Search Button">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
+        <div className="Search_Wrapper" ref={SearchWrapperRef}>
+          <form
+            className="Search_Form"
+            onSubmit={(e) => onSubmit(e)}
+            onKeyDown={(e) => {
+              if (e.key === "enter") onSubmit(e);
+            }}
+          >
+            <label>Search</label>
+            <input
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => handelOnChange(e)}
+            />
+            <button type="submit" aria-label="Search Button">
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+
+          {searchsuggestions && (<div className="Suggestion_Wrapper">
+            <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
+            </div>
+          )}
+        </div>
 
         <ul className="Genres_list">
           {genres.map((genre: string) => (

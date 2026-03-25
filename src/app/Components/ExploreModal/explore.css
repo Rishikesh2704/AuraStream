@@ -96,7 +96,17 @@
 
 .Search_Wrapper {
   width: 90%;
-  height: 18%;
+  height:var(--SearchWrapperHeight, 18%);
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  overflow-y:scroll;
+}
+
+.Search_Form{
+  width: 100%;
+  height: 2.5rem;
   border: 1px solid white;
   border-radius: 0.3rem;
   display: flex;
@@ -126,4 +136,83 @@
 .Search_Wrapper button {
   cursor: pointer;
   font-size: 1.2vmax;
+}
+
+.Suggestion_Wrapper{
+  height:100% ;
+}
+
+
+.Suggestions {
+  height: 30rem;
+  width: 100%;
+  background-color: #060606;
+}
+
+.suggestedAnimes {
+  height: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #060606;
+  gap: 0.5rem;
+  position: relative;
+  color: white;
+  transition: 0.2s ease-out;
+}
+
+.suggestedAnimes:hover {
+  background-color: #191717;
+}
+
+.suggestedAnimeImgWrapper {
+  position: relative;
+  width: 3rem;
+  margin-left: 0.5rem;
+  height: 8rem;
+  border-radius: 0.7rem;
+  transition: 2s ease-out;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+#suggestedAnimeImg {
+  height: 4.4rem;
+  width: 3rem;
+  border-radius: 0.7rem;
+  z-index: 1;
+  position: relative;
+  top: 0.5rem;
+}
+
+.SuggestedanimecoverName {
+  font-size: 0.8rem;
+  max-height: 3rem;
+  margin-bottom: 0.7rem;
+}
+
+.suggestedAnimeInfo {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  & > span > h5 {
+    font-size: 0.7rem;
+  }
+}
+
+#SuggestionEpisodeType {
+  gap: 1rem;
+  font-size: 0.8rem;
+  display: inline-flex;
+  width: inherit;
+}
+
+#SuggestionSub,
+#SuggestionDub {
+  & > i {
+    margin-right: 0.2rem;
+    color: var(--ElementColor);
+  }
 }

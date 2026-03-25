@@ -87,7 +87,7 @@ export default function Navbar() {
         <ul aria-label="Categories">
           <li id="category-main">
             <Link href="/" id="HomeLink" prefetch>
-              <i className="fa-solid fa-house"></i>
+              <i className="fa-regular fa-house"></i>
             </Link>
           </li>
 
