@@ -14,7 +14,7 @@ export default function ExploreModal() {
   const [searchKey, setSearchKey] = useState<string>("");
   const dispatch = useDispatch();
   const ModalRef = useRef<HTMLDivElement>(null);
-  const SearchWrapperRef = useRef<HTMLDivElement>(null)
+  const GenreSuggestionWrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useRouter();
 
   const debouncedValue = useDebounce(searchKey, 200);
@@ -58,10 +58,26 @@ export default function ExploreModal() {
     }
   };
 
-  const handelOnChange = (e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) => {
-    setSearchKey(e.target.value)
-    if(SearchWrapperRef.current) SearchWrapperRef.current.style.setProperty("--SearchWrapperHeight","120rem")
-  }
+  const handelOnChange = (
+    e: React.ChangeEvent<HTMLInputElement, HTMLInputElement>,
+  ) => {
+
+    setSearchKey(e.target.value);
+
+    if (GenreSuggestionWrapperRef.current && e.target.value !== "") {
+      GenreSuggestionWrapperRef.current.style.setProperty(
+        "--SearchWrapperHeight",
+        "100%",
+      );
+    } else {
+      if (GenreSuggestionWrapperRef.current)
+        GenreSuggestionWrapperRef.current.style.setProperty(
+          "--SearchWrapperHeight",
+          "0",
+        );
+    }
+
+  };
 
   if (isLoading) {
     return <h2>Loading...</h2>;
@@ -85,42 +101,42 @@ export default function ExploreModal() {
       }}
     >
       <article className="Modal_Container" ref={ModalRef}>
-        <div className="Search_Wrapper" ref={SearchWrapperRef}>
-          <form
-            className="Search_Form"
-            onSubmit={(e) => onSubmit(e)}
-            onKeyDown={(e) => {
-              if (e.key === "enter") onSubmit(e);
-            }}
-          >
-            <label>Search</label>
-            <input
-              type="text"
-              placeholder="Search..."
-              onChange={(e) => handelOnChange(e)}
-            />
-            <button type="submit" aria-label="Search Button">
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
+        <form
+          className="Search_Form"
+          onSubmit={(e) => onSubmit(e)}
+          onKeyDown={(e) => {
+            if (e.key === "enter") onSubmit(e);
+          }}
+        >
+          <label>Search</label>
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(e) => handelOnChange(e)}
+          />
+          <button type="submit" aria-label="Search Button">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form>
 
-          {searchsuggestions && (<div className="Suggestion_Wrapper">
-            <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
+        <div className="Genre_Suggestion_Wrapper">
+          {searchsuggestions && (
+            <div className="Suggestion_Wrapper" ref={GenreSuggestionWrapperRef}>
+              <SearchSuggestion searchSuggestionsAnimes={searchsuggestions} />
             </div>
           )}
+          <ul className="Genres_list">
+            {genres.map((genre: string) => (
+              <li
+                key={genre + 1}
+                className="Genre"
+                onClick={() => dispatch(setExploreModalState(false))}
+              >
+                <Link href={`/genre/${genre}`}>{genre}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        <ul className="Genres_list">
-          {genres.map((genre: string) => (
-            <li
-              key={genre + 1}
-              className="Genre"
-              onClick={() => dispatch(setExploreModalState(false))}
-            >
-              <Link href={`/genre/${genre}`}>{genre}</Link>
-            </li>
-          ))}
-        </ul>
       </article>
     </div>
   );

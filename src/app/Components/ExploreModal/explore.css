@@ -13,16 +13,16 @@
   0% {
     transform: scale(108%);
   }
-  20%{
-    transform:scale(100%)
+  20% {
+    transform: scale(100%);
   }
   100% {
     transform: scale(0%);
   }
 }
 
-.CloseModal{
-    animation:ExploreClose 0.2s ease-in-out !important
+.CloseModal {
+  animation: ExploreClose 0.2s ease-in-out !important;
 }
 
 .Modal_Bg {
@@ -48,26 +48,71 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  gap: 0.5rem;
   padding-top: 1.8rem;
   animation: ExploreOpen 0.2s ease-in;
-}
-
-.Genres_list {
-  height: 95%;
-  width: 98%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
-  grid-template-rows: auto;
-  place-items: center;
-  justify-content: center;
-  gap: 1rem;
   overflow-y: scroll;
 }
 
-.Genres_list::-webkit-scrollbar {
+.Modal_Container::-webkit-scrollbar {
   display: none;
+}
+
+.Search_Form {
+  width: 97%;
+  height: 3rem;
+  border: 1px solid white;
+  border-radius: 0.3rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.Search_Form label {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.Search_Form input {
+  height: 100%;
+  width: 93%;
+  padding: 0.3rem 0.6rem;
+  outline: none;
+}
+
+.Search_Form button {
+  cursor: pointer;
+  font-size: 1.2vmax;
+}
+
+.Genre_Suggestion_Wrapper {
+  width: 99%;
+  height: fit-content;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: 0.5s ease-in-out;
+  gap: 2rem;
+}
+
+.Genres_list {
+  height: 0rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 5rem));
+  grid-template-rows: auto;
+  place-items: center;
+  justify-content: center;
+  column-gap: 2.8rem;
+  row-gap: 1.6rem;
+  /* overflow-y: scroll; */
 }
 
 .Genre {
@@ -91,62 +136,16 @@
   &:active {
     background-color: #11d2c8;
   }
-
 }
 
-.Search_Wrapper {
-  width: 90%;
-  height:var(--SearchWrapperHeight, 18%);
-  border-radius: 0.3rem;
-  display: flex;
-  flex-direction: column;
-  position:relative;
-  overflow-y:scroll;
+.Suggestion_Wrapper {
+  height: var(--SearchWrapperHeight, 1%);
+  transition: 0.5s ease-in;
 }
-
-.Search_Form{
-  width: 100%;
-  height: 2.5rem;
-  border: 1px solid white;
-  border-radius: 0.3rem;
-  display: flex;
-  gap: 1rem;
-}
-
-
-.Search_Wrapper label {
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.Search_Wrapper input {
-  height: 100%;
-  width: 93%;
-  padding: 0.3rem 0.6rem;
-  outline: none;
-}
-
-.Search_Wrapper button {
-  cursor: pointer;
-  font-size: 1.2vmax;
-}
-
-.Suggestion_Wrapper{
-  height:100% ;
-}
-
 
 .Suggestions {
   height: 30rem;
   width: 100%;
-  background-color: #060606;
 }
 
 .suggestedAnimes {
@@ -154,7 +153,6 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  background-color: #060606;
   gap: 0.5rem;
   position: relative;
   color: white;
