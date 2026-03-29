@@ -7,7 +7,7 @@
   .search-input {
     width: 100%;
   }
-
+/* 
   .Suggestions {
     height: 20rem;
     width: inherit;
@@ -26,7 +26,7 @@
   #SuggestionEpisodeType {
     font-size: 0.6rem;
     gap: 0.6rem;
-  }
+  } */
 
   /* .Animes-Container {
     height: 46rem;
@@ -287,6 +287,7 @@
     position: absolute;
     left: 1rem;
     top: 0.8rem;
+    z-index: 1;
   }
 
   .Menu {
@@ -318,6 +319,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap:4rem;
     & > li {
       color: var(--ElementColor);
     }

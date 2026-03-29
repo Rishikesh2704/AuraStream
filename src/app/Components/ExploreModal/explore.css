@@ -141,6 +141,7 @@
 .Suggestion_Wrapper {
   height: var(--SearchWrapperHeight, 1%);
   transition: 0.5s ease-in;
+  overflow: hidden;
 }
 
 .Suggestions {
