@@ -1,5 +1,9 @@
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
-
+  .Main-name{
+    top:0rem;
+    left: 50%;
+    transform:translateX(-50%)
+  }
   .Slider-Container{
     height: 70vh;
   }
@@ -26,6 +30,11 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .Main-name{
+    position:absolute;
+    top:0rem;
+    transform:translateX(60%)
+  }
   .Slider-Container {
     height: 55vh;
     width: auto;

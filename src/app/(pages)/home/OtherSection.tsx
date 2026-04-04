@@ -2,7 +2,6 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import List from "../../Components/List";
-
 export default function OtherSection({
   keys,
   animeli,
