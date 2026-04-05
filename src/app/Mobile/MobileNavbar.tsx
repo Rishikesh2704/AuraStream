@@ -52,7 +52,6 @@ export default function MobileNavbar() {
           <i className="fa-solid fa-bars" />
         </button>
 
-        <h2 className="Main-name">AuraStream</h2>
 
         <div className="Other">
           <div className="search" ref={searchCont}>

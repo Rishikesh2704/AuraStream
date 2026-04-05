@@ -49,6 +49,7 @@ i {
   }
 }
 
+
 @media only screen and (max-width: 1000px) {
   .Navbar {
     height: 20%;
@@ -57,5 +58,10 @@ i {
 
   .Navbar ul li {
     font-size: 2vmax;
+  }
+}
+@media only screen and (max-width:600px) {
+  .Navbar{
+    display:none
   }
 }

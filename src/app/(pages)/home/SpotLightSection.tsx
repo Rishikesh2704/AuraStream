@@ -62,7 +62,8 @@ const SpotLightSection = ({
 
   return (
     <>
-       {isMobile ? <MobileNavbar /> : <Navbar />}
+       <MobileNavbar />  
+       <Navbar />
 
       <section className="Slider-Container" role="region">
         <button

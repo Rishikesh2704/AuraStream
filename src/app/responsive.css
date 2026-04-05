@@ -1,4 +1,10 @@
 @media only screen and (min-width: 600px) and (max-width: 1400px) {
+  .MobileNavbar{
+    display: none;
+  }
+  .Menu{
+    display: none;
+  }
   .search {
     gap: 0rem;
     width: 100%;
@@ -161,6 +167,7 @@
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1400px) {
+  
   .Other {
     flex-direction: column;
     justify-content: space-evenly;
@@ -191,10 +198,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .navbar {
-    display: none;
-  }
-
+  
   .MobileNavbar {
     display: flex;
   }
