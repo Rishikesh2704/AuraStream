@@ -40,6 +40,14 @@ a {
   src: url("/SukajanBrushDemoRegular-q2Mmx.otf") format("woff2");
 }
 
+.Menu{
+  display:none;
+}
+
+.MobileNavbar{
+  display:none;
+}
+
 .Main-name {
   background-image: linear-gradient(
     0deg,
