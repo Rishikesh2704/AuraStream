@@ -22,21 +22,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position:relative;
 }
 
 .SpotlightInfo_Wrapper {
-  height: auto;
-  width: 60rem;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: end;
+  align-items: start;
   text-align: start;
-  gap: 2rem;
   z-index: 2;
-  position: absolute;
-  left: 10.8%;
-  top: 9.5rem;
+  overflow:hidden;
 }
 
 .SpotlightPoster_Wrapper {
@@ -49,27 +47,13 @@
   flex-wrap: nowrap;
 }
 
-#SpotlightPoster_Skeleton {
-  flex-shrink: 0;
-  height: 18rem;
-  width: 12rem;
-  border-radius: 10px;
-  background: linear-gradient(
-    90deg,
-    rgb(116, 114, 114) 15%,
-    rgb(94, 95, 95) 50%,
-    rgb(116, 114, 114) 80%
-  );
-  background-size: 400%;
-  animation: SpotlightSkeleton 2s linear infinite;
-}
 
 #SpotlightPoster_Title {
-  height: 2rem;
-  width: 20vw;
+  height: 3.5rem;
+  width: 35vw;
   border-radius: 0.3rem;
   position: relative;
-  bottom: 3rem;
+  bottom:4rem;
   background: linear-gradient(
     90deg,
     rgb(116, 114, 114) 15%,
@@ -82,10 +66,13 @@
 
 .SpotlightDescriptionline {
   width: 100%;
-  height: 5rem;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position:relative;
+  bottom:5rem;
+  left:5rem;
 }
 
 #line1 {

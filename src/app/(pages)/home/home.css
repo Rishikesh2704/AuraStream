@@ -83,7 +83,7 @@
 
 .Cover {
   height: 100%;
-  width: 90%;
+  width: 70%;
   position: absolute;
   right: 1rem;
   top: 0;
@@ -162,16 +162,16 @@
 
 .Cover-Info {
   height: 40%;
-  width: 65%;
+  width: 48%;
   display: flex;
   flex-direction: column;
-  align-items:start;
+  align-items:center;
   justify-content: start;
   text-align: start;
   gap: 1rem;
   z-index: 2;
   position: relative;
-  bottom:2rem
+  bottom:5rem
 }
 
 .Cover-Info > p {
@@ -191,6 +191,7 @@
   width: 100%;
   display: flex;
   gap: 0.8rem;
+  justify-content:center;
   align-items: center;
   position: relative;
   flex-wrap: nowrap;
@@ -227,7 +228,7 @@
   cursor: pointer;
   background-color: var(--ElementColor);
   transition: 0.2s ease-out;
-
+  position:relative;
   &:hover {
     background-color: rgb(20, 213, 210);
   }
